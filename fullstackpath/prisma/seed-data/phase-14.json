@@ -1,0 +1,4037 @@
+{
+  "order": 14,
+  "slug": "phase-14-behavioral-and-engineering-culture",
+  "title": "Behavioral and Engineering Culture",
+  "description": "Behavioral and engineering culture: storytelling, collaboration, code review practice, and what senior and staff scope looks like.",
+  "difficulty": "BEGINNER",
+  "difficultyLabel": "Beginner",
+  "icon": "🤝",
+  "color": "#f59e0b",
+  "estimatedHours": 25,
+  "objectives": [
+    "Answer behavioural questions with concrete stories and outcomes",
+    "Review code in a way that improves the author, not just the diff",
+    "Describe senior and staff scope in terms of influence, not headcount"
+  ],
+  "practice": [
+    {
+      "kind": "qa",
+      "title": "PHASE 14 INTERVIEW Q&A",
+      "afterTopic": "Growth, promotion cases, and the evidence you need",
+      "items": [
+        "Q1. Tell me about yourself. (30-second version)",
+        "A",
+        "Q2. What's the difference between a senior and a staff engineer?",
+        "A",
+        "Q3. How do you decide between two technical options?",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "Q8. How do you keep up with new technology without wasting time?",
+        "A",
+        "Q9. What is the most important thing you've learned in your career?",
+        "A",
+        "Q10. How do you know when a project is in trouble?",
+        "A",
+        "Q11. Describe your approach to testing",
+        "A",
+        "Q12. How do you approach a codebase you didn't write?",
+        "A",
+        "Q13. What does 'technical leadership' mean to you?",
+        "A",
+        "A",
+        "A",
+        "Q16. How do you estimate large projects?",
+        "A",
+        "Q17. Explain a complex technical concept you use at work",
+        "A",
+        "Q18. How do you handle a project where the requirements keep changing?",
+        "A",
+        "Q19. What's a process you've improved at a previous company?",
+        "A",
+        "A",
+        "Q21. What's the most valuable technical advice you've received?",
+        "A",
+        "A",
+        "A",
+        "A",
+        "Q25. Tell me about a time you had to say no to someone senior",
+        "A"
+      ],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": null
+    },
+    {
+      "kind": "rapidfire",
+      "title": "PHASE 14 RAPID-FIRE",
+      "afterTopic": "Growth, promotion cases, and the evidence you need",
+      "items": [],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": "> One-line or two-line answers. The point is fluency, not depth — the depth is in 14.1–14.3. Cover\n> the answer, do not read it. If you cannot answer in under five seconds after thinking, that is\n> the one to drill.\n>\n> **Format:** a flash card. Question on one side, answer on the other. Run them in batches of ten,\n> out loud, timed. Two minutes per batch is the target pace.\n\n---"
+    },
+    {
+      "kind": "checklist",
+      "title": "PHASE 14 FINAL READINESS CHECKLIST",
+      "afterTopic": "Growth, promotion cases, and the evidence you need",
+      "items": [],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": "> Print this. Work it top to bottom. Anything unchecked is a gap that will surface as a bad answer\n> rather than a good one. The weighting tells you where the marks are: the starred items are the ones\n> that decide senior and staff outcomes.\n\n---"
+    },
+    {
+      "kind": "qa",
+      "title": "PHASE 14 INTERVIEW Q&A",
+      "afterTopic": "Growth, promotion cases, and the evidence you need",
+      "items": [
+        "Q1. Tell me about yourself. (30-second version)",
+        "A",
+        "Q2. What's the difference between a senior and a staff engineer?",
+        "A",
+        "Q3. How do you decide between two technical options?",
+        "A",
+        "A",
+        "A",
+        "A",
+        "A",
+        "Q8. How do you keep up with new technology without wasting time?",
+        "A",
+        "Q9. What is the most important thing you've learned in your career?",
+        "A",
+        "Q10. How do you know when a project is in trouble?",
+        "A",
+        "Q11. Describe your approach to testing",
+        "A",
+        "Q12. How do you approach a codebase you didn't write?",
+        "A",
+        "Q13. What does 'technical leadership' mean to you?",
+        "A",
+        "A",
+        "A",
+        "Q16. How do you estimate large projects?",
+        "A",
+        "Q17. Explain a complex technical concept you use at work",
+        "A",
+        "Q18. How do you handle a project where the requirements keep changing?",
+        "A",
+        "Q19. What's a process you've improved at a previous company?",
+        "A",
+        "A",
+        "Q21. What's the most valuable technical advice you've received?",
+        "A",
+        "A",
+        "A",
+        "A",
+        "Q25. Tell me about a time you had to say no to someone senior",
+        "A"
+      ],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": null
+    },
+    {
+      "kind": "rapidfire",
+      "title": "PHASE 14 RAPID-FIRE",
+      "afterTopic": "Growth, promotion cases, and the evidence you need",
+      "items": [],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": "> One-line or two-line answers. The point is fluency, not depth — the depth is in 14.1–14.3. Cover\n> the answer, do not read it. If you cannot answer in under five seconds after thinking, that is\n> the one to drill.\n>\n> **Format:** a flash card. Question on one side, answer on the other. Run them in batches of ten,\n> out loud, timed. Two minutes per batch is the target pace.\n\n---"
+    },
+    {
+      "kind": "checklist",
+      "title": "PHASE 14 FINAL READINESS CHECKLIST",
+      "afterTopic": "Growth, promotion cases, and the evidence you need",
+      "items": [],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": "> Print this. Work it top to bottom. Anything unchecked is a gap that will surface as a bad answer\n> rather than a good one. The weighting tells you where the marks are: the starred items are the ones\n> that decide senior and staff outcomes.\n\n---"
+    }
+  ],
+  "groups": [
+    {
+      "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions",
+      "title": "Behavioral Questions",
+      "description": "Behavioral Questions within Behavioral and Engineering Culture.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-star-method",
+          "title": "STAR method",
+          "description": "STAR method within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The canonical structure, with time allocations for a 3-minute answer",
+            "Where STAR breaks down — the five documented failure modes",
+            "Failure mode 1: STAR has no slot for failure",
+            "Failure mode 3: STAR ignores other people",
+            "Failure mode 4: STAR produces theater, not content",
+            "STAR+ : the version to actually internalize",
+            "Baseline before. A number or state before you started. Without it, no improvement is",
+            "Options considered. At least two, with the reason you did not pick them. This is the single",
+            "What I'd do differently. 1–2 sentences, specific, not humblebrag humble. \"I would have set",
+            "Anti-patterns to eliminate before you practice",
+            "The passion speech. \"I love solving hard problems.\" Unfalsifiable, uninteresting.",
+            "The team hero. Everything is \"we,\" so nothing is attributable to you."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the canonical structure, with time allocations for a 3-minute answer and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain where star breaks down — the five documented failure modes and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain baseline before. a number or state before you started. without it, no improvement is and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain what i'd do differently. 1–2 sentences, specific, not humblebrag humble. \"i would have set and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain anti-patterns to eliminate before you practice and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-past-challenges",
+          "title": "Past challenges",
+          "description": "Past challenges — part of Behavioral Questions in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-team-conflicts",
+          "title": "Team conflicts",
+          "description": "Team conflicts — part of Behavioral Questions in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-leadership-examples",
+          "title": "Leadership examples",
+          "description": "Leadership examples — part of Behavioral Questions in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-failure-analysis",
+          "title": "Failure analysis",
+          "description": "Failure analysis — part of Behavioral Questions in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-success-stories",
+          "title": "Success stories",
+          "description": "Success stories — part of Behavioral Questions in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-company-research",
+          "title": "Company research",
+          "description": "Company research — part of Behavioral Questions in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-story-bank-8-10-reusable-stories",
+          "title": "Story bank (8–10 reusable stories)",
+          "description": "Story bank (8–10 reusable stories) within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why 8–10 is the right number",
+            "Fewer than 8 and you will be forced to stretch one story across six questions. Interviewers",
+            "More than 10 and you will have un-prepared stories. Unprepared stories are the ones where you",
+            "8–10 also maps well onto the natural clusters of behavioral questions. Each cluster needs two",
+            "The coverage matrix",
+            "The canonical nine-slot bank",
+            "The win that proves scale. Your largest or most technically complex delivered thing. Must",
+            "The failure you own. Something real, caused or contributed to by you, with a genuine cost.",
+            "The conflict that got resolved well. A disagreement with a peer or manager where the",
+            "The deadline you missed or nearly missed. Includes how you communicated it and what you",
+            "The feedback that changed how you work. Received from someone credible, specific, and",
+            "The system you inherited and improved. Shows you can work with other people's code and"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Conflict / disagreement",
+              "answer": ""
+            },
+            {
+              "text": "Failure / mistake",
+              "answer": ""
+            },
+            {
+              "text": "Deadline / delivery risk",
+              "answer": ""
+            },
+            {
+              "text": "Feedback / criticism",
+              "answer": "✔"
+            },
+            {
+              "text": "Leadership without authority",
+              "answer": "✔"
+            },
+            {
+              "text": "Technical depth / scale",
+              "answer": "✔"
+            },
+            {
+              "text": "Ambiguity / no direction",
+              "answer": ""
+            },
+            {
+              "text": "Mentoring / developing others",
+              "answer": ""
+            },
+            {
+              "text": "Stakeholder / cross-functional",
+              "answer": "✔"
+            },
+            {
+              "text": "Incident / production",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 4,
+            "questionCount": 10
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-tell-me-about-yourself",
+          "title": "\"Tell me about yourself\"",
+          "description": "\"Tell me about yourself\" within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The three-part structure that works",
+            "Part 1 — Present role, one sentence, with scope",
+            "Part 2 — The throughline: the 2–3 problems you are actually good at",
+            "Part 3 — Why you are here",
+            "Total: 90 seconds. Hard stop at 2 minutes",
+            "Two full worked examples",
+            "What to avoid",
+            "The chronologic résumé tour. \"I went to X, then interned at Y, then…\" Interviewers already",
+            "Starting with school if you have 3+ years of experience. Only if the role is genuinely",
+            "A negative frame. Never open with what you are leaving behind or what went wrong.",
+            "Purely technical content with no connective tissue. They want to know what you *do*, not",
+            "\"I've been doing this for X years,\" as your opening. Time is not a filter; scope is."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the three-part structure that works and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain part 1 — present role, one sentence, with scope and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain part 3 — why you are here and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain two full worked examples and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain what to avoid and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-why-this-company-why-leaving",
+          "title": "Why this company / why leaving",
+          "description": "Why this company / why leaving within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why this company: the four-layer answer",
+            "Mission / product layer — what the company does that you find genuinely interesting.",
+            "Problem layer — the specific technical or organizational problem that your specific",
+            "Culture layer — something you learned about how they work that you verified and that",
+            "Personal layer — a fact about your life or career stage that this company fits. Timing,",
+            "A full worked answer (senior backend, product company)",
+            "Why leaving: the frame that survives scrutiny",
+            "A full worked answer",
+            "The \"why are you really leaving\" trap",
+            "*Burnout.* \"I burned out. That is a real thing I experienced and I don't want to be somewhere it",
+            "*Disagreement with leadership about product direction.* Only answer this if you can describe",
+            "What gets you hired on this question"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain problem layer — the specific technical or organizational problem that your specific and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain culture layer — something you learned about how they work that you verified and that and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a full worked answer (senior backend, product company) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a full worked answer and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the \"why are you really leaving\" trap and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-disagreeing-with-a-manager",
+          "title": "Disagreeing with a manager",
+          "description": "Disagreeing with a manager — part of Behavioral Questions in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-handling-ambiguity",
+          "title": "Handling ambiguity",
+          "description": "Handling ambiguity within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "What the interviewer is probing",
+            "Do you have an actual decision *method*, or do you just wait for clarity?",
+            "Can you distinguish the parts you can decide from the parts you need to decide with someone?",
+            "Do you make the reversible decisions fast and the irreversible ones carefully?",
+            "Do you write things down so your reasoning survives you?",
+            "The framework to state out loud (and to actually use)",
+            "A full worked example",
+            "Points of contact with the framework, made explicit in the answer",
+            "Common ambiguity types and the specific move for each",
+            "The staff-level extension"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain what the interviewer is probing and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the framework to state out loud (and to actually use) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a full worked example and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain points of contact with the framework, made explicit in the answer and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain common ambiguity types and the specific move for each and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-missed-deadlines",
+          "title": "Missed deadlines",
+          "description": "Missed deadlines within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "What the interviewer is actually scoring",
+            "Whether you had a real miss (if every answer is a deadline that moved, you are either",
+            "Whether you delivered bad news early, in private first, with a plan attached.",
+            "Whether you understood the distinction between *the estimate was wrong* and *we failed*, and",
+            "Whether you changed a system afterwards, or just felt bad.",
+            "The cost curve of bad news",
+            "A full worked example",
+            "Key moves in that answer",
+            "Distinguishes \"I was wrong\" from \"I was late to tell you,\" and owns the second as the worse one.",
+            "Private, individual notification before group notification.",
+            "No new fixed date until the uncertainty is resolved.",
+            "System change, not just feeling."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain what the interviewer is actually scoring and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain whether you had a real miss (if every answer is a deadline that moved, you are either and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the cost curve of bad news and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a full worked example and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain key moves in that answer and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-receiving-feedback",
+          "title": "Receiving feedback",
+          "description": "Receiving feedback within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The failure mode, precisely",
+            "What strong answers contain",
+            "Feedback that was partly or mostly correct about something real — usually about process or",
+            "A defensible initial reaction — you did not just instantly agree. That reads as",
+            "A specific, observable change, with a mechanism and a date.",
+            "Evidence it stuck, or at least a named cost of making it stick.",
+            "A full worked example",
+            "Why this is a senior-level answer",
+            "The categories of difficult feedback and how each is handled",
+            "*\"What's the hardest feedback you've received?\"* — Do not pick a mild one. Pick something real",
+            "*\"How do you know when feedback has landed?\"* — \"I ask. In my next one-on-one with that person I",
+            "*\"What do you do with feedback you disagree with?\"* — \"Get specific. Vague feedback is nearly"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the failure mode, precisely and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain what strong answers contain and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain feedback that was partly or mostly correct about something real — usually about process or and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a defensible initial reaction — you did not just instantly agree. that reads as and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a full worked example and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-delivering-bad-news",
+          "title": "Delivering bad news",
+          "description": "Delivering bad news within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "What the interviewer is actually scoring",
+            "Whether you had a real miss (if every answer is a deadline that moved, you are either",
+            "Whether you delivered bad news early, in private first, with a plan attached.",
+            "Whether you understood the distinction between *the estimate was wrong* and *we failed*, and",
+            "Whether you changed a system afterwards, or just felt bad.",
+            "The cost curve of bad news",
+            "A full worked example",
+            "Key moves in that answer",
+            "Distinguishes \"I was wrong\" from \"I was late to tell you,\" and owns the second as the worse one.",
+            "Private, individual notification before group notification.",
+            "No new fixed date until the uncertainty is resolved.",
+            "System change, not just feeling."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain what the interviewer is actually scoring and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain whether you had a real miss (if every answer is a deadline that moved, you are either and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the cost curve of bad news and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a full worked example and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain key moves in that answer and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-impact-quantification",
+          "title": "Impact quantification",
+          "description": "Impact quantification within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The hierarchy of impact claims, strongest to weakest",
+            "Direct, attributable, measured. \"I rebuilt the query; p99 dropped from 900ms to 110ms; we",
+            "Direct, attributable, directionally clear. \"I cut the deployment from 40 minutes to 9;",
+            "Contributed to a team outcome, with your part named. \"I owned the caching layer, which was",
+            "Enabled, not caused. \"I built the pipeline that let the data team do their analysis, which",
+            "Suspect. \"My work directly increased revenue by $4M.\" — an interviewer who hears this",
+            "The defensive construction for #3 and #4",
+            "Numbers you can always produce, even for old work",
+            "Scale: users, requests, GB, teams, engineers, repos, services, countries.",
+            "Frequency: deploys a week, incidents a month, PRs reviewed, on-call pages.",
+            "Latency and reliability: p50/p95/p99, error rate, uptime, MTTR, MTTD.",
+            "Time: how long the work took, how long a manual process took before, hours saved per week."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the hierarchy of impact claims, strongest to weakest and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain direct, attributable, measured. \"i rebuilt the query; p99 dropped from 900ms to 110ms; we and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain contributed to a team outcome, with your part named. \"i owned the caching layer, which was and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain enabled, not caused. \"i built the pipeline that let the data team do their analysis, which and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain suspect. \"my work directly increased revenue by $4m.\" — an interviewer who hears this and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-the-star-method-and-where-it-breaks-down",
+          "title": "The STAR method and where it breaks down",
+          "description": "The STAR method and where it breaks down within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The canonical structure, with time allocations for a 3-minute answer",
+            "Where STAR breaks down — the five documented failure modes",
+            "Failure mode 1: STAR has no slot for failure",
+            "Failure mode 3: STAR ignores other people",
+            "Failure mode 4: STAR produces theater, not content",
+            "STAR+ : the version to actually internalize",
+            "Baseline before. A number or state before you started. Without it, no improvement is",
+            "Options considered. At least two, with the reason you did not pick them. This is the single",
+            "What I'd do differently. 1–2 sentences, specific, not humblebrag humble. \"I would have set",
+            "Anti-patterns to eliminate before you practice",
+            "The passion speech. \"I love solving hard problems.\" Unfalsifiable, uninteresting.",
+            "The team hero. Everything is \"we,\" so nothing is attributable to you."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-the-question-bank-and-what-each-question-is-actually-probing",
+          "title": "The question bank and what each question is actually probing",
+          "description": "The question bank and what each question is actually probing within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The core bank, with the actual probe and the trap",
+            "Three meta-questions interviewers use to compare candidates",
+            "\"What was your specific contribution?\" — fired when your story is too team-shaped. Answer",
+            "\"What would you do differently?\" — fired when your answer was suspiciously clean. Answer",
+            "\"How did you know it worked?\" — fired when your Result was vague. Answer with the mechanism",
+            "*Can they be given hard problems and told to go?* (judgment, ownership, follow-through)",
+            "*Can they be put in a room with strong people and not make it worse?* (collaboration, humility)",
+            "*Can they be told they are wrong and not become a problem?* (coachability, ego health)"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "\"Tell me about yourself.\"",
+              "answer": "Judgment about what matters"
+            },
+            {
+              "text": "\"Why are you leaving?\" / \"Why this company?\"",
+              "answer": "Self-awareness, adult framing"
+            },
+            {
+              "text": "\"Walk me through your resume.\"",
+              "answer": "Ownership"
+            },
+            {
+              "text": "\"Tell me about the most complex thing you built.\"",
+              "answer": "Technical depth + judgment"
+            },
+            {
+              "text": "\"Tell me about a project you failed.\"",
+              "answer": "Honesty, reflection"
+            },
+            {
+              "text": "\"Tell me about a conflict with a teammate.\"",
+              "answer": "Directness + diplomacy"
+            },
+            {
+              "text": "\"Tell me about a disagreement with your manager.\"",
+              "answer": "Calibration"
+            },
+            {
+              "text": "\"Tell me about a time you missed a deadline.\"",
+              "answer": "Honesty + communication"
+            },
+            {
+              "text": "\"Tell me about a time you received criticism.\"",
+              "answer": "Humility + discernment"
+            },
+            {
+              "text": "\"Tell me about a time you had to learn something fast.\"",
+              "answer": "Meta-learning approach"
+            },
+            {
+              "text": "\"Tell me about your greatest technical achievement.\"",
+              "answer": "Integrity"
+            },
+            {
+              "text": "\"Tell me about a production incident you handled.\"",
+              "answer": "Operational maturity"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 30,
+            "questionCount": 30
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-building-a-story-bank-of-8-to-10-reusable-stories",
+          "title": "Building a story bank of 8 to 10 reusable stories",
+          "description": "Building a story bank of 8 to 10 reusable stories within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why 8–10 is the right number",
+            "Fewer than 8 and you will be forced to stretch one story across six questions. Interviewers",
+            "More than 10 and you will have un-prepared stories. Unprepared stories are the ones where you",
+            "8–10 also maps well onto the natural clusters of behavioral questions. Each cluster needs two",
+            "The coverage matrix",
+            "The canonical nine-slot bank",
+            "The win that proves scale. Your largest or most technically complex delivered thing. Must",
+            "The failure you own. Something real, caused or contributed to by you, with a genuine cost.",
+            "The conflict that got resolved well. A disagreement with a peer or manager where the",
+            "The deadline you missed or nearly missed. Includes how you communicated it and what you",
+            "The feedback that changed how you work. Received from someone credible, specific, and",
+            "The system you inherited and improved. Shows you can work with other people's code and"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Conflict / disagreement",
+              "answer": ""
+            },
+            {
+              "text": "Failure / mistake",
+              "answer": ""
+            },
+            {
+              "text": "Deadline / delivery risk",
+              "answer": ""
+            },
+            {
+              "text": "Feedback / criticism",
+              "answer": "✔"
+            },
+            {
+              "text": "Leadership without authority",
+              "answer": "✔"
+            },
+            {
+              "text": "Technical depth / scale",
+              "answer": "✔"
+            },
+            {
+              "text": "Ambiguity / no direction",
+              "answer": ""
+            },
+            {
+              "text": "Mentoring / developing others",
+              "answer": ""
+            },
+            {
+              "text": "Stakeholder / cross-functional",
+              "answer": "✔"
+            },
+            {
+              "text": "Incident / production",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 4,
+            "questionCount": 10
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-handling-disagreement-with-a-manager",
+          "title": "Handling disagreement with a manager",
+          "description": "Handling disagreement with a manager within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The failure modes, in order of frequency",
+            "The deferential non-answer. \"I always trusted my manager's judgment.\" This is read as either",
+            "The hero rebellion. \"I pushed back and eventually they saw I was right.\" This is read as",
+            "The manager villain. \"My manager was wrong about everything.\" Instant fail.",
+            "The victory lap. You won the argument. Interviewers suspect the other side is stupid or",
+            "Push on the decision, in private, once, with evidence. Direct, respectful, specific. \"I",
+            "Push on the approach, in public, constructively, at the decision point. In the planning",
+            "Push on the goal, once it's clear the first two are not working. This is the manager's",
+            "A full worked example",
+            "Why this answer is strong",
+            "What \"disagree and commit\" actually means, and its limits",
+            "Commit to implementing a decision you think is wrong: yes, always, if you raised it properly."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-missed-deadlines-and-delivering-bad-news",
+          "title": "Missed deadlines and delivering bad news",
+          "description": "Missed deadlines and delivering bad news within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "What the interviewer is actually scoring",
+            "Whether you had a real miss (if every answer is a deadline that moved, you are either",
+            "Whether you delivered bad news early, in private first, with a plan attached.",
+            "Whether you understood the distinction between *the estimate was wrong* and *we failed*, and",
+            "Whether you changed a system afterwards, or just felt bad.",
+            "The cost curve of bad news",
+            "A full worked example",
+            "Key moves in that answer",
+            "Distinguishes \"I was wrong\" from \"I was late to tell you,\" and owns the second as the worse one.",
+            "Private, individual notification before group notification.",
+            "No new fixed date until the uncertainty is resolved.",
+            "System change, not just feeling."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-receiving-difficult-feedback",
+          "title": "Receiving difficult feedback",
+          "description": "Receiving difficult feedback within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The failure mode, precisely",
+            "What strong answers contain",
+            "Feedback that was partly or mostly correct about something real — usually about process or",
+            "A defensible initial reaction — you did not just instantly agree. That reads as",
+            "A specific, observable change, with a mechanism and a date.",
+            "Evidence it stuck, or at least a named cost of making it stick.",
+            "A full worked example",
+            "Why this is a senior-level answer",
+            "The categories of difficult feedback and how each is handled",
+            "*\"What's the hardest feedback you've received?\"* — Do not pick a mild one. Pick something real",
+            "*\"How do you know when feedback has landed?\"* — \"I ask. In my next one-on-one with that person I",
+            "*\"What do you do with feedback you disagree with?\"* — \"Get specific. Vague feedback is nearly"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-technical-conflict-with-a-peer",
+          "title": "Technical conflict with a peer",
+          "description": "Technical conflict with a peer within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "A full worked example",
+            "The moves",
+            "Names his own mistake specifically (arguing correctness, stalling for a week).",
+            "Proposes a decision procedure rather than a winner.",
+            "Accepts a partial loss on both sides and lands a design neither would have proposed alone.",
+            "Recognizes that his \"we've never had a complaint\" point was more interesting than the",
+            "When you are the one who is wrong",
+            "Name the principle. \"I'm arguing from 'no premature abstraction,' you're arguing from",
+            "Ask who pays. \"This abstraction costs the next person who needs to change this in a way the",
+            "Time-box it. \"I care about this maybe 20% as much as we both sound like we do. Let's give",
+            "Default to reversible. \"Which one is easier to undo in six months?\" Take the reversible one"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-handling-ambiguity-and-incomplete-information",
+          "title": "Handling ambiguity and incomplete information",
+          "description": "Handling ambiguity and incomplete information within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "What the interviewer is probing",
+            "Do you have an actual decision *method*, or do you just wait for clarity?",
+            "Can you distinguish the parts you can decide from the parts you need to decide with someone?",
+            "Do you make the reversible decisions fast and the irreversible ones carefully?",
+            "Do you write things down so your reasoning survives you?",
+            "The framework to state out loud (and to actually use)",
+            "A full worked example",
+            "Points of contact with the framework, made explicit in the answer",
+            "Common ambiguity types and the specific move for each",
+            "The staff-level extension"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-the-failure-story-and-why-every-candidate-has-one",
+          "title": "The failure story, and why every candidate has one",
+          "description": "The failure story, and why every candidate has one within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The anatomy of a good failure story",
+            "Real cost. Money, time, users, teammates' weekends, trust, or your own reputation. It has to",
+            "Your contribution. \"We failed\" is not a story. \"I estimated it wrong\" or \"I did not raise",
+            "Not a disguised strength. The most common failure is: \"I took on too much and learned to",
+            "A specific turning point. The moment you knew. Not \"eventually we realized\" — the Slack",
+            "A change in system, not just resolution. The best failures end with \"and now we do X",
+            "A full worked example",
+            "Why this is a strong failure answer",
+            "The three-part diagnostic that makes failure answers land",
+            "What did I believe that was wrong? (Not \"what did I do wrong\" — what was your *model*?)",
+            "What signal did I have, and why did I discount it? (Almost always: the signal was",
+            "What now makes the signal impossible to discount? (This is the system change. It must be"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-impact-quantification-without-inflating-yourself",
+          "title": "Impact quantification without inflating yourself",
+          "description": "Impact quantification without inflating yourself within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The hierarchy of impact claims, strongest to weakest",
+            "Direct, attributable, measured. \"I rebuilt the query; p99 dropped from 900ms to 110ms; we",
+            "Direct, attributable, directionally clear. \"I cut the deployment from 40 minutes to 9;",
+            "Contributed to a team outcome, with your part named. \"I owned the caching layer, which was",
+            "Enabled, not caused. \"I built the pipeline that let the data team do their analysis, which",
+            "Suspect. \"My work directly increased revenue by $4M.\" — an interviewer who hears this",
+            "The defensive construction for #3 and #4",
+            "Numbers you can always produce, even for old work",
+            "Scale: users, requests, GB, teams, engineers, repos, services, countries.",
+            "Frequency: deploys a week, incidents a month, PRs reviewed, on-call pages.",
+            "Latency and reliability: p50/p95/p99, error rate, uptime, MTTR, MTTD.",
+            "Time: how long the work took, how long a manual process took before, hours saved per week."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-team-conflict-and-cross-functional-friction",
+          "title": "Team conflict and cross-functional friction",
+          "description": "Team conflict and cross-functional friction within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Team conflict — inside the group that delivers the work. Usually about process, ownership,",
+            "Cross-functional friction — with product, design, data, sales, support, or another",
+            "Team conflict: the diagnostic-first move",
+            "Cross-functional friction: the four-step pattern",
+            "Get the real goal out. Product and design usually have a real goal that is not the request.",
+            "Make the trade-off explicit, in their units. If they want Friday, the choice is not \"yes/no\"",
+            "Write it down before you meet. A shared doc prevents the meeting from being about memory",
+            "Separate the person from the position, explicitly, out loud. \"I'm not pushing back on the",
+            "A cross-functional example",
+            "The pattern to notice"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-mentorship-and-developing-others",
+          "title": "Mentorship and developing others",
+          "description": "Mentorship and developing others within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The three levels of mentorship, and which one the question wants",
+            "The evidence question",
+            "They got promoted.",
+            "They now own a system or a domain they didn't before.",
+            "They are the one now mentoring someone else.",
+            "Their PRs went from needing a lot of review to needing little.",
+            "They got a specific skill that they didn't have: \"they'd never written a migration before; they",
+            "They got a role somewhere else — the strongest evidence, and worth mentioning if it happened.",
+            "A full worked example",
+            "The most important sentence in that answer",
+            "The failure mode: mentoring by correcting",
+            "The other failure mode: the mentee who was already great"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-the-questions-candidates-prepare-for-but-that-never-come",
+          "title": "The questions candidates prepare for but that never come",
+          "description": "The questions candidates prepare for but that never come within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "These do not come (or almost never come)",
+            "\"What's the hardest technical problem you've ever solved?\" This is not a real interview",
+            "\"What's your favorite programming language and why?\" It comes sometimes, and it is a",
+            "\"Do you have any questions for us?\" — it comes every time, and it is not a filler. It is the",
+            "\"Where do you see yourself in five years?\" Comes occasionally, and it is not really about",
+            "\"What's your salary expectation?\" Rare in technical rounds, common in recruiter screens, and",
+            "\"Tell me about your greatest weakness.\" Nearly extinct in technical interviews. If asked, give",
+            "\"Do you work weekends?\" Almost never, and if it comes it is a culture probe, not a work-hours",
+            "These come far more often than candidates prepare for",
+            "\"What was your role on that project?\" Ask it of yourself every single time. The single most",
+            "\"Why did you choose that approach?\" Every technical story. Have the alternatives ready.",
+            "\"What would you do differently?\" Every story. Non-optional."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-behavioral-questions-remote-and-async-communication-stories",
+          "title": "Remote and async communication stories",
+          "description": "Remote and async communication stories within Behavioral Questions.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The structural facts you should be able to articulate",
+            "Ambient context loss. In an office, you learn that a project is in trouble from the tone in",
+            "Latency is not costless. A two-day response time on a blocking question means two days of",
+            "Documentation is the memory. With no hallway, the written artifact is the only durable",
+            "Timezone overlap is a hard constraint. Distributed teams without a deliberate overlap policy",
+            "Meeting load is the disease, not the cure. Remote teams over-index on meetings to compensate",
+            "Story types to prepare, one each",
+            "The decision that had to be made across timezones — showing how you created a deadline, a",
+            "The incident where you could not reach someone — and what you changed so the next one is",
+            "The written artifact that replaced a recurring meeting.",
+            "The disagreement that got worse in text and better in a call — and how you knew to switch",
+            "The onboarding experience you had to fix for someone else — because you were the person they"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture",
+      "title": "Engineering Culture",
+      "description": "Engineering Culture within Behavioral and Engineering Culture.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-code-reviews",
+          "title": "Code reviews",
+          "description": "Code reviews — part of Engineering Culture in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-agile",
+          "title": "Agile",
+          "description": "Agile within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The four ceremonies, honestly assessed",
+            "The ceremony that carries the most information and is usually skipped",
+            "The questions to ask if you're interviewing a team (and should)",
+            "\"Walk me through what happened when you missed a sprint commitment.\"",
+            "\"Who has ever moved a date or cut scope in planning? What triggered it?\"",
+            "\"What's on your retro board right now, and who's responsible?\"",
+            "\"How long does a ticket sit before someone works on it?\"",
+            "\"When was the last time engineering said no to product, and what happened?\"",
+            "Scrum terminology, used precisely",
+            "Velocity is not a productivity metric and not comparable across teams. It is a planning",
+            "Story points are relative complexity, not hours. The moment a team converts points to hours",
+            "Definition of Done is the useful artifact. A team with a real DoD (tests, review, deployed,"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the four ceremonies, honestly assessed and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the ceremony that carries the most information and is usually skipped and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the questions to ask if you're interviewing a team (and should) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain \"walk me through what happened when you missed a sprint commitment.\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain \"who has ever moved a date or cut scope in planning? what triggered it?\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-scrum",
+          "title": "Scrum",
+          "description": "Scrum within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The four ceremonies, honestly assessed",
+            "The ceremony that carries the most information and is usually skipped",
+            "The questions to ask if you're interviewing a team (and should)",
+            "\"Walk me through what happened when you missed a sprint commitment.\"",
+            "\"Who has ever moved a date or cut scope in planning? What triggered it?\"",
+            "\"What's on your retro board right now, and who's responsible?\"",
+            "\"How long does a ticket sit before someone works on it?\"",
+            "\"When was the last time engineering said no to product, and what happened?\"",
+            "Scrum terminology, used precisely",
+            "Velocity is not a productivity metric and not comparable across teams. It is a planning",
+            "Story points are relative complexity, not hours. The moment a team converts points to hours",
+            "Definition of Done is the useful artifact. A team with a real DoD (tests, review, deployed,"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the four ceremonies, honestly assessed and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the ceremony that carries the most information and is usually skipped and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the questions to ask if you're interviewing a team (and should) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain \"walk me through what happened when you missed a sprint commitment.\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain \"who has ever moved a date or cut scope in planning? what triggered it?\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-technical-debt",
+          "title": "Technical debt",
+          "description": "Technical debt within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Debt is something you took on deliberately with a plan to pay it back and a known cost of",
+            "Deferred work is consciously not doing something now. No cost of carrying, other than",
+            "Bad design is something you didn't know at the time. This is the dangerous category, and the",
+            "The carrying cost, made concrete",
+            "Arguing FOR paying it down",
+            "Name it, size it, and price it. \"The auth module is 3,000 lines, has had three owners in",
+            "Tie it to something already happening. Debt reduction that competes with feature work loses.",
+            "Show the safety argument. \"This is the module with the incident. Reducing it is a risk",
+            "Use small, batched increments. Nobody funds a 6-week rewrite. Fund 6 days of debt removal",
+            "Point out the interest rate is rising. \"Every quarter we add to this system the change cost",
+            "Arguing AGAINST paying it down",
+            "Cost of carry is not yet visible. If nothing is blocked and nothing is failing, the interest"
+          ],
+          "commonMistakes": [
+            "Confusing debt with sloppiness (offensive). Assuming debt must"
+          ],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain debt is something you took on deliberately with a plan to pay it back and a known cost of and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain deferred work is consciously not doing something now. no cost of carrying, other than and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the carrying cost, made concrete and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain arguing for paying it down and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain name it, size it, and price it. \"the auth module is 3,000 lines, has had three owners in and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-cross-team-collaboration",
+          "title": "Cross-team collaboration",
+          "description": "Cross-team collaboration within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Coordination cost — the meetings, the alignment, the keeping two mental models in sync.",
+            "Latency cost — the waiting, multiplied by how long the other team takes to notice.",
+            "Uncertainty cost — you cannot plan your own work past the dependency's boundary.",
+            "Rework cost — when the interface changes, and interfaces always change.",
+            "Dependency hygiene practices, concrete",
+            "Maintain a written dependency map. One page: what we depend on, what depends on us, who owns",
+            "Name an owner, not a team. \"The platform team\" is not an owner. \"Priya owns this interface\"",
+            "Get an SLA explicitly. \"What's your expected turnaround on a schema change request?\" Without",
+            "Escalate the interface, not the person. If you need a change to their side, ask for the",
+            "Ask \"what's their capacity\" before making a plan that requires them. The most common",
+            "Reduce the dependency surface. Fewer integration points means fewer things to align. A",
+            "Put the dependency in the plan explicitly, with its own line and its own uncertainty. If it"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain dependency hygiene practices, concrete and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain escalate the interface, not the person. if you need a change to their side, ask for the and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain ask \"what's their capacity\" before making a plan that requires them. the most common and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain reduce the dependency surface. fewer integration points means fewer things to align. a and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the cross-team escalation ladder, stated so you can use it and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-mentorship",
+          "title": "Mentorship",
+          "description": "Mentorship within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The three levels of mentorship, and which one the question wants",
+            "The evidence question",
+            "They got promoted.",
+            "They now own a system or a domain they didn't before.",
+            "They are the one now mentoring someone else.",
+            "Their PRs went from needing a lot of review to needing little.",
+            "They got a specific skill that they didn't have: \"they'd never written a migration before; they",
+            "They got a role somewhere else — the strongest evidence, and worth mentioning if it happened.",
+            "A full worked example",
+            "The most important sentence in that answer",
+            "The failure mode: mentoring by correcting",
+            "The other failure mode: the mentee who was already great"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the three levels of mentorship, and which one the question wants and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the evidence question and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a full worked example and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the most important sentence in that answer and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain mentorship without authority, at staff scale and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-documentation",
+          "title": "Documentation",
+          "description": "Documentation — part of Engineering Culture in Behavioral and Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-kanban",
+          "title": "Kanban",
+          "description": "Kanban within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The canonical flow",
+            "The metrics, and what each is for",
+            "Throughput — items completed per unit time. The most useful raw number. Stable over time for",
+            "WIP — items currently in progress. Should be small and *stable*. A rising WIP with flat",
+            "Cycle time — from start to done. What users actually experience. The metric to set service",
+            "Little's Law — WIP = Throughput × Cycle Time. If you know two, you know the third, and",
+            "Age of WIP — how long the current items have been sitting. This is the alarm. Items older",
+            "Flow efficiency — active time / total lead time. 15% is common and painful; 40% is good.",
+            "Where teams go wrong, specifically",
+            "Using cycle time to compare teams or individuals. Cycle time depends on work type. Comparing",
+            "Measuring the wrong unit. Counting tickets is fine until someone starts closing one ticket",
+            "Treating throughput as a productivity target. Once throughput is someone's number, they"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the canonical flow and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the metrics, and what each is for and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain wip — items currently in progress. should be small and *stable*. a rising wip with flat and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain cycle time — from start to done. what users actually experience. the metric to set service and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain little's law — wip = throughput × cycle time. if you know two, you know the third, and and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-estimation-and-planning",
+          "title": "Estimation and planning",
+          "description": "Estimation and planning within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "How estimation actually works",
+            "Decompose until each piece is something you have done before, or something where you can",
+            "For each piece, anchor to a precedent. \"I did a version of this on the billing team; it took",
+            "Widen for the unknowns, explicitly and separately. Three-day known work plus a 50% unknown",
+            "Give a range, not a number, and give the reason for the range. \"Three to five weeks, and the",
+            "Why estimates are systematically optimistic, and what to do about it",
+            "Estimates are used for commitments, so there is pressure to make them look good.",
+            "The estimator carries the estimation risk socially, not economically, so the real cost of being",
+            "Unknown unknowns are not in the model. You can widen for the unknown you know about; you cannot",
+            "The mitigation that actually works",
+            "The planning structure that works",
+            "Range, not point. Always three cases: best, likely, worst. Publish the worst case and use it"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain how estimation actually works and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain decompose until each piece is something you have done before, or something where you can and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain widen for the unknowns, explicitly and separately. three-day known work plus a 50% unknown and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain why estimates are systematically optimistic, and what to do about it and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the mitigation that actually works and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-incident-ownership",
+          "title": "Incident ownership",
+          "description": "Incident ownership within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "During the incident: the four things that matter",
+            "Establish command. One person is incident commander. Explicitly, out loud, so everyone else",
+            "Stop the bleeding before diagnosing. The instinct to understand the cause is strong and",
+            "Communicate on a cadence, not on discovery. Every 10 minutes, an update, even if it's",
+            "Write the timeline as you go. Not afterwards — during. You will not remember the ordering at",
+            "The mitigation decision, stated well",
+            "After: the postmortem",
+            "Blameless in the causal sense. Humans make reasonable decisions with the information they",
+            "But not consequence-free. Actions have owners and dates, and they are tracked to completion",
+            "Systems, not people. \"The deploy pipeline had no canary and the rollback took 20 minutes",
+            "A timeline with timestamps, from alert to detection to mitigation to all-clear.",
+            "Detection, not just root cause, is always a finding: why did we find out this way, and how"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain stop the bleeding before diagnosing. the instinct to understand the cause is strong and and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain communicate on a cadence, not on discovery. every 10 minutes, an update, even if it's and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the mitigation decision, stated well and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain blameless in the causal sense. humans make reasonable decisions with the information they and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain systems, not people. \"the deploy pipeline had no canary and the rollback took 20 minutes and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-writing-design-docs-rfcs-adrs",
+          "title": "Writing design docs/RFCs/ADRs",
+          "description": "Writing design docs/RFCs/ADRs within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Design doc / RFC — when it's required",
+            "The design doc that actually gets read",
+            "Rollout and rollback",
+            "ADR — when it's required",
+            "Consequences is the section that makes an ADR worth writing",
+            "When each is used, with examples",
+            "Design doc: migrating the ledger out of the monolith. Many systems, eight months, cross-team",
+            "ADR: use Postgres for the job queue, not Kafka. Because nobody in six months will remember",
+            "ADR: we will not expose our internal API publicly. A decision with no alternatives does not",
+            "Both: a design doc for the migration, with ADRs for each irreversible sub-decision inside it.",
+            "The anti-pattern to name if asked",
+            "The other anti-pattern"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain design doc / rfc — when it's required and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the design doc that actually gets read and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain rollout and rollback and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain adr — when it's required and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain consequences is the section that makes an adr worth writing and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-stakeholder-communication",
+          "title": "Stakeholder communication",
+          "description": "Stakeholder communication within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The core skill: writing is a delivery mechanism, not a record",
+            "The five-part shape of a stakeholder update that works",
+            "Status in one line. \"On track\" / \"At risk, needs a decision by Friday\" / \"Blocked.\" Put it",
+            "What changed since last time. One or two sentences. This is the only part executives",
+            "What's at risk and why, with a number. \"We are 2 weeks behind because the vendor's sandbox",
+            "What I need from you. Explicit. This is the section that gets omitted and its omission is",
+            "What I'll do next. So the reader knows you are not waiting.",
+            "Audience adaptation — the same content, four ways",
+            "The writing techniques that change effectiveness",
+            "Answer first. Lead with the conclusion, then the reasoning. Most people write the reasoning",
+            "Numbers with units and comparisons. \"1,200 requests\" is meaningless. \"1,200 requests, up from",
+            "The ask, in the first paragraph. If they have to read to the end to find what you want, they"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "\"Tell me about a time you had to communicate something unwelcome.\"",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-prioritization-frameworks",
+          "title": "Prioritization frameworks",
+          "description": "Prioritization frameworks within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "RICE",
+            "Reach: number of users/events affected per period. Must be defined concretely, or it is",
+            "Impact: expected effect per user, on a fixed scale (3 = massive, 2 = high, 1 = medium, 0.5 =",
+            "Confidence: 100% high, 80% medium, 50% low. Confidence exists to model *how much we believe",
+            "Effort: person-months.",
+            "Score = (R × I × C) / E.",
+            "Reach is the easiest number to game and the most sensitive, because the score is linear in",
+            "Impact is a guess with a fake precision. A \"3\" and a \"2.5\" are not different quantities of",
+            "The units are incoherent across items. Comparing a 3-person-month project to a 0.5 is",
+            "It optimizes for the measurable. Things with zero reach (internal tooling, reliability,",
+            "It says nothing about dependencies or sequencing. Sometimes the only important thing to do",
+            "Where RICE is appropriate"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain reach is the easiest number to game and the most sensitive, because the score is linear in and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain impact is a guess with a fake precision. a \"3\" and a \"2.5\" are not different quantities of and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the units are incoherent across items. comparing a 3-person-month project to a 0.5 is and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain it says nothing about dependencies or sequencing. sometimes the only important thing to do and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain where rice is appropriate and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-working-with-product-and-design",
+          "title": "Working with product and design",
+          "description": "Working with product and design within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The joint definition step, concretely",
+            "The user problem, in the user's words. Not the feature request. \"I want a bulk export.\"",
+            "What success looks like, with a threshold. Not \"improve engagement.\" \"Drop the 40 minutes to",
+            "What is explicitly out of scope. The single most valuable line in the document.",
+            "The deadline or its absence, and who owns the trade-off.",
+            "Working with design specifically",
+            "\"What's the interaction model?\" (what happens, in order)",
+            "\"What are the states?\" (empty, loading, partial, error, success — designers who specify states",
+            "\"What's the responsive and accessibility behavior?\" (keyboard order, focus, contrast, screen",
+            "Working with product specifically",
+            "The things a senior engineer does that a mid-level engineer does not",
+            "Attend user research when possible. It changes your estimates permanently and it is the"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the joint definition step, concretely and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the user problem, in the user's words. not the feature request. \"i want a bulk export.\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain working with design specifically and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain \"what's the interaction model?\" (what happens, in order) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain working with product specifically and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-remote-async-communication",
+          "title": "Remote/async communication",
+          "description": "Remote/async communication within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The structural facts you should be able to articulate",
+            "Ambient context loss. In an office, you learn that a project is in trouble from the tone in",
+            "Latency is not costless. A two-day response time on a blocking question means two days of",
+            "Documentation is the memory. With no hallway, the written artifact is the only durable",
+            "Timezone overlap is a hard constraint. Distributed teams without a deliberate overlap policy",
+            "Meeting load is the disease, not the cure. Remote teams over-index on meetings to compensate",
+            "Story types to prepare, one each",
+            "The decision that had to be made across timezones — showing how you created a deadline, a",
+            "The incident where you could not reach someone — and what you changed so the next one is",
+            "The written artifact that replaced a recurring meeting.",
+            "The disagreement that got worse in text and better in a call — and how you knew to switch",
+            "The onboarding experience you had to fix for someone else — because you were the person they"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the structural facts you should be able to articulate and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain latency is not costless. a two-day response time on a blocking question means two days of and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain documentation is the memory. with no hallway, the written artifact is the only durable and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain story types to prepare, one each and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the decision that had to be made across timezones — showing how you created a deadline, a and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-code-review-as-a-mechanism-and-how-to-write-a-good-review-comment",
+          "title": "Code review as a mechanism, and how to write a good review comment",
+          "description": "Code review as a mechanism, and how to write a good review comment within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The purpose of code review",
+            "Defect catching. The stated reason and the least important one. Review catches maybe 30–50%",
+            "Knowledge transfer. Two engineers now understand the code. This is the mechanism that keeps",
+            "Consistency enforcement. The review is where the codebase's conventions are actually",
+            "Design scrutiny. The most valuable and most skipped. A change with a design flaw that ships",
+            "Onboarding. For new engineers and new team members, review comments are the primary",
+            "Social friction creation. The bad reason. Pairing someone with a reviewer to create a",
+            "The two most common review failures",
+            "Rubber-stamping. Approving without reading. It is worse than no review because it creates",
+            "The review as a design negotiation. A 400-line PR that is really a design proposal is the",
+            "How to write a review comment: the vocabulary",
+            "Comment quality rules"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-reviewing-a-large-diff-without-becoming-the-bottleneck",
+          "title": "Reviewing a large diff without becoming the bottleneck",
+          "description": "Reviewing a large diff without becoming the bottleneck within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The problem",
+            "The triage approach, in order",
+            "Ask what the diff is for before reading it. A four-sentence description of intent costs",
+            "Read the design first, not the code. Find the design doc, the RFC, the linked ticket. Read",
+            "Use the diff structurally. Read the file list first. 40 files changed across 12 directories",
+            "Split the review by concern, not by file. One pass for correctness and error handling, one",
+            "Find the high-risk hunks and review only those thoroughly. Risk-ranked review: auth, money,",
+            "Use tooling for the mechanical class. Linters, type checkers, and property-based tests catch",
+            "Say \"this is too big for me to review well\" and propose the alternative. Reviewing a",
+            "Never becoming the bottleneck: the structural plays",
+            "Don't be the only reviewer. Invest in making 2–3 people competent in each area. The",
+            "Review SLAs that are actually published. \"First response within one business day; full"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-agile-and-scrum-ceremonies-that-carry-information-and-ones-that-do-not",
+          "title": "Agile and Scrum: ceremonies that carry information and ones that do not",
+          "description": "Agile and Scrum: ceremonies that carry information and ones that do not within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The four ceremonies, honestly assessed",
+            "The ceremony that carries the most information and is usually skipped",
+            "The questions to ask if you're interviewing a team (and should)",
+            "\"Walk me through what happened when you missed a sprint commitment.\"",
+            "\"Who has ever moved a date or cut scope in planning? What triggered it?\"",
+            "\"What's on your retro board right now, and who's responsible?\"",
+            "\"How long does a ticket sit before someone works on it?\"",
+            "\"When was the last time engineering said no to product, and what happened?\"",
+            "Scrum terminology, used precisely",
+            "Velocity is not a productivity metric and not comparable across teams. It is a planning",
+            "Story points are relative complexity, not hours. The moment a team converts points to hours",
+            "Definition of Done is the useful artifact. A team with a real DoD (tests, review, deployed,"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-kanban-and-flow-metrics",
+          "title": "Kanban and flow metrics",
+          "description": "Kanban and flow metrics within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The canonical flow",
+            "The metrics, and what each is for",
+            "Throughput — items completed per unit time. The most useful raw number. Stable over time for",
+            "WIP — items currently in progress. Should be small and *stable*. A rising WIP with flat",
+            "Cycle time — from start to done. What users actually experience. The metric to set service",
+            "Little's Law — WIP = Throughput × Cycle Time. If you know two, you know the third, and",
+            "Age of WIP — how long the current items have been sitting. This is the alarm. Items older",
+            "Flow efficiency — active time / total lead time. 15% is common and painful; 40% is good.",
+            "Where teams go wrong, specifically",
+            "Using cycle time to compare teams or individuals. Cycle time depends on work type. Comparing",
+            "Measuring the wrong unit. Counting tickets is fine until someone starts closing one ticket",
+            "Treating throughput as a productivity target. Once throughput is someone's number, they"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-technical-debt-how-to-argue-for-and-against-paying-it-down",
+          "title": "Technical debt: how to argue for and against paying it down",
+          "description": "Technical debt: how to argue for and against paying it down within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Debt is something you took on deliberately with a plan to pay it back and a known cost of",
+            "Deferred work is consciously not doing something now. No cost of carrying, other than",
+            "Bad design is something you didn't know at the time. This is the dangerous category, and the",
+            "The carrying cost, made concrete",
+            "Arguing FOR paying it down",
+            "Name it, size it, and price it. \"The auth module is 3,000 lines, has had three owners in",
+            "Tie it to something already happening. Debt reduction that competes with feature work loses.",
+            "Show the safety argument. \"This is the module with the incident. Reducing it is a risk",
+            "Use small, batched increments. Nobody funds a 6-week rewrite. Fund 6 days of debt removal",
+            "Point out the interest rate is rising. \"Every quarter we add to this system the change cost",
+            "Arguing AGAINST paying it down",
+            "Cost of carry is not yet visible. If nothing is blocked and nothing is failing, the interest"
+          ],
+          "commonMistakes": [
+            "Confusing debt with sloppiness (offensive). Assuming debt must"
+          ],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-estimation-and-planning-how-engineers-actually-estimate",
+          "title": "Estimation and planning: how engineers actually estimate",
+          "description": "Estimation and planning: how engineers actually estimate within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "How estimation actually works",
+            "Decompose until each piece is something you have done before, or something where you can",
+            "For each piece, anchor to a precedent. \"I did a version of this on the billing team; it took",
+            "Widen for the unknowns, explicitly and separately. Three-day known work plus a 50% unknown",
+            "Give a range, not a number, and give the reason for the range. \"Three to five weeks, and the",
+            "Why estimates are systematically optimistic, and what to do about it",
+            "Estimates are used for commitments, so there is pressure to make them look good.",
+            "The estimator carries the estimation risk socially, not economically, so the real cost of being",
+            "Unknown unknowns are not in the model. You can widen for the unknown you know about; you cannot",
+            "The mitigation that actually works",
+            "The planning structure that works",
+            "Range, not point. Always three cases: best, likely, worst. Publish the worst case and use it"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-incident-ownership-and-the-follow-through",
+          "title": "Incident ownership and the follow-through",
+          "description": "Incident ownership and the follow-through within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "During the incident: the four things that matter",
+            "Establish command. One person is incident commander. Explicitly, out loud, so everyone else",
+            "Stop the bleeding before diagnosing. The instinct to understand the cause is strong and",
+            "Communicate on a cadence, not on discovery. Every 10 minutes, an update, even if it's",
+            "Write the timeline as you go. Not afterwards — during. You will not remember the ordering at",
+            "The mitigation decision, stated well",
+            "After: the postmortem",
+            "Blameless in the causal sense. Humans make reasonable decisions with the information they",
+            "But not consequence-free. Actions have owners and dates, and they are tracked to completion",
+            "Systems, not people. \"The deploy pipeline had no canary and the rollback took 20 minutes",
+            "A timeline with timestamps, from alert to detection to mitigation to all-clear.",
+            "Detection, not just root cause, is always a finding: why did we find out this way, and how"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-design-docs-rfcs-and-adrs-templates-and-when-each-is-used",
+          "title": "Design docs, RFCs, and ADRs: templates and when each is used",
+          "description": "Design docs, RFCs, and ADRs: templates and when each is used within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Design doc / RFC — when it's required",
+            "The design doc that actually gets read",
+            "Rollout and rollback",
+            "ADR — when it's required",
+            "Consequences is the section that makes an ADR worth writing",
+            "When each is used, with examples",
+            "Design doc: migrating the ledger out of the monolith. Many systems, eight months, cross-team",
+            "ADR: use Postgres for the job queue, not Kafka. Because nobody in six months will remember",
+            "ADR: we will not expose our internal API publicly. A decision with no alternatives does not",
+            "Both: a design doc for the migration, with ADRs for each irreversible sub-decision inside it.",
+            "The anti-pattern to name if asked",
+            "The other anti-pattern"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-documentation-as-a-product-not-an-afterthought",
+          "title": "Documentation as a product, not an afterthought",
+          "description": "Documentation as a product, not an afterthought within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The core reframe",
+            "Users — how do I use this? Task-oriented, example-driven, searchable. Written for someone",
+            "Contributors / the next engineer — how does this work and how do I change it safely?",
+            "Historical — why is it like this? ADRs, RFCs, postmortems. Written for someone with a",
+            "Documentation as a product means: users, needs, and maintenance",
+            "Know the reader. Every doc has one. \"This doc is for an engineer who has been asked to add a",
+            "Know the job to be done. \"Add a new ingestion source\" is a job. \"Understand the ingestion",
+            "Measure something. Docs have usage analytics if you have them, and you should. Which pages get",
+            "Ownership. Docs rot because nobody owns them. Assign an owner and a review cadence or accept",
+            "The information hierarchy most important doc set for engineers",
+            "README — what is this, how do I run it, what does a newcomer need in the first hour.",
+            "Local development setup that works — the single highest-value, most-neglected doc. If setup"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-stakeholder-communication-writing-for-an-audience",
+          "title": "Stakeholder communication: writing for an audience",
+          "description": "Stakeholder communication: writing for an audience within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The core skill: writing is a delivery mechanism, not a record",
+            "The five-part shape of a stakeholder update that works",
+            "Status in one line. \"On track\" / \"At risk, needs a decision by Friday\" / \"Blocked.\" Put it",
+            "What changed since last time. One or two sentences. This is the only part executives",
+            "What's at risk and why, with a number. \"We are 2 weeks behind because the vendor's sandbox",
+            "What I need from you. Explicit. This is the section that gets omitted and its omission is",
+            "What I'll do next. So the reader knows you are not waiting.",
+            "Audience adaptation — the same content, four ways",
+            "The writing techniques that change effectiveness",
+            "Answer first. Lead with the conclusion, then the reasoning. Most people write the reasoning",
+            "Numbers with units and comparisons. \"1,200 requests\" is meaningless. \"1,200 requests, up from",
+            "The ask, in the first paragraph. If they have to read to the end to find what you want, they"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "\"Tell me about a time you had to communicate something unwelcome.\"",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-prioritization-frameworks-rice-weighted-scoring-and-the-cost-of-a-framework",
+          "title": "Prioritization frameworks: RICE, weighted scoring, and the cost of a framework",
+          "description": "Prioritization frameworks: RICE, weighted scoring, and the cost of a framework within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "RICE",
+            "Reach: number of users/events affected per period. Must be defined concretely, or it is",
+            "Impact: expected effect per user, on a fixed scale (3 = massive, 2 = high, 1 = medium, 0.5 =",
+            "Confidence: 100% high, 80% medium, 50% low. Confidence exists to model *how much we believe",
+            "Effort: person-months.",
+            "Score = (R × I × C) / E.",
+            "Reach is the easiest number to game and the most sensitive, because the score is linear in",
+            "Impact is a guess with a fake precision. A \"3\" and a \"2.5\" are not different quantities of",
+            "The units are incoherent across items. Comparing a 3-person-month project to a 0.5 is",
+            "It optimizes for the measurable. Things with zero reach (internal tooling, reliability,",
+            "It says nothing about dependencies or sequencing. Sometimes the only important thing to do",
+            "Where RICE is appropriate"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-cross-team-collaboration-and-dependency-management",
+          "title": "Cross-team collaboration and dependency management",
+          "description": "Cross-team collaboration and dependency management within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Coordination cost — the meetings, the alignment, the keeping two mental models in sync.",
+            "Latency cost — the waiting, multiplied by how long the other team takes to notice.",
+            "Uncertainty cost — you cannot plan your own work past the dependency's boundary.",
+            "Rework cost — when the interface changes, and interfaces always change.",
+            "Dependency hygiene practices, concrete",
+            "Maintain a written dependency map. One page: what we depend on, what depends on us, who owns",
+            "Name an owner, not a team. \"The platform team\" is not an owner. \"Priya owns this interface\"",
+            "Get an SLA explicitly. \"What's your expected turnaround on a schema change request?\" Without",
+            "Escalate the interface, not the person. If you need a change to their side, ask for the",
+            "Ask \"what's their capacity\" before making a plan that requires them. The most common",
+            "Reduce the dependency surface. Fewer integration points means fewer things to align. A",
+            "Put the dependency in the plan explicitly, with its own line and its own uncertainty. If it"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-engineering-culture-running-effective-meetings-and-async-alternatives",
+          "title": "Running effective meetings and async alternatives",
+          "description": "Running effective meetings and async alternatives within Engineering Culture.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why most meetings fail",
+            "The information broadcast. Twenty people listening to one person report status that they",
+            "The meeting as a decision bottleneck. One decision requires four people, so the four people",
+            "The pre-read discipline, which is where the leverage is",
+            "Time structure that works",
+            "Start with the decision statement, read aloud. \"We're deciding whether to move the sunset.\"",
+            "Silent pre-read of 3 minutes for the doc, or 5 if it is longer than two pages. Reading aloud is",
+            "Discussion, with a designated note-taker whose only job is to write down decisions as they",
+            "Read back: decisions, owners, dates. Two minutes. This single habit eliminates 80% of \"we agreed",
+            "Meeting types worth naming in an interview answer",
+            "Decision meeting — one decision, one decider, pre-read with a recommendation. 25 minutes.",
+            "Working session — a problem nobody understands yet. No agenda, whiteboard, facilitator, and a"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nDECISION NEEDED: Approve moving the v2 API sunset to Q4, or accept the break.\nRECOMMENDATION: Move to Q4. Two of three partners have not finished migration.\nCONTEXT: 2 pages, read the \"Impact\" section first.\nPRE-READ COMMENTS: add to the doc by 10:00 Wed; unaddressed comments get resolved live.\nNOT ON THE AGENDA: naming, error code format.\nDECIDER: [named person]\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership",
+      "title": "Seniority and Leadership",
+      "description": "Seniority and Leadership within Behavioral and Engineering Culture.",
+      "difficulty": "SENIOR",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-technical-decision-making",
+          "title": "Technical decision-making",
+          "description": "Technical decision-making within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The decision framework worth internalizing",
+            "What problem are we solving, stated so that someone could disagree with it? If you cannot",
+            "What is the constraint? Time, headcount, money, a legal date, an upstream dependency.",
+            "What are the real options? Including *do nothing*, including *buy*, including *delegate*.",
+            "What makes this reversible? Reversibility is worth more than elegance. Reversible decisions",
+            "Who bears the downside? If the failure lands on a team other than yours, that is a fact you",
+            "What would have to be true for this to be wrong? Write this down. It converts a decision into",
+            "The decision record",
+            "They spend disproportionate effort on framing and almost none on choosing. Framing is where",
+            "They make the boring choice more often than not, and can articulate the specific condition",
+            "They distinguish \"this is technically superior\" from \"this is better for us.\" The first is",
+            "They revisit on a trigger, not on a feeling. \"When volume doubles\" is a trigger. \"If I have"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the decision framework worth internalizing and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain what problem are we solving, stated so that someone could disagree with it? if you cannot and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the decision record and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain they make the boring choice more often than not, and can articulate the specific condition and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain they distinguish \"this is technically superior\" from \"this is better for us.\" the first is and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nDECISION: Postgres for the job queue, not Kafka or SQS.\nDATE: 2026-03-11   STATUS: Accepted   DECIDER: [name]\nPROBLEM: We need durable, at-least-once job execution with 40k jobs/day peak, per-job retry,\n         and visibility into stuck jobs.\nCONSTRAINT: 3 engineers total. No capacity to run Kafka well.\nOPTIONS: (a) Kafka — ruled out: operational cost is ~0.5 FTE we don't have.\n         (b) SQS + worker service — viable; ruled out for now because per-job retry semantics\n             and stuck-job visibility are poor, and we already own Postgres.\n         (c) Postgres with SKIP LOCKED — chosen.\n         (d) do nothing / in-process — not viable, we already lost jobs on deploy.\nREVERSIBLE: Partially. Job *storage* is coupled to Postgres; the interface is not, so we could\n         re-implement the queue later without touching callers.\nWOULD BE WRONG IF: our job volume grows past ~500k/day, or we need cross-region replication,\n         or we need to share a queue across services with independent ownership.\nCOSTS WE ACCEPT: we now own backup/restore for the queue, and enqueue latency is ~15ms.\nREVIEW: revisit if volume doubles, or when we hire the 4th engineer.\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-driving-projects-without-authority",
+          "title": "Driving projects without authority",
+          "description": "Driving projects without authority within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The three currencies of influence, in order of durability",
+            "Artifact. A written document that makes the work obvious. The strongest currency because it",
+            "Reputation for reliability. Doing what you said, when you said it, including the bad news",
+            "Relationship. Genuine interest in the other person's goals and constraints. This is what lets",
+            "The project-driving method that works",
+            "The specific techniques, with failure modes",
+            "Find the person with the objection and convert them. Go to them first, privately, with the",
+            "Never rely on a meeting to resolve something a document could have resolved. Meetings are for",
+            "Make the first ask small. \"Can I get 2 hours of Priya's time to sanity-check the interface\"",
+            "Do the unglamorous work yourself. The first prototype, the first migration script, the first",
+            "Recruit allies before you have a complete plan. One respected engineer quietly agreeing with",
+            "Use deadlines and defaults, not persuasion. \"If we don't decide by Friday, I'll build the"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the three currencies of influence, in order of durability and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain reputation for reliability. doing what you said, when you said it, including the bad news and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the project-driving method that works and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the specific techniques, with failure modes and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain find the person with the objection and convert them. go to them first, privately, with the and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-architecture-reviews",
+          "title": "Architecture reviews",
+          "description": "Architecture reviews within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "As the proposer: what makes a review land",
+            "Purpose stated in one sentence at the top. \"I need a decision on X by Friday\" or \"I need",
+            "Context first, and context must include the do-nothing. \"If we do nothing, in 8 months we",
+            "Non-goals. The most-skipped and highest-value section. It converts infinite review into",
+            "The decision you are asking for, stated as a question. \"Should we shard now or at 5TB?\"",
+            "Known risks, including the ones you are least comfortable with. Naming your weakest joint is",
+            "Timing. Ask for asynchronous comments over at least three days before the synchronous session.",
+            "As the reviewer: what a good review of an architecture looks like",
+            "Read the context and goals before the design. If the problem statement is wrong, the design",
+            "Check that the design solves the stated problem. Half of architecture reviews fail here and",
+            "Attack the assumptions, not the design. Ask what would have to be true. \"What happens at",
+            "Look for the hidden coupling. What does this new boundary prevent? What does it make"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain purpose stated in one sentence at the top. \"i need a decision on x by friday\" or \"i need and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain context first, and context must include the do-nothing. \"if we do nothing, in 8 months we and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain non-goals. the most-skipped and highest-value section. it converts infinite review into and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the decision you are asking for, stated as a question. \"should we shard now or at 5tb?\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain attack the assumptions, not the design. ask what would have to be true. \"what happens at and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-hiring-and-interviewing-others",
+          "title": "Hiring and interviewing others",
+          "description": "Hiring and interviewing others within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why this is asked even of people who will never manage",
+            "Rubrics, and why unstructured interviews fail",
+            "A workable rubric structure",
+            "The interview loop, designed properly",
+            "Same question set for every candidate. Non-negotiable. Deviations correlate with affinity, not",
+            "Independent evidence before group discussion. Every interviewer submits their written scores",
+            "Multiple interviewers, limited overlap. Two people who talk to each other are one signal.",
+            "Explicit \"no hire\" as an available outcome, and used. \"No hire\" is a real result and it is the",
+            "Score the evidence, not the vibe. If you cannot point at the moment in the interview that",
+            "Debrief structure that works",
+            "Each interviewer restates their evidence independently, without opinions. \"At minute 20 she",
+            "Each interviewer submits scores independently, in the tool, before discussion."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain why this is asked even of people who will never manage and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain rubrics, and why unstructured interviews fail and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain a workable rubric structure and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the interview loop, designed properly and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain score the evidence, not the vibe. if you cannot point at the moment in the interview that and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-scope-expectations-by-level-mid-senior-staff",
+          "title": "Scope expectations by level (mid → senior → staff)",
+          "description": "Scope expectations by level (mid → senior → staff) within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Junior: asks clarifying questions instead of guessing; delivers what was specified; writes",
+            "Mid: delivers a feature end to end including tests, docs, rollout, and monitoring; makes",
+            "Senior: chooses the right scope, not just a right implementation; sequences work across",
+            "Staff: identifies a problem nobody has named; writes the artifact that changes a decision",
+            "Distinguished/Principal: changes the org's trajectory through technical judgment; is consulted",
+            "The uncomfortable truth about leveling up",
+            "How to demonstrate the next level in an interview",
+            "A cross-team change you made with no authority over anyone.",
+            "A problem you *defined* rather than solved.",
+            "A decision that other teams now follow, documented in an ADR.",
+            "A system that other people can operate without you.",
+            "Evidence that your leverage outlasts your presence: the doc, the standard, the tool, the person"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the uncomfortable truth about leveling up and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain how to demonstrate the next level in an interview and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain how to answer \"what level do you want to be?\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-managing-up",
+          "title": "Managing up",
+          "description": "Managing up within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The core reframe",
+            "Surprise — they learn about something important too late to act.",
+            "Ambiguity — they cannot tell what is happening or what state it is in.",
+            "Interference risk — they have to check on you because they do not trust the status.",
+            "Extraction — they have to pull information out of you rather than receive it.",
+            "What I own. The explicit boundary, including what is explicitly not mine. Ambiguity about",
+            "The definition of done for the work I am doing: merged, tested, deployed, monitored,",
+            "How we will communicate. \"I will post a written status on Fridays; anything that changes a",
+            "What would make you want to know immediately, and what can wait for the weekly. This one",
+            "How much input do you want on my technical decisions? A real question, and the answer is",
+            "Surfacing risk, the mechanics",
+            "Early. Early enough to act on. The useful test: *is this still actionable by the person I am"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the core reframe and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain what i own. the explicit boundary, including what is explicitly not mine. ambiguity about and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain how we will communicate. \"i will post a written status on fridays; anything that changes a and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain what would make you want to know immediately, and what can wait for the weekly. this one and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain how much input do you want on my technical decisions? a real question, and the answer is and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-build-vs-buy",
+          "title": "Build vs buy",
+          "description": "Build vs buy within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The honest framing",
+            "The cost model — the part candidates forget, and the whole answer",
+            "exit cost",
+            "The decision framework, in order",
+            "Is this our core? If the thing's quality is a direct competitive advantage — the thing",
+            "How much of the total system is this? Buying a component that requires you to build",
+            "Is the requirement stable? Buy from vendors with volatile pricing, shifting product",
+            "Is the risk profile acceptable? Vendors that are your only route to market (payments, auth,",
+            "What does the team know? If nobody here has built this class of thing, the build estimate is",
+            "What does the horizon do? Over 18 months the calculus often flips, because maintenance",
+            "Write the ADR. Every build/buy decision gets one. The failure mode of buying is well",
+            "Record the total cost at decision time, including the maintenance estimate, and revisit on a"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the honest framing and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the cost model — the part candidates forget, and the whole answer and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain exit cost and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain the decision framework, in order and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain is this our core? if the thing's quality is a direct competitive advantage — the thing and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nTCO(component, horizon) =\n    build:    design + implement + test + document\n              + ongoing maintenance (defects, dependency bumps, CVEs, upgrades)\n              + operations (on-call, capacity, cost, monitoring)\n              + opportunity cost of the engineers' time\n              + the cost of being wrong about the requirements\n    buy:      license/subscription\n              + integration cost (usually underestimated by 2-3x)\n              + data gravity: the ongoing cost of your data living in someone else's format\n              + vendor risk: price increases, shutdown, acquisition, API deprecation\n              + the specific cost of the constraint the vendor does not meet\n              + exit cost, if it exists\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-technical-decision-making-how-to-decide-and-how-to-record-it",
+          "title": "Technical decision-making: how to decide, and how to record it",
+          "description": "Technical decision-making: how to decide, and how to record it within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The decision framework worth internalizing",
+            "What problem are we solving, stated so that someone could disagree with it? If you cannot",
+            "What is the constraint? Time, headcount, money, a legal date, an upstream dependency.",
+            "What are the real options? Including *do nothing*, including *buy*, including *delegate*.",
+            "What makes this reversible? Reversibility is worth more than elegance. Reversible decisions",
+            "Who bears the downside? If the failure lands on a team other than yours, that is a fact you",
+            "What would have to be true for this to be wrong? Write this down. It converts a decision into",
+            "The decision record",
+            "They spend disproportionate effort on framing and almost none on choosing. Framing is where",
+            "They make the boring choice more often than not, and can articulate the specific condition",
+            "They distinguish \"this is technically superior\" from \"this is better for us.\" The first is",
+            "They revisit on a trigger, not on a feeling. \"When volume doubles\" is a trigger. \"If I have"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nDECISION: Postgres for the job queue, not Kafka or SQS.\nDATE: 2026-03-11   STATUS: Accepted   DECIDER: [name]\nPROBLEM: We need durable, at-least-once job execution with 40k jobs/day peak, per-job retry,\n         and visibility into stuck jobs.\nCONSTRAINT: 3 engineers total. No capacity to run Kafka well.\nOPTIONS: (a) Kafka — ruled out: operational cost is ~0.5 FTE we don't have.\n         (b) SQS + worker service — viable; ruled out for now because per-job retry semantics\n             and stuck-job visibility are poor, and we already own Postgres.\n         (c) Postgres with SKIP LOCKED — chosen.\n         (d) do nothing / in-process — not viable, we already lost jobs on deploy.\nREVERSIBLE: Partially. Job *storage* is coupled to Postgres; the interface is not, so we could\n         re-implement the queue later without touching callers.\nWOULD BE WRONG IF: our job volume grows past ~500k/day, or we need cross-region replication,\n         or we need to share a queue across services with independent ownership.\nCOSTS WE ACCEPT: we now own backup/restore for the queue, and enqueue latency is ~15ms.\nREVIEW: revisit if volume doubles, or when we hire the 4th engineer.\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-architecture-reviews-being-the-reviewer-and-being-reviewed",
+          "title": "Architecture reviews: being the reviewer and being reviewed",
+          "description": "Architecture reviews: being the reviewer and being reviewed within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "As the proposer: what makes a review land",
+            "Purpose stated in one sentence at the top. \"I need a decision on X by Friday\" or \"I need",
+            "Context first, and context must include the do-nothing. \"If we do nothing, in 8 months we",
+            "Non-goals. The most-skipped and highest-value section. It converts infinite review into",
+            "The decision you are asking for, stated as a question. \"Should we shard now or at 5TB?\"",
+            "Known risks, including the ones you are least comfortable with. Naming your weakest joint is",
+            "Timing. Ask for asynchronous comments over at least three days before the synchronous session.",
+            "As the reviewer: what a good review of an architecture looks like",
+            "Read the context and goals before the design. If the problem statement is wrong, the design",
+            "Check that the design solves the stated problem. Half of architecture reviews fail here and",
+            "Attack the assumptions, not the design. Ask what would have to be true. \"What happens at",
+            "Look for the hidden coupling. What does this new boundary prevent? What does it make"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-hiring-and-interviewing-others-rubrics-calibration-and-debriefs",
+          "title": "Hiring and interviewing others: rubrics, calibration, and debriefs",
+          "description": "Hiring and interviewing others: rubrics, calibration, and debriefs within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why this is asked even of people who will never manage",
+            "Rubrics, and why unstructured interviews fail",
+            "A workable rubric structure",
+            "The interview loop, designed properly",
+            "Same question set for every candidate. Non-negotiable. Deviations correlate with affinity, not",
+            "Independent evidence before group discussion. Every interviewer submits their written scores",
+            "Multiple interviewers, limited overlap. Two people who talk to each other are one signal.",
+            "Explicit \"no hire\" as an available outcome, and used. \"No hire\" is a real result and it is the",
+            "Score the evidence, not the vibe. If you cannot point at the moment in the interview that",
+            "Debrief structure that works",
+            "Each interviewer restates their evidence independently, without opinions. \"At minute 20 she",
+            "Each interviewer submits scores independently, in the tool, before discussion."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-scope-expectations-junior-mid-senior-staff-and-beyond",
+          "title": "Scope expectations: junior, mid, senior, staff, and beyond",
+          "description": "Scope expectations: junior, mid, senior, staff, and beyond within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Junior: asks clarifying questions instead of guessing; delivers what was specified; writes",
+            "Mid: delivers a feature end to end including tests, docs, rollout, and monitoring; makes",
+            "Senior: chooses the right scope, not just a right implementation; sequences work across",
+            "Staff: identifies a problem nobody has named; writes the artifact that changes a decision",
+            "Distinguished/Principal: changes the org's trajectory through technical judgment; is consulted",
+            "The uncomfortable truth about leveling up",
+            "How to demonstrate the next level in an interview",
+            "A cross-team change you made with no authority over anyone.",
+            "A problem you *defined* rather than solved.",
+            "A decision that other teams now follow, documented in an ADR.",
+            "A system that other people can operate without you.",
+            "Evidence that your leverage outlasts your presence: the doc, the standard, the tool, the person"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-managing-up-expectations-surfacing-risk-and-disagreement",
+          "title": "Managing up: expectations, surfacing risk, and disagreement",
+          "description": "Managing up: expectations, surfacing risk, and disagreement within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The core reframe",
+            "Surprise — they learn about something important too late to act.",
+            "Ambiguity — they cannot tell what is happening or what state it is in.",
+            "Interference risk — they have to check on you because they do not trust the status.",
+            "Extraction — they have to pull information out of you rather than receive it.",
+            "What I own. The explicit boundary, including what is explicitly not mine. Ambiguity about",
+            "The definition of done for the work I am doing: merged, tested, deployed, monitored,",
+            "How we will communicate. \"I will post a written status on Fridays; anything that changes a",
+            "What would make you want to know immediately, and what can wait for the weekly. This one",
+            "How much input do you want on my technical decisions? A real question, and the answer is",
+            "Surfacing risk, the mechanics",
+            "Early. Early enough to act on. The useful test: *is this still actionable by the person I am"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-build-vs-buy-the-framework-and-the-follow-through",
+          "title": "Build vs buy: the framework and the follow-through",
+          "description": "Build vs buy: the framework and the follow-through within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The honest framing",
+            "The cost model — the part candidates forget, and the whole answer",
+            "exit cost",
+            "The decision framework, in order",
+            "Is this our core? If the thing's quality is a direct competitive advantage — the thing",
+            "How much of the total system is this? Buying a component that requires you to build",
+            "Is the requirement stable? Buy from vendors with volatile pricing, shifting product",
+            "Is the risk profile acceptable? Vendors that are your only route to market (payments, auth,",
+            "What does the team know? If nobody here has built this class of thing, the build estimate is",
+            "What does the horizon do? Over 18 months the calculus often flips, because maintenance",
+            "Write the ADR. Every build/buy decision gets one. The failure mode of buying is well",
+            "Record the total cost at decision time, including the maintenance estimate, and revisit on a"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nTCO(component, horizon) =\n    build:    design + implement + test + document\n              + ongoing maintenance (defects, dependency bumps, CVEs, upgrades)\n              + operations (on-call, capacity, cost, monitoring)\n              + opportunity cost of the engineers' time\n              + the cost of being wrong about the requirements\n    buy:      license/subscription\n              + integration cost (usually underestimated by 2-3x)\n              + data gravity: the ongoing cost of your data living in someone else's format\n              + vendor risk: price increases, shutdown, acquisition, API deprecation\n              + the specific cost of the constraint the vendor does not meet\n              + exit cost, if it exists\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-writing-a-design-doc-a-full-worked-example",
+          "title": "Writing a design doc: a full worked example",
+          "description": "Writing a design doc: a full worked example within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-the-staff-level-distinction-leverage-not-heroics",
+          "title": "The staff-level distinction: leverage, not heroics",
+          "description": "The staff-level distinction: leverage, not heroics within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The single sentence that defines the staff level",
+            "The arithmetic that makes the distinction real",
+            "The four staff-level behaviors, concretely",
+            "1. Make problems visible instead of absorbing them",
+            "3. Spend disproportionate time outside your own component",
+            "4. Invest in other seniors, not just juniors",
+            "What the staff interview is actually assessing",
+            "Does the candidate define problems? Or do they only receive them?",
+            "Does their impact have other people in it? \"I made the change\" versus \"I got five teams to",
+            "Can they describe leverage they built that they don't maintain? Healthy: they do not need to",
+            "Do they have opinions about the org, or only about the code? Staff engineers have opinions",
+            "Can they name a decision that went the other way and they were still on board? Staff engineers"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-14-behavioral-and-engineering-culture-seniority-and-leadership-growth-promotion-cases-and-the-evidence-you-need",
+          "title": "Growth, promotion cases, and the evidence you need",
+          "description": "Growth, promotion cases, and the evidence you need within Seniority and Leadership.",
+          "difficulty": "SENIOR",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "How promotions actually happen",
+            "The evidence file for a promotion case",
+            "Scope examples, with a before and after. Not \"led a project\" but \"in 2024 I led a project",
+            "Artifacts that changed decisions. Design docs, ADRs, proposals, RFCs, runbooks — each with",
+            "Evidence that other people got better. Mentored engineers who advanced. Onboarded engineers",
+            "Operational judgment under real conditions. Incidents you led, migrations you sequenced,",
+            "Judgment calls that were right and were not obvious. The decision where the technically",
+            "External or org-level recognition. Conference talks, published RFCs adopted outside the",
+            "A promotion case, written the way it should be written",
+            "How to build this file without self-awareness problems",
+            "The conversation with your manager that makes this work",
+            "What actually blocks promotions, from the manager's side"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    }
+  ]
+}

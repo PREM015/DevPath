@@ -1,0 +1,303 @@
+/**
+ * Project milestones and achievement definitions.
+ *
+ * Kept separate from the roadmap content because they are product data rather
+ * than curriculum: the roadmap is parsed from the source document, while these
+ * are maintained by hand alongside the app.
+ */
+
+export const ACHIEVEMENTS = [
+  {
+    slug: "first-topic",
+    name: "First Step",
+    description: "Complete your first roadmap topic",
+    icon: "star",
+    criteria: { type: "topics_completed", threshold: 1 },
+  },
+  {
+    slug: "ten-topics",
+    name: "Getting Started",
+    description: "Complete 10 topics",
+    icon: "zap",
+    criteria: { type: "topics_completed", threshold: 10 },
+  },
+  {
+    slug: "thirty-topics",
+    name: "Momentum Builder",
+    description: "Complete 30 topics",
+    icon: "trending-up",
+    criteria: { type: "topics_completed", threshold: 30 },
+  },
+  {
+    slug: "hundred-topics",
+    name: "Century Club",
+    description: "Complete 100 topics",
+    icon: "award",
+    criteria: { type: "topics_completed", threshold: 100 },
+  },
+  {
+    slug: "first-phase",
+    name: "Phase Complete",
+    description: "Complete every topic in a phase",
+    icon: "check-circle",
+    criteria: { type: "phases_completed", threshold: 1 },
+  },
+  {
+    slug: "three-phases",
+    name: "Foundation Laid",
+    description: "Complete three phases",
+    icon: "layers",
+    criteria: { type: "phases_completed", threshold: 3 },
+  },
+  {
+    slug: "seven-day-streak",
+    name: "Week Warrior",
+    description: "Reach a 7-day learning streak",
+    icon: "flame",
+    criteria: { type: "streak_days", threshold: 7 },
+  },
+  {
+    slug: "thirty-day-streak",
+    name: "Month Master",
+    description: "Reach a 30-day learning streak",
+    icon: "trophy",
+    criteria: { type: "streak_days", threshold: 30 },
+  },
+  {
+    slug: "first-project",
+    name: "Builder",
+    description: "Complete your first project milestone",
+    icon: "hammer",
+    criteria: { type: "projects_completed", threshold: 1 },
+  },
+  {
+    slug: "all-projects",
+    name: "Full Stack Builder",
+    description: "Complete all 8 project milestones",
+    icon: "rocket",
+    criteria: { type: "projects_completed", threshold: 8 },
+  },
+  {
+    slug: "first-revision",
+    name: "Reviewer",
+    description: "Complete your first revision review",
+    icon: "refresh-cw",
+    criteria: { type: "revisions_completed", threshold: 1 },
+  },
+  {
+    slug: "fifty-revisions",
+    name: "Spaced Repetition",
+    description: "Complete 50 revision reviews",
+    icon: "repeat",
+    criteria: { type: "revisions_completed", threshold: 50 },
+  },
+  {
+    slug: "note-taker",
+    name: "Note Taker",
+    description: "Write 10 personal notes",
+    icon: "notebook",
+    criteria: { type: "notes_created", threshold: 10 },
+  },
+  {
+    slug: "bookworm",
+    name: "Collector",
+    description: "Bookmark 20 topics for later",
+    icon: "bookmark",
+    criteria: { type: "bookmarks_added", threshold: 20 },
+  },
+] as const;
+
+export const PROJECT_SEED = [
+  {
+    order: 1,
+    slug: "responsive-portfolio",
+    title: "Responsive Portfolio",
+    difficulty: "BEGINNER",
+    estimatedHours: 20,
+    description:
+      "A personal portfolio built with plain HTML, CSS and JavaScript. The point is to prove you can lay out and style real pages without a framework, and that you understand responsive layout rather than just using breakpoints.",
+    stack: ["HTML5", "CSS3", "Vanilla JavaScript", "Responsive design", "Flexbox", "Grid"],
+    objectives: [
+      "Build a layout that works from 320px to ultrawide without horizontal scroll",
+      "Use semantic HTML with correct heading hierarchy and landmarks",
+      "Add subtle scroll and hover interactions with reduced-motion fallbacks",
+    ],
+    checklist: [
+      "Semantic header, nav, main, section, footer structure",
+      "Fluid type and spacing using clamp() and CSS custom properties",
+      "Responsive navigation that works with a keyboard and on mobile",
+      "At least one interactive component (filter, tabs or theme toggle)",
+      "Passes an accessibility check with axe and keyboard-only navigation",
+      "Deployed and reachable over HTTPS",
+    ],
+    relatedTopicSlugs: ["html-fundamentals", "css-styling", "javascript-core"],
+  },
+  {
+    order: 2,
+    slug: "todo-app-typescript",
+    title: "To-Do App with TypeScript and Tests",
+    difficulty: "BEGINNER",
+    estimatedHours: 25,
+    description:
+      "A task manager with add, edit, complete, filter and persistence, written in strict TypeScript with real unit tests. This is where types stop being decorative and start catching your mistakes.",
+    stack: ["TypeScript", "React", "Vitest", "React Testing Library", "Local persistence"],
+    objectives: [
+      "Model tasks as a discriminated union so impossible states cannot be represented",
+      "Write tests that fail for the right reason and assert behaviour, not implementation",
+      "Persist state without leaking storage concerns into components",
+    ],
+    checklist: [
+      "Strict TypeScript with no implicit any and no type escape hatches",
+      "Add, edit, complete, delete and filter tasks",
+      "Persistence across reloads with a clean storage abstraction",
+      "Unit tests for the reducer and store logic",
+      "Integration tests for the main user flows",
+      "Test coverage of the logic layer, not a coverage-number exercise",
+    ],
+    relatedTopicSlugs: ["typescript", "react-concepts", "testing-strategies"],
+  },
+  {
+    order: 3,
+    slug: "blog-with-auth",
+    title: "Blog with Authentication and CRUD",
+    difficulty: "INTERMEDIATE",
+    estimatedHours: 40,
+    description:
+      "A full-stack blog with registration, sessions, role-aware CRUD, comments and a real relational schema. The first project where auth and data modelling have to be right together.",
+    stack: ["React", "Express", "PostgreSQL", "Sessions", "REST", "Zod"],
+    objectives: [
+      "Implement authentication you can reason about: hashing, sessions, expiry and revocation",
+      "Design a normalised schema with migrations you can roll forward",
+      "Enforce ownership on every write path",
+    ],
+    checklist: [
+      "Register, log in, log out with hashed passwords and httpOnly session cookies",
+      "Posts with create, read, update and delete, restricted to the author",
+      "Comments with moderation state",
+      "Database migrations checked into version control",
+      "Input validation on every route, not just the client",
+      "Error states that do not leak stack traces or internal ids",
+    ],
+    relatedTopicSlugs: ["restful-apis", "sql-databases", "network-protocols"],
+  },
+  {
+    order: 4,
+    slug: "ecommerce-nextjs",
+    title: "E-Commerce with Stripe and an Admin Dashboard",
+    difficulty: "INTERMEDIATE",
+    estimatedHours: 60,
+    description:
+      "A production-shaped storefront with Stripe payments, an inventory-aware cart, an order pipeline and an admin back office. Payment webhooks are the real exam here.",
+    stack: ["Next.js", "Stripe", "Prisma", "PostgreSQL", "Auth.js", "Tailwind CSS"],
+    objectives: [
+      "Treat webhooks as the source of truth for payment state",
+      "Make money handling idempotent",
+      "Build an admin surface that reflects the database, not client state",
+    ],
+    checklist: [
+      "Product catalogue with search and filtering",
+      "Cart with server-side price validation",
+      "Stripe Checkout with webhook handling that is idempotent",
+      "Order state machine: pending, paid, shipped, refunded, failed",
+      "Admin dashboard for products and orders, protected by role",
+      "Structured logging and an error monitoring integration",
+    ],
+    relatedTopicSlugs: ["next-js", "restful-apis", "caching-layers"],
+  },
+  {
+    order: 5,
+    slug: "realtime-chat",
+    title: "Real-Time Chat with WebSockets and Redis",
+    difficulty: "ADVANCED",
+    estimatedHours: 55,
+    description:
+      "Chat with rooms, presence, message history and reconnection, scaled past a single process with Redis. Choosing between WebSockets, SSE and long polling is the first real design decision.",
+    stack: ["Socket.IO", "Redis", "Node.js", "React", "Pub/sub"],
+    objectives: [
+      "Pick the right transport and justify it",
+      "Keep multiple instances consistent with pub/sub rather than sticky sessions alone",
+      "Handle disconnects and replay without duplicates",
+    ],
+    checklist: [
+      "Rooms with join and leave",
+      "Presence indicators that expire on disconnect",
+      "Message history with pagination",
+      "Redis pub/sub so messages reach clients on any instance",
+      "Heartbeats, exponential backoff and reconnection on the client",
+      "Load tested with a few hundred concurrent connections",
+    ],
+    relatedTopicSlugs: ["real-time-systems", "caching-layers", "nodejs-runtime"],
+  },
+  {
+    order: 6,
+    slug: "dockerized-cicd",
+    title: "Dockerized App with CI/CD and Cloud Deployment",
+    difficulty: "ADVANCED",
+    estimatedHours: 40,
+    description:
+      "Take an existing application, containerise it properly, put a pipeline in front of it and deploy it to a cloud provider. This is the project that teaches you what production actually demands.",
+    stack: ["Docker", "GitHub Actions", "Nginx", "AWS or GCP", "Playwright"],
+    objectives: [
+      "Build small, reproducible images with a sensible layer order",
+      "Write a pipeline that gates merges on tests",
+      "Deploy with health checks, logs and a rollback story",
+    ],
+    checklist: [
+      "Multi-stage Dockerfile with a non-root runtime image",
+      "docker-compose for local development with a database",
+      "CI running lint, typecheck, tests and a production build",
+      "Container deployed to a cloud provider behind HTTPS",
+      "Health check endpoint and at least one meaningful metric",
+      "Documented rollback procedure",
+    ],
+    relatedTopicSlugs: ["devops-cloud", "ci-cd", "observability"],
+  },
+  {
+    order: 7,
+    slug: "multitenant-saas",
+    title: "Multi-Tenant SaaS with Jobs and Observability",
+    difficulty: "SENIOR",
+    estimatedHours: 90,
+    description:
+      "A multi-tenant SaaS platform with subscription billing, background job processing and real observability. Multi-tenancy is where a lot of senior interviews actually happen.",
+    stack: ["Multi-tenancy", "BullMQ", "Stripe subscriptions", "OpenTelemetry", "PostgreSQL RLS"],
+    objectives: [
+      "Isolate tenant data at the database level, not only in application code",
+      "Make background jobs idempotent and observable",
+      "Instrument a request end to end with traces and metrics",
+    ],
+    checklist: [
+      "Tenant isolation enforced by row-level security or equivalent",
+      "Subscription billing with plan limits enforced server-side",
+      "Background job queue with retries, dead letters and monitoring",
+      "Distributed tracing across HTTP, jobs and database calls",
+      "Metrics for latency, throughput and error rate per tenant",
+      "On-call runbook for the top failure modes",
+    ],
+    relatedTopicSlugs: ["system-design", "background-processing", "distributed-systems"],
+  },
+  {
+    order: 8,
+    slug: "ai-powered-app",
+    title: "AI-Powered App with RAG and Streaming",
+    difficulty: "SENIOR",
+    estimatedHours: 70,
+    description:
+      "An application built on LLM APIs with streaming responses and retrieval-augmented generation. The differentiator is knowing where the approach fails and how you measured that.",
+    stack: ["LLM APIs", "RAG", "pgvector", "SSE streaming", "Prompt engineering"],
+    objectives: [
+      "Chunk, embed and retrieve in a way you can evaluate",
+      "Stream tokens to the UI with retries and cancellation",
+      "Measure answer quality instead of eyeballing it",
+    ],
+    checklist: [
+      "Document ingestion: chunking strategy chosen and justified",
+      "Vector search with hybrid keyword retrieval where it helps",
+      "Streaming responses with cancellation and retry",
+      "Citations back to source documents",
+      "Evaluation set of at least 30 questions with graded answers",
+      "Cost and latency tracked per request, with caching where sensible",
+    ],
+    relatedTopicSlugs: ["ai-era-skills", "system-design", "search-stores"],
+  },
+] as const;

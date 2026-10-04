@@ -1,0 +1,890 @@
+// FullStackPath - Prisma Schema
+// PostgreSQL (Neon) + Auth.js v5 compatible
+
+// Prisma ORM 7: connection URLs live in prisma.config.ts (CLI) and are passed
+// to PrismaClient through a driver adapter (runtime). See prisma.config.ts and
+// src/lib/db/prisma.ts.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────────
+// AUTH MODELS (Auth.js v5 / NextAuth)
+// ─────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  passwordHash  String?
+
+  // Role-based access control
+  role          Role      @default(USER)
+
+  // Learner profile
+  preferredRole LearnerRole? @default(BALANCED)
+  targetLevel   TargetLevel? @default(MID)
+  timezone      String       @default("UTC")
+  dailyGoalMinutes Int       @default(60)
+  weeklyGoalMinutes Int      @default(300)
+  bio           String?
+
+  // Preferences (harmless UI settings; safe to keep on the user record)
+  theme                    String    @default("system") // system | light | dark
+  revisionReminders        Boolean   @default(true)
+  dailyGoalReminders       Boolean   @default(true)
+  achievementNotifications Boolean   @default(true)
+  emailNotifications       Boolean   @default(true)
+
+  /// Custom spaced-repetition ladder in days. Null = the default ladder.
+  revisionIntervalsJson Json?
+
+  /// Sessions issued before this instant are rejected. Bumped on password
+  /// change/reset so credentials changes invalidate existing sessions.
+  sessionsInvalidBefore DateTime?
+
+  // Timestamps
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  accounts        Account[]
+  sessions        Session[]
+  topicProgress   UserTopicProgress[]
+  studySessions   StudySession[]
+  notes           UserNote[]
+  bookmarks       Bookmark[]
+  revisions       Revision[]
+  revisionHistory RevisionHistory[]
+  projectProgress UserProjectProgress[]
+  achievements    UserAchievement[]
+  learningGoals   LearningGoal[]
+  learningActivity LearningActivity[]
+  passwordResetTokens PasswordResetToken[]
+  queueItems      UserQueueItem[]
+  mockInterviews  MockInterview[]
+  notifications   Notification[]
+  auditLogs       AuditLog[]
+  questionAttempts QuestionAttempt[]
+  drillResults    DrillResult[]
+  interviewPreps  InterviewPrep[]
+
+  @@index([email])
+  @@index([role])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expires   DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([token])
+  @@index([userId])
+}
+
+// ─────────────────────────────────────────────
+// ROADMAP MODELS
+// ─────────────────────────────────────────────
+
+model Phase {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String   @db.Text
+  order       Int
+  difficulty  Difficulty @default(BEGINNER)
+  color       String   @default("#6366f1")
+  icon        String?
+  isActive    Boolean  @default(true)
+  estimatedHours Int?
+
+  /// Learning objectives shown on the phase card and detail header.
+  objectivesJson Json?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  groups      RoadmapGroup[]
+  practiceBlocks PracticeBlock[]
+  questions   InterviewQuestion[]
+
+  @@index([order])
+  @@index([slug])
+}
+
+model RoadmapGroup {
+  id          String   @id @default(cuid())
+  phaseId     String
+  slug        String   @unique
+  title       String
+  description String   @db.Text
+  order       Int
+  difficulty  Difficulty @default(BEGINNER)
+  icon        String?
+  isActive    Boolean  @default(true)
+  estimatedHours Int?
+
+  objectivesJson Json?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  phase       Phase    @relation(fields: [phaseId], references: [id], onDelete: Cascade)
+  topics      Topic[]
+  questions   InterviewQuestion[]
+  practiceBlocks PracticeBlock[]
+
+  @@index([phaseId, order])
+  @@index([slug])
+}
+
+model Topic {
+  id               String   @id @default(cuid())
+  groupId          String
+  slug             String   @unique
+  title            String
+  description      String   @db.Text
+  difficulty       Difficulty @default(BEGINNER)
+  order            Int
+  estimatedMinutes Int      @default(60)
+  isActive         Boolean  @default(true)
+
+  // Rich content
+  objectivesJson        Json?    // Array of learning objective strings
+  keyConceptsJson       Json?    // Array of key concept strings
+  commonMistakesJson    Json?    // Array of common mistake strings
+  resourcesJson         Json?    // Array of {title, url, type, note}
+  practiceJson          Json?    // Array of practice task strings
+  interviewQsJson       Json?    // Array of {text, answer} — the question plus its model answer
+
+  /// Everything that only matters when someone is judging the answer.
+  /// Shape: { whyAsked, evaluation[], sayOutLoud, probe[], wrongAnswers[],
+  ///          tradeoffs[], signal, prerequisites[], questionCount, answeredCount }
+  interviewJson         Json?
+
+  /// Debugging-runbook shape for the scenario topics:
+  /// { symptoms[], investigation[], rootCause[], fix[], prevention[], tools[] }
+  troubleshootingJson   Json?
+
+  /// Verbatim code samples, diagrams and tables from the source, kept as
+  /// Markdown so a candidate can copy a real snippet instead of paraphrasing.
+  referenceMarkdown     String?  @db.Text
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  group            RoadmapGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  prerequisites    TopicPrerequisite[] @relation("TopicPrerequisites")
+  prerequisiteFor  TopicPrerequisite[] @relation("PrerequisiteFor")
+  relationsFrom    TopicRelation[] @relation("RelationFrom")
+  relationsTo      TopicRelation[] @relation("RelationTo")
+  userProgress     UserTopicProgress[]
+  studySessions    StudySession[]
+  notes            UserNote[]
+  bookmarks        Bookmark[]
+  revisions        Revision[]
+  revisionHistory  RevisionHistory[]
+  queueItems       UserQueueItem[]
+  questions        InterviewQuestion[]
+
+  @@index([groupId, order])
+  @@index([slug])
+  @@index([difficulty])
+  @@index([isActive])
+}
+
+model TopicPrerequisite {
+  id                  String @id @default(cuid())
+  topicId             String
+  prerequisiteTopicId String
+
+  topic               Topic  @relation("TopicPrerequisites", fields: [topicId], references: [id], onDelete: Cascade)
+  prerequisiteTopic   Topic  @relation("PrerequisiteFor", fields: [prerequisiteTopicId], references: [id], onDelete: Cascade)
+
+  @@unique([topicId, prerequisiteTopicId])
+  @@index([topicId])
+  @@index([prerequisiteTopicId])
+}
+
+model TopicRelation {
+  id             String       @id @default(cuid())
+  sourceTopicId  String
+  targetTopicId  String
+  relationType   RelationType @default(RELATED)
+
+  sourceTopic    Topic @relation("RelationFrom", fields: [sourceTopicId], references: [id], onDelete: Cascade)
+  targetTopic    Topic @relation("RelationTo", fields: [targetTopicId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceTopicId, targetTopicId])
+  @@index([sourceTopicId])
+}
+
+// ─────────────────────────────────────────────
+// USER PROGRESS MODELS
+// ─────────────────────────────────────────────
+
+model UserTopicProgress {
+  id              String        @id @default(cuid())
+  userId          String
+  topicId         String
+  status          ProgressStatus @default(NOT_STARTED)
+
+  startedAt       DateTime?
+  completedAt     DateTime?
+  lastStudiedAt   DateTime?
+
+  totalTimeMinutes Int          @default(0)
+  confidence      Int?          // 1-5
+  personalDifficulty Int?       // 1-5
+  revisionCount   Int           @default(0)
+
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic           Topic         @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, topicId])
+  @@index([userId, status])
+  @@index([userId, lastStudiedAt])
+  @@index([topicId])
+}
+
+model StudySession {
+  id              String    @id @default(cuid())
+  userId          String
+  topicId         String?
+  startedAt       DateTime
+  endedAt         DateTime?
+  durationMinutes Int       @default(0)
+  notes           String?   @db.Text
+
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic           Topic?    @relation(fields: [topicId], references: [id], onDelete: SetNull)
+
+  @@index([userId, startedAt])
+  @@index([topicId])
+}
+
+// ─────────────────────────────────────────────
+// NOTES & BOOKMARKS
+// ─────────────────────────────────────────────
+
+model UserNote {
+  id        String   @id @default(cuid())
+  userId    String
+  topicId   String?
+  title     String
+  content   String   @db.Text
+  tagsJson  Json?    // Array of tag strings
+  isPinned  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic     Topic?   @relation(fields: [topicId], references: [id], onDelete: SetNull)
+
+  @@index([userId, updatedAt])
+  @@index([topicId])
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  topicId   String
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic     Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, topicId])
+  @@index([userId])
+}
+
+// ─────────────────────────────────────────────
+// REVISION (SPACED REPETITION)
+// ─────────────────────────────────────────────
+
+model Revision {
+  id              String         @id @default(cuid())
+  userId          String
+  topicId         String
+  status          RevisionStatus @default(SCHEDULED)
+  nextReviewAt    DateTime
+  intervalDays    Int            @default(1)
+  /// Position in the user's interval ladder. Drives the next interval.
+  ladderIndex     Int            @default(0)
+  reviewCount     Int            @default(0)
+  easeFactor      Float          @default(2.5)  // SM-2 style factor
+  lastReviewedAt  DateTime?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic           Topic          @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, topicId])
+  @@index([userId, nextReviewAt])
+  @@index([userId, status])
+  @@index([status])
+}
+
+model RevisionHistory {
+  id               String         @id @default(cuid())
+  userId           String
+  topicId          String
+  result           RevisionResult
+  reviewedAt       DateTime       @default(now())
+  previousInterval Int
+  nextInterval     Int
+  easeFactor       Float
+  timeSpentSeconds Int            @default(0)
+
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic            Topic          @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@index([userId, reviewedAt])
+  @@index([topicId])
+}
+
+// ─────────────────────────────────────────────
+// PROJECTS
+// ─────────────────────────────────────────────
+
+model Project {
+  id               String  @id @default(cuid())
+  slug             String  @unique
+  title            String
+  description      String  @db.Text
+  order            Int
+  difficulty       Difficulty @default(INTERMEDIATE)
+  estimatedHours   Int?
+
+  requiredSkillsJson Json?  // Array of required skill strings
+  stackJson          Json?  // Array of technology strings
+  objectivesJson     Json?  // Array of learning objective strings
+  checklistJson      Json?  // Array of checklist item strings
+  relatedTopicSlugsJson Json? // Array of topic slugs
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  userProgress     UserProjectProgress[]
+
+  @@index([order])
+}
+
+model UserProjectProgress {
+  id            String        @id @default(cuid())
+  userId        String
+  projectId     String
+  status        ProjectStatus @default(NOT_STARTED)
+  repositoryUrl String?
+  demoUrl       String?
+  notes         String?       @db.Text
+  checklistJson Json?         // { itemIndex: boolean }
+  completedAt   DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project       Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, projectId])
+  @@index([userId])
+}
+
+// ─────────────────────────────────────────────
+// ACHIEVEMENTS
+// ─────────────────────────────────────────────
+
+model Achievement {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  name        String
+  description String
+  icon        String  @default("trophy")
+  criteriaJson Json   // { type: string, threshold: number }
+
+  userAchievements UserAchievement[]
+}
+
+model UserAchievement {
+  id            String   @id @default(cuid())
+  userId        String
+  achievementId String
+  unlockedAt    DateTime @default(now())
+
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement   Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementId])
+  @@index([userId])
+}
+
+// ─────────────────────────────────────────────
+// LEARNING GOALS & ACTIVITY
+// ─────────────────────────────────────────────
+
+model LearningGoal {
+  id        String     @id @default(cuid())
+  userId    String
+  title     String
+  target    Int        // e.g., complete 50 topics
+  current   Int        @default(0)
+  deadline  DateTime?
+  status    GoalStatus @default(ACTIVE)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status])
+}
+
+model LearningActivity {
+  id           String       @id @default(cuid())
+  userId       String
+  activityType ActivityType
+  referenceId  String?      // topicId, projectId, etc.
+  metadataJson Json?
+  createdAt    DateTime     @default(now())
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([activityType])
+}
+
+// ─────────────────────────────────────────────
+// ENUMS
+// ─────────────────────────────────────────────
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum LearnerRole {
+  FRONTEND
+  BACKEND
+  BALANCED
+  STARTUP
+}
+
+enum TargetLevel {
+  JUNIOR
+  MID
+  SENIOR
+  STAFF
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  SENIOR
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  PRACTICED
+  COMPLETED
+  NEEDS_REVISION
+}
+
+enum RevisionStatus {
+  SCHEDULED
+  DUE
+  OVERDUE
+  COMPLETED
+  PAUSED
+}
+
+enum RevisionResult {
+  EASY
+  GOOD
+  HARD
+  FORGOT
+}
+
+enum ProjectStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  ABANDONED
+}
+
+enum GoalStatus {
+  ACTIVE
+  COMPLETED
+  PAUSED
+  ABANDONED
+}
+
+enum ActivityType {
+  TOPIC_STARTED
+  TOPIC_COMPLETED
+  TOPIC_PRACTICED
+  TOPIC_REVISED
+  TOPIC_RESET
+  NOTE_CREATED
+  NOTE_UPDATED
+  BOOKMARK_ADDED
+  BOOKMARK_REMOVED
+  PROJECT_STARTED
+  PROJECT_COMPLETED
+  ACHIEVEMENT_UNLOCKED
+  STUDY_SESSION
+  PHASE_COMPLETED
+  MOCK_INTERVIEW_LOGGED
+  QUESTION_ANSWERED
+  DRILL_PASSED
+}
+
+enum RelationType {
+  RELATED
+  BUILDS_ON
+  ALTERNATIVE
+}
+
+// ─────────────────────────────────────────────
+// PERSONAL LEARNING QUEUE
+// ─────────────────────────────────────────────
+
+/// A user's own ordered study plan. Never mutates the master roadmap: it only
+/// references topics that already exist, and can be reordered at will.
+model UserQueueItem {
+  id        String   @id @default(cuid())
+  userId    String
+  topicId   String
+  /// Explicit ordering within the queue. Lower sorts first.
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, topicId])
+  @@index([userId, sortOrder])
+}
+
+// ─────────────────────────────────────────────
+// INTERVIEW PREP
+// ─────────────────────────────────────────────
+
+/// A single logged interview attempt. Used for the mock interview history and
+/// for readiness metrics; never aggregated into a fabricated score.
+model MockInterview {
+  id           String          @id @default(cuid())
+  userId       String
+  title        String
+  company      String?
+  round        String?
+  kind         InterviewKind   @default(OTHER)
+  outcome      InterviewOutcome?
+  difficulty   Int?            // 1-5, self reported
+  durationMinutes Int?
+  notes        String?         @db.Text
+  topicsCoveredJson Json?      // string[] of topic slugs
+  performedAt  DateTime        @default(now())
+  createdAt    DateTime        @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, performedAt])
+}
+
+// ─────────────────────────────────────────────
+// NOTIFICATIONS (in-app only)
+// ─────────────────────────────────────────────
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  body      String?          @db.Text
+  link      String?
+  readAt    DateTime?
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt, createdAt])
+}
+
+// ─────────────────────────────────────────────
+// ADMIN AUDIT LOG
+// ─────────────────────────────────────────────
+
+/// Records content and user management actions so that destructive changes to
+/// the shared roadmap are attributable and reversible.
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  actorEmail String?
+  action     String
+  entityType String
+  entityId   String?
+  summary    String
+  metadataJson Json?
+  createdAt  DateTime @default(now())
+
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+  @@index([entityType, entityId])
+}
+
+enum InterviewKind {
+  CODING
+  SYSTEM_DESIGN
+  BEHAVIORAL
+  MOCK
+  SCREENING
+  OTHER
+}
+
+enum InterviewOutcome {
+  PASSED
+  FAILED
+  PENDING
+  OFFER
+}
+
+enum NotificationType {
+  REVISION_DUE
+  DAILY_GOAL
+  ACHIEVEMENT
+  SYSTEM
+}
+
+// ─────────────────────────────────────────────
+// INTERVIEW DRILLING
+// ─────────────────────────────────────────────
+
+/// One question a candidate can be asked, taken from the roadmap's question bank.
+///
+/// Questions are SHARED (every candidate sees the same bank) while the attempt
+/// records are per user. That keeps the bank authored content rather than
+/// generated noise, and lets self-testing be tracked honestly.
+model InterviewQuestion {
+  id          String   @id @default(cuid())
+  /// Stable identity derived from the source document, so re-seeding updates
+  /// question text instead of creating duplicates.
+  key         String   @unique
+  text        String   @db.Text
+  /// Model answer, when the source provides one.
+  modelAnswer String?  @db.Text
+  topicId     String?
+  phaseId     String?
+  groupId     String?
+  /// Set when the question was authored inside a practice block (a rapid-fire
+  /// set or Q&A bank) rather than on a topic. Links the question back to the
+  /// drill it belongs to so both surfaces can cross-reference.
+  practiceBlockId String?
+  difficulty  Difficulty @default(INTERMEDIATE)
+  /// Keywords for search and grouping, e.g. ["react", "hooks", "memo"].
+  tagsJson    Json?
+  phaseOrder  Int      @default(0)
+  isActive    Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  topic        Topic?                  @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  phase        Phase?                  @relation(fields: [phaseId], references: [id], onDelete: Cascade)
+  group        RoadmapGroup?           @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  practiceBlock PracticeBlock?         @relation(fields: [practiceBlockId], references: [id], onDelete: Cascade)
+  attempts     QuestionAttempt[]
+
+  @@index([phaseId, phaseOrder])
+  @@index([topicId])
+  @@index([practiceBlockId])
+  @@index([difficulty])
+}
+
+/// A drill, scenario, rapid-fire set, Q&A bank, machine-coding prompt or
+/// readiness checklist. These are practice blocks, NOT knowledge topics, which is
+/// why they live here instead of on Phase/RoadmapGroup/Topic.
+model PracticeBlock {
+  id          String        @id @default(cuid())
+  key         String        @unique
+  phaseId     String
+  groupId     String?
+  /// drill | scenario | rapidfire | qa | machineCoding | checklist | reference
+  kind        PracticeKind
+  title       String
+  /// The topic this block drills, when it follows one.
+  afterTopicTitle String?
+  itemsJson   Json?         // Array of strings
+  whyAsked    String?       @db.Text
+  evaluationJson Json?      // Array of rubric strings
+  sayOutLoud  String?       @db.Text
+  probeJson   Json?         // Array of follow-up probes
+  signal      String?       @db.Text
+  symptomsJson     Json?
+  investigationJson Json?
+  rootCauseJson    Json?
+  fixJson           Json?
+  preventionJson    Json?
+  toolsJson         Json?
+  mistakesJson      Json?
+  referenceMarkdown String?   @db.Text
+  markdown     String?       @db.Text  // verbatim source when it is not structured
+  order        Int           @default(0)
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  phase Phase @relation(fields: [phaseId], references: [id], onDelete: Cascade)
+  group RoadmapGroup? @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  drillResults DrillResult[]
+  questions InterviewQuestion[]
+
+  @@index([phaseId, kind])
+  @@index([groupId])
+}
+
+enum PracticeKind {
+  DRILL
+  SCENARIO
+  RAPIDFIRE
+  QA
+  MACHINE_CODING
+  CHECKLIST
+  REFERENCE
+}
+
+/// A candidate's own record of having tried a question.
+///
+/// This is what powers "questions I cannot answer yet" and drives revision: the
+/// rating is the learner's self-assessment, and nothing here changes topic
+/// completion.
+model QuestionAttempt {
+  id          String         @id @default(cuid())
+  userId      String
+  questionId  String
+  /// confident | partial | blank
+  result      AttemptResult
+  /// Seconds spent attempting before revealing the answer.
+  secondsSpent Int?
+  attempts    Int            @default(1)
+  lastAttemptAt DateTime      @default(now())
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  user     User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question InterviewQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId])
+  @@index([userId, result])
+  @@index([userId, lastAttemptAt])
+}
+
+enum AttemptResult {
+  CONFIDENT
+  PARTIAL
+  BLANK
+}
+
+/// Per-user state of a practice block (a scenario attempted, a drill cleared).
+model DrillResult {
+  id          String        @id @default(cuid())
+  userId      String
+  blockId     String
+  /// notStarted | attempted | passed | needsWork
+  status      DrillStatus   @default(NOT_STARTED)
+  notes       String?       @db.Text
+  /// Checklist items the candidate has ticked, as { "0": true }.
+  checklistJson Json?
+  completedAt DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  user  User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  block PracticeBlock @relation(fields: [blockId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, blockId])
+  @@index([userId, status])
+}
+
+enum DrillStatus {
+  NOT_STARTED
+  ATTEMPTED
+  PASSED
+  NEEDS_WORK
+}
+
+/// The interview a candidate is preparing for. Drives the dated plan.
+model InterviewPrep {
+  id           String    @id @default(cuid())
+  userId       String
+  company      String?
+  role         String?
+  level        String?
+  /// The date the interviews happen. Everything in the plan is derived from it.
+  interviewDate DateTime?
+  /// Which round kinds they want covered.
+  focusJson    Json?
+  notes        String?   @db.Text
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}

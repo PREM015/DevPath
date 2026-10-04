@@ -1,0 +1,14 @@
+{
+  "structureSource": "# Complete Full Stack Interview Roa.txt",
+  "contentSources": [
+    "# Complete Full Stack Interview Roa.txt",
+    "expand.md"
+  ],
+  "generatedBy": "scripts/parse-roadmap.mjs",
+  "phases": 15,
+  "groups": 118,
+  "topics": 1894,
+  "enrichedTopics": 1503,
+  "interviewQuestions": 4710,
+  "practiceTasks": 404
+}

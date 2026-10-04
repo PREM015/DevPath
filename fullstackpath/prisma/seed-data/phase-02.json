@@ -1,0 +1,3945 @@
+{
+  "order": 2,
+  "slug": "phase-2-absolute-foundations",
+  "title": "Absolute Foundations",
+  "description": "Zero-level foundations: how the web works, the terminal, Git, programming fundamentals and the developer environment.",
+  "difficulty": "BEGINNER",
+  "difficultyLabel": "Beginner",
+  "icon": "🌱",
+  "color": "#10b981",
+  "estimatedHours": 60,
+  "objectives": [
+    "Explain what happens between typing a URL and pixels appearing",
+    "Navigate a shell and use pipes, redirection and permissions confidently",
+    "Use Git branches, rebases and recovery tools without fear"
+  ],
+  "practice": [
+    {
+      "kind": "qa",
+      "title": "Interview Questions",
+      "afterTopic": "Shell Scripting Basics",
+      "items": [
+        "How do you find which process is using port 3000 and kill it? *(lsof -i :3000 → kill <pid>; try SIGTERM before SIGKILL.)*",
+        "chmod 755 vs 644? Why do SSH keys need 600?",
+        "> vs >>? What does 2>&1 do?",
+        "kill vs kill -9? Why prefer the former?",
+        "What's the difference between a process and a thread? *(see 2.6)*",
+        "How do you see the last 100 lines of a log and follow new ones, filtered for errors? *(tail -n 100 -f app.log | grep -i error)*",
+        "How would you find all files over 100MB modified in the last week?",
+        "What are environment variables and why use them over hardcoding?",
+        "What does set -euo pipefail do?",
+        "How do you run a command that survives closing your SSH session? *(nohup, tmux/screen, or better, systemd/a process manager.)*",
+        "A server's disk is full. How do you investigate? *(df -h, du -sh /* | sort -h, check logs, Docker images, lsof | grep deleted.)*",
+        "What's the difference between a hard link and a symlink?",
+        "What do &&, ||, ;, and | do?",
+        "How do you check a process's CPU/memory use? *(top/htop, ps aux --sort=-%mem.)*",
+        "What is sudo and why is running everything as root dangerous?",
+        "Take a sample access log (generate with a script or download one). Produce: total requests, top 5 IPs, count per status code, and the slowest endpoints.",
+        "Write a bash script that backs up a directory to a timestamped .tar.gz, keeps only the last 5 backups, and exits non-zero on failure.",
+        "Start two servers on the same port, read the error, then find and kill the first one.",
+        "Can you do the log-analysis one-liner and the port-kill sequence without looking anything up?"
+      ],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [
+        "sudo as a reflex; storing secrets in shell history (export SECRET=... lands in history, so use a prompt or secrets manager); unquoted variables; running destructive commands without checking the path; no -p or confirmation habit."
+      ],
+      "reference": null,
+      "markdown": null
+    },
+    {
+      "kind": "qa",
+      "title": "Interview Questions",
+      "afterTopic": "Conventional Commits",
+      "items": [
+        "git fetch vs git pull?",
+        "Merge vs rebase. When would you use each? *(model below)*",
+        "You committed to main by mistake locally. How do you move that commit to a new branch? *(git branch feature → git reset --hard origin/main (while on main), then git switch feature.)*",
+        "You pushed a bad commit to main. How do you undo it? *(git revert, because history is shared.)*",
+        "reset --soft vs --mixed vs --hard?",
+        "What is a detached HEAD? *(HEAD points at a commit, not a branch. New commits will be orphaned unless you create a branch.)*",
+        "What's git reflog and when saved you?",
+        "How do you resolve a merge conflict? What if you pick the wrong resolution?",
+        "Squash vs merge vs rebase merge on PRs?",
+        "What does git stash do? What does it not include by default? *(untracked files)*",
+        "Trunk-based vs Gitflow?",
+        "How does Git store data internally?",
+        "What is HEAD, origin, main, upstream?",
+        "How do you find the commit that introduced a bug?",
+        "How do you remove a file from Git but keep it locally? *(git rm --cached file, then add it to .gitignore.)*",
+        "You accidentally committed a secret. What do you do? *(Rotate it first. Then remove it from history with git filter-repo/BFG if needed, force push, and notify the team. Assume it's compromised.)*",
+        "How do you undo git add? / amend a commit message? / combine the last 3 commits?",
+        "What is --force-with-lease and why is it safer than --force?",
+        "Create a repo with two branches that edit the same line. Merge, resolve the conflict, then redo it with rebase and compare the history graphs.",
+        "Make 5 messy commits, then use rebase -i to squash them into 2 clean ones.",
+        "Do git reset --hard HEAD~3, then recover the commits with reflog.",
+        "Introduce a bug across 20 commits (scripted), find it with git bisect run.",
+        "Add the CI workflow above to a repo and make a PR that fails, then fix it.",
+        "Can you undo any common mistake (bad commit, wrong branch, lost work, pushed secret) without searching?"
+      ],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [
+        "git add . committing junk or secrets; git push --force to shared branches; giant PRs; vague messages like \"fix stuff\"; panicking instead of using reflog; committing node_modules."
+      ],
+      "reference": null,
+      "markdown": null
+    },
+    {
+      "kind": "rapidfire",
+      "title": "PHASE 2 RAPID-FIRE",
+      "afterTopic": "Data Formats: JSON, XML, YAML, CSV",
+      "items": [
+        "What happens when you type a URL?",
+        "401 vs 403?",
+        "A vs CNAME record?",
+        "Why lower TTL before migration?",
+        "localhost vs 0.0.0.0?",
+        "chmod 755?",
+        "kill vs kill -9?",
+        "> vs >>?",
+        "Find who's using port 3000?",
+        "Merge vs rebase?",
+        "Undo a pushed commit?",
+        "reset --hard vs --soft?",
+        "How to recover lost commits?",
+        "fetch vs pull?",
+        "--force-with-lease?",
+        "Committed a secret?",
+        "Value vs reference?",
+        "== vs ===?",
+        "|| vs ???",
+        "Pure function?",
+        "Recursion needs?",
+        "Why is naive fib slow?",
+        "OOP's four pillars?",
+        "Composition vs inheritance?",
+        "dependencies vs devDependencies?",
+        "npm install vs npm ci?",
+        "^1.2.3 means?",
+        "Linter vs formatter?",
+        "Why 0.1 + 0.2 !== 0.3?",
+        "'😀'.length?",
+        "Stack vs heap?",
+        "Is JS compiled or interpreted?",
+        "Process vs thread?",
+        "How does Node handle many connections single-threaded?",
+        "Is Base64 encryption?"
+      ],
+      "questions": [
+        {
+          "number": 1,
+          "text": "What happens when you type a URL?",
+          "answer": "URL parse → DNS → TCP → TLS → HTTP → server → render"
+        },
+        {
+          "number": 2,
+          "text": "401 vs 403?",
+          "answer": "Unauthenticated vs unauthorized"
+        },
+        {
+          "number": 3,
+          "text": "A vs CNAME record?",
+          "answer": "IP vs alias; CNAME can't be at the apex"
+        },
+        {
+          "number": 4,
+          "text": "Why lower TTL before migration?",
+          "answer": "Caches expire sooner, so faster cutover"
+        },
+        {
+          "number": 5,
+          "text": "localhost vs 0.0.0.0?",
+          "answer": "This machine only vs all interfaces"
+        },
+        {
+          "number": 6,
+          "text": "chmod 755?",
+          "answer": "rwxr-xr-x"
+        },
+        {
+          "number": 7,
+          "text": "kill vs kill -9?",
+          "answer": "SIGTERM allows cleanup, SIGKILL doesn't"
+        },
+        {
+          "number": 8,
+          "text": "> vs >>?",
+          "answer": "Overwrite vs append"
+        },
+        {
+          "number": 9,
+          "text": "Find who's using port 3000?",
+          "answer": "lsof -i :3000"
+        },
+        {
+          "number": 10,
+          "text": "Merge vs rebase?",
+          "answer": "Preserve history vs linear rewritten history"
+        },
+        {
+          "number": 11,
+          "text": "Undo a pushed commit?",
+          "answer": "git revert"
+        },
+        {
+          "number": 12,
+          "text": "reset --hard vs --soft?",
+          "answer": "Discard changes vs keep staged"
+        },
+        {
+          "number": 13,
+          "text": "How to recover lost commits?",
+          "answer": "git reflog"
+        },
+        {
+          "number": 14,
+          "text": "fetch vs pull?",
+          "answer": "Download only vs download and integrate"
+        },
+        {
+          "number": 15,
+          "text": "--force-with-lease?",
+          "answer": "Force push that refuses to overwrite others' work"
+        },
+        {
+          "number": 16,
+          "text": "Committed a secret?",
+          "answer": "Rotate first, then clean history"
+        },
+        {
+          "number": 17,
+          "text": "Value vs reference?",
+          "answer": "Primitives copy, objects share a pointer"
+        },
+        {
+          "number": 18,
+          "text": "== vs ===?",
+          "answer": "Coercion vs strict"
+        },
+        {
+          "number": 19,
+          "text": "|| vs ???",
+          "answer": "Falsy vs nullish"
+        },
+        {
+          "number": 20,
+          "text": "Pure function?",
+          "answer": "Same input → same output, no side effects"
+        },
+        {
+          "number": 21,
+          "text": "Recursion needs?",
+          "answer": "Base case + progress toward it"
+        },
+        {
+          "number": 22,
+          "text": "Why is naive fib slow?",
+          "answer": "Exponential recomputation → memoize"
+        },
+        {
+          "number": 23,
+          "text": "OOP's four pillars?",
+          "answer": "Encapsulation, abstraction, inheritance, polymorphism"
+        },
+        {
+          "number": 24,
+          "text": "Composition vs inheritance?",
+          "answer": "Has-a vs is-a; prefer composition"
+        },
+        {
+          "number": 25,
+          "text": "dependencies vs devDependencies?",
+          "answer": "Runtime vs build/test"
+        },
+        {
+          "number": 26,
+          "text": "npm install vs npm ci?",
+          "answer": "May update lockfile vs exact reproducible install"
+        },
+        {
+          "number": 27,
+          "text": "^1.2.3 means?",
+          "answer": ">=1.2.3 <2.0.0"
+        },
+        {
+          "number": 28,
+          "text": "Linter vs formatter?",
+          "answer": "Bugs/quality vs style"
+        },
+        {
+          "number": 29,
+          "text": "Why 0.1 + 0.2 !== 0.3?",
+          "answer": "IEEE 754 binary floats; use integer cents"
+        },
+        {
+          "number": 30,
+          "text": "'😀'.length?",
+          "answer": "2 (UTF-16 code units)"
+        },
+        {
+          "number": 31,
+          "text": "Stack vs heap?",
+          "answer": "Call frames/locals vs dynamic objects"
+        },
+        {
+          "number": 32,
+          "text": "Is JS compiled or interpreted?",
+          "answer": "JIT-compiled in modern engines"
+        },
+        {
+          "number": 33,
+          "text": "Process vs thread?",
+          "answer": "Isolated memory vs shared memory"
+        },
+        {
+          "number": 34,
+          "text": "How does Node handle many connections single-threaded?",
+          "answer": "Event loop + non-blocking I/O"
+        },
+        {
+          "number": 35,
+          "text": "Is Base64 encryption?",
+          "answer": "No, it's encoding"
+        }
+      ],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": null
+    },
+    {
+      "kind": "checklist",
+      "title": "PHASE 2 FINAL READINESS CHECKLIST",
+      "afterTopic": "Data Formats: JSON, XML, YAML, CSV",
+      "items": [
+        "How the web works",
+        "[ ] I can narrate the URL-to-render flow in 2 minutes, then go deeper on any layer",
+        "[ ] I can explain DNS record types, TTL, and recursive resolution",
+        "[ ] I know the status codes and methods, and when to use each",
+        "[ ] I can run the outside-in troubleshooting ladder",
+        "Terminal and Linux",
+        "[ ] I can navigate, search, and process logs with pipes, grep, awk, sort, uniq",
+        "[ ] I understand permissions (numeric and symbolic), processes, and signals",
+        "[ ] I can find and kill a process by port, and use SSH keys",
+        "[ ] I can write a safe bash script with set -euo pipefail",
+        "Git and GitHub",
+        "[ ] I can explain staging, commits, branches, and HEAD as a model",
+        "[ ] I can merge, rebase, resolve conflicts, and clean up history interactively",
+        "[ ] I can recover from any common mistake (reset, revert, reflog, stash, bisect)",
+        "[ ] I know trunk-based vs GitHub Flow vs Gitflow, and I write conventional commits",
+        "[ ] I have a working GitHub Actions CI file",
+        "Programming fundamentals",
+        "[ ] I can explain types, value vs reference, coercion, and falsy values",
+        "[ ] I can write recursive and memoized solutions and explain stack depth",
+        "[ ] I can discuss OOP vs FP trade-offs with code examples",
+        "[ ] I handle errors deliberately (custom errors, async, no swallowing)",
+        "[ ] I solved the 10 warm-up problems cleanly",
+        "Developer environment",
+        "[ ] I use VS Code shortcuts, debugger, and DevTools fluently",
+        "[ ] I understand lockfiles, semver ranges, npm ci, and dependency hygiene",
+        "[ ] My repo has ESLint, Prettier, hooks, typecheck, and CI",
+        "[ ] I have a clear, honest stance on using AI assistants",
+        "CS basics",
+        "[ ] I can explain floats, safe integers, and BigInt, and I use integer cents for money",
+        "[ ] I can explain stack/heap, GC, and common leaks",
+        "[ ] I can explain JIT, transpilation, and why TypeScript types vanish at runtime",
+        "[ ] I can explain event-loop blocking and process vs thread",
+        "[ ] I can explain UTF-8 vs UTF-16 and Base64 vs encryption",
+        "[ ] I know JSON's limits and alternatives"
+      ],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": null
+    }
+  ],
+  "groups": [
+    {
+      "slug": "phase-2-absolute-foundations-how-the-web-works",
+      "title": "How the Web Works",
+      "description": "How the Web Works within Absolute Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-what-happens-when-you-type-a-url",
+          "title": "What happens when you type a URL",
+          "description": "The full sequence of steps from pressing Enter in the address bar to seeing a rendered page. It's the most common \"full stack warm-up\" question. It tests whether you understand the whole stack (DNS, TCP, TLS, HTTP, servers, rendering) and lets the interviewer pick any layer to probe deeper. Depth tells them your level.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "The sequence",
+            "Details that signal depth",
+            "HSTS: if the domain is on the browser's HSTS list, http:// is upgraded to https:// locally, with no insecure request.",
+            "DNS caching layers and TTL: records are cached at multiple levels for the duration of their TTL.",
+            "HTTP/2 multiplexes many requests over one TCP connection. HTTP/3 runs over QUIC (UDP) and combines the transport and TLS handshakes, which avoids TCP head-of-line blocking.",
+            "Render-blocking: CSS blocks rendering. Synchronous <script> blocks HTML parsing unless it has defer or async.",
+            "Connection reuse: keep-alive means subsequent requests skip the TCP and TLS setup.",
+            "Redirects: http → https and non-www → www each cost an extra round trip."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Open DevTools → Network on any site. Hard-reload and find the DNS, connect, SSL, TTFB, and download timings for the main document. Write what each means. Then run curl -v https://example.com and match each line of output to a step above.",
+            "Can you give this answer in 2 minutes, then go one level deeper on any step?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "What happens when you type `google.com` and press Enter?",
+              "answer": "model answer below"
+            },
+            {
+              "text": "What is DNS and how does recursive resolution work?",
+              "answer": ""
+            },
+            {
+              "text": "Why is TCP's handshake needed, and why is it 3-way?",
+              "answer": ""
+            },
+            {
+              "text": "What's the difference between HTTP and HTTPS? What does TLS provide?",
+              "answer": "confidentiality, integrity, authentication"
+            },
+            {
+              "text": "What is the critical rendering path?",
+              "answer": ""
+            },
+            {
+              "text": "How does HTTP/2 differ from HTTP/1.1? What does HTTP/3 change?",
+              "answer": ""
+            },
+            {
+              "text": "How would a CDN change this flow?",
+              "answer": ""
+            },
+            {
+              "text": "A page loads slowly. Where would you look first?",
+              "answer": "Network tab waterfall: DNS, connect, TLS, TTFB, content download"
+            }
+          ],
+          "interview": {
+            "whyAsked": "It's the most common \"full stack warm-up\" question. It tests whether you understand the whole stack (DNS, TCP, TLS, HTTP, servers, rendering) and lets the interviewer pick any layer to probe deeper. Depth tells them your level.",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [
+              "skipping DNS entirely; saying \"the browser sends the request to the server\" with nothing about how it finds the server; confusing TCP and TLS handshakes; saying HTTPS \"encrypts the URL\" (the host is visible via DNS and SNI, and the path is encrypted)."
+            ],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 3,
+            "questionCount": 8
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\n1. URL parsing        → scheme (https), host (example.com), port (443), path, query, fragment\n2. Cache checks       → browser cache, service worker, HSTS list (force HTTPS?)\n3. DNS resolution     → browser cache → OS cache → hosts file → recursive resolver\n                        → root → TLD (.com) → authoritative nameserver → IP\n4. TCP handshake      → SYN → SYN-ACK → ACK (1 round trip)\n5. TLS handshake      → negotiate version/cipher, verify certificate, derive session keys\n                        (TLS 1.3: 1 round trip; 0-RTT on resumption)\n6. HTTP request       → GET /path with headers (Host, Cookie, Accept, User-Agent...)\n7. Server side        → CDN/edge → load balancer → reverse proxy (Nginx)\n                        → app server → cache/DB → build response\n8. HTTP response      → status line, headers, body (HTML)\n9. Browser rendering  → parse HTML → DOM; parse CSS → CSSOM; combine → render tree\n                        → layout → paint → composite\n10. Subresources      → CSS, JS, images, fonts fetched (reusing connections);\n                        JS executes; may fetch API data and update the DOM\n```",
+          "resources": [
+            "MDN \"How the Web works\" and \"What happens when you type a URL\"; web.dev \"How browsers work\"; the GitHub repo \"alex/what-happens-when\"."
+          ],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-client-server-model",
+          "title": "Client-server model",
+          "description": "The client requests resources, the server provides them. Hosts are identified by IP addresses, and individual services on a host by port numbers.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "IPv4: 32-bit (192.168.1.10), about 4.3 billion addresses, exhausted, so NAT is common. IPv6: 128-bit (2001:db8::1).",
+            "Public vs private ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 are private (not routable on the public internet).",
+            "Loopback: 127.0.0.1 / localhost is \"this machine\". 0.0.0.0 means \"all interfaces\" when binding.",
+            "Ports: 16-bit (0-65535). A socket is IP + port + protocol.",
+            "Well-known ports:",
+            "NAT: a router maps many private devices to one public IP.",
+            "Stateless protocol: HTTP treats each request independently. State comes from cookies, tokens, or server-side sessions.",
+            "CIDR notation: 192.168.1.0/24 means the first 24 bits are the network, leaving 256 addresses.",
+            "Code: binding matters (Node)"
+          ],
+          "commonMistakes": [
+            "thinking localhost is reachable from other devices; confusing a port with a protocol."
+          ],
+          "practiceTasks": [
+            "Start any local server, then find your LAN IP (ipconfig / ifconfig / ip addr) and open it from your phone on the same Wi-Fi.",
+            "Can you explain the Docker \"works on my machine but not from outside the container\" bind issue?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "What's the difference between `localhost`, `127.0.0.1`, and `0.0.0.0`?",
+              "answer": ""
+            },
+            {
+              "text": "Why can't my phone reach my dev server at `localhost:3000`?",
+              "answer": "localhost is the phone itself. Use the laptop's LAN IP, and bind the server to `0.0.0.0`."
+            },
+            {
+              "text": "What's a port? Can two apps listen on the same port?",
+              "answer": "Not on the same IP and protocol, which gives `EADDRINUSE`."
+            },
+            {
+              "text": "What is NAT and why does it exist?",
+              "answer": ""
+            },
+            {
+              "text": "What does \"stateless\" mean for HTTP, and how do we add state?",
+              "answer": ""
+            },
+            {
+              "text": "What is a CIDR `/24`?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nimport http from 'node:http';\n// Only reachable from this machine:\nhttp.createServer(handler).listen(3000, '127.0.0.1');\n// Reachable from other machines (and inside Docker containers):\nhttp.createServer(handler).listen(3000, '0.0.0.0');\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-ip-and-ports",
+          "title": "IP and ports",
+          "description": "IP and ports — part of How the Web Works in Absolute Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-dns-basics",
+          "title": "DNS basics",
+          "description": "The distributed system that translates domain names to IP addresses (and stores other domain metadata).",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Hierarchy: root (.) → TLD (.com) → domain (example.com) → subdomain (api.example.com).",
+            "Actors: stub resolver (your OS), recursive resolver (ISP, 1.1.1.1, 8.8.8.8), root servers, TLD servers, authoritative nameservers.",
+            "Record types",
+            "TTL: how long (in seconds) resolvers may cache the record. Lower the TTL *before* a planned migration.",
+            "Propagation: isn't actually a push. It's old caches expiring.",
+            "DNS uses UDP (port 53) for most queries, with TCP fallback for large responses and zone transfers. DoH/DoT encrypt it.",
+            "DNS-based load balancing / geo-routing: return different IPs by region or health.",
+            "Commands"
+          ],
+          "commonMistakes": [
+            "changing DNS and expecting instant effect; forgetting that a CNAME can't coexist with other records at the same name."
+          ],
+          "practiceTasks": [
+            "Buy or use a free domain, create an A record and a www CNAME, verify with dig, and note the TTL.",
+            "Can you explain why lowering TTL a day before a migration helps?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Walk me through how a DNS lookup works.",
+              "answer": ""
+            },
+            {
+              "text": "A vs CNAME? Why can't you put a CNAME on the root domain?",
+              "answer": ""
+            },
+            {
+              "text": "What is TTL, and what do you do with it before a migration?",
+              "answer": ""
+            },
+            {
+              "text": "Why does \"DNS propagation\" take time?",
+              "answer": ""
+            },
+            {
+              "text": "How would you point a domain to a Vercel/Netlify/AWS deployment?",
+              "answer": ""
+            },
+            {
+              "text": "What are SPF/DKIM records used for?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\ndig example.com +short          # A record\ndig example.com MX\ndig @8.8.8.8 example.com        # query a specific resolver\ndig +trace example.com          # show the resolution path\nnslookup example.com\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-http-request-response-cycle",
+          "title": "HTTP request/response cycle",
+          "description": "The text-based, stateless request/response protocol browsers and APIs use. (Network-level depth in Phase 7.)",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Anatomy of a request and response",
+            "Methods: GET (read, safe, idempotent), POST (create or action), PUT (replace, idempotent), PATCH (partial update), DELETE (idempotent), HEAD, OPTIONS (CORS preflight).",
+            "Status code families: 1xx info · 2xx success · 3xx redirect · 4xx client error · 5xx server error.",
+            "Headers to know: Content-Type, Accept, Authorization, Cookie/Set-Cookie, Cache-Control, ETag/If-None-Match, Location, Origin, User-Agent.",
+            "Query string vs body vs path params: the path identifies the resource, the query filters or paginates, and the body carries the payload.",
+            "Stateless: the server holds no per-client memory between requests unless you add it (sessions or tokens).",
+            "Keep-alive, HTTP/2 multiplexing, HTTPS (covered in Phase 7)."
+          ],
+          "commonMistakes": [
+            "using POST for everything; returning 200 with {error: ...} for failures; confusing authentication with authorization."
+          ],
+          "practiceTasks": [
+            "With curl -i, send GET, POST (JSON), and a request that returns 404 against any public API (e.g., https://jsonplaceholder.typicode.com). Annotate the headers.",
+            "Can you name the right status code for: created, validation failed, duplicate, not logged in, not allowed, rate limited?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "GET vs POST? What do \"safe\" and \"idempotent\" mean?",
+              "answer": ""
+            },
+            {
+              "text": "PUT vs PATCH?",
+              "answer": ""
+            },
+            {
+              "text": "401 vs 403?",
+              "answer": "\"401 means the request lacks valid authentication, so the server doesn't know who you are. The fix is to log in or send a valid token. 403 means the server knows who you are but you aren't allowed to do this. Re-authenticating won't help.\""
+            },
+            {
+              "text": "301 vs 302? Which affects SEO and caching more?",
+              "answer": ""
+            },
+            {
+              "text": "What does `304 Not Modified` mean, and how does `ETag` work?",
+              "answer": ""
+            },
+            {
+              "text": "Where should an auth token go: header, cookie, or URL? Why not the URL?",
+              "answer": "URLs get logged, cached, stored in history, and leaked via `Referer`."
+            },
+            {
+              "text": "What's the difference between a cookie and a header?",
+              "answer": ""
+            },
+            {
+              "text": "What happens on a `500` vs a `502/504`?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 8
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```http\nPOST /api/users HTTP/1.1\nHost: api.example.com\nContent-Type: application/json\nAuthorization: Bearer eyJhbGciOi...\nAccept: application/json\nContent-Length: 41\n\n{\"name\":\"Ada\",\"email\":\"ada@example.com\"}\n```\n\n```http\nHTTP/1.1 201 Created\nContent-Type: application/json\nLocation: /api/users/42\nCache-Control: no-store\nSet-Cookie: sid=abc123; HttpOnly; Secure; SameSite=Lax\n\n{\"id\":42,\"name\":\"Ada\",\"email\":\"ada@example.com\"}\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-browsers-vs-servers",
+          "title": "Browsers vs servers",
+          "description": "Browsers vs servers within How the Web Works.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Browser responsibilities: fetch, parse, render, run JS, enforce security (same-origin policy, CORS), store data (cookies, storage).",
+            "Server responsibilities: receive requests, authenticate, run business logic, talk to databases and services, return responses. Never trust the client, because everything in the browser can be inspected and modified.",
+            "Static vs dynamic: static files are served as-is (CDN-friendly). Dynamic responses are generated per request.",
+            "Rendering models (overview, depth in Phases 3-4)",
+            "API-driven architecture: the frontend talks to a backend over HTTP/JSON (REST or GraphQL). Frontend and backend are decoupled."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "View source vs inspect element on a React site and an SSR site. Explain what you see.",
+            "Can you justify \"never trust the client\" with two concrete attacks?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Why must validation happen on the server even if the client validates?",
+              "answer": ""
+            },
+            {
+              "text": "CSR vs SSR: when would you pick each?",
+              "answer": ""
+            },
+            {
+              "text": "What's the difference between a website and a web app?",
+              "answer": ""
+            },
+            {
+              "text": "What can a user do with DevTools that affects your security model?",
+              "answer": "edit JS, change requests, forge any header or body, so enforce auth and validation server-side"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 1,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-hosting-and-domains",
+          "title": "Hosting and domains",
+          "description": "Hosting and domains within How the Web Works.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Domain registrar (sells the name) vs DNS host (answers queries) vs web host (serves content). They can be three different companies.",
+            "Hosting types",
+            "HTTPS certificates: Let's Encrypt is free, and most platforms auto-provision.",
+            "Environments: local → staging → production, with separate config and secrets."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Deploy a static page to Netlify/Vercel/GitHub Pages and attach a custom domain with HTTPS."
+          ],
+          "interviewQuestions": [
+            {
+              "text": "How would you deploy a React + Express app for a small startup, and why?",
+              "answer": ""
+            },
+            {
+              "text": "What happens between buying a domain and it serving your site?",
+              "answer": ""
+            },
+            {
+              "text": "Serverless vs a VPS trade-offs?",
+              "answer": "cold starts, per-invocation pricing, limits vs. ops burden, fixed cost, control"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 1,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-frontend-vs-backend-vs-full-stack-roles",
+          "title": "Frontend vs backend vs full stack roles",
+          "description": "Frontend vs backend vs full stack roles within How the Web Works.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Question: \"What does full stack mean to you?\""
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain question: \"what does full stack mean to you?\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-client-server-model-ip-addresses-and-ports",
+          "title": "Client-Server Model, IP Addresses, and Ports",
+          "description": "The client requests resources, the server provides them. Hosts are identified by IP addresses, and individual services on a host by port numbers.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "IPv4: 32-bit (192.168.1.10), about 4.3 billion addresses, exhausted, so NAT is common. IPv6: 128-bit (2001:db8::1).",
+            "Public vs private ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 are private (not routable on the public internet).",
+            "Loopback: 127.0.0.1 / localhost is \"this machine\". 0.0.0.0 means \"all interfaces\" when binding.",
+            "Ports: 16-bit (0-65535). A socket is IP + port + protocol.",
+            "Well-known ports:",
+            "NAT: a router maps many private devices to one public IP.",
+            "Stateless protocol: HTTP treats each request independently. State comes from cookies, tokens, or server-side sessions.",
+            "CIDR notation: 192.168.1.0/24 means the first 24 bits are the network, leaving 256 addresses.",
+            "Code: binding matters (Node)"
+          ],
+          "commonMistakes": [
+            "thinking localhost is reachable from other devices; confusing a port with a protocol."
+          ],
+          "practiceTasks": [
+            "Start any local server, then find your LAN IP (ipconfig / ifconfig / ip addr) and open it from your phone on the same Wi-Fi.",
+            "Can you explain the Docker \"works on my machine but not from outside the container\" bind issue?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "What's the difference between `localhost`, `127.0.0.1`, and `0.0.0.0`?",
+              "answer": ""
+            },
+            {
+              "text": "Why can't my phone reach my dev server at `localhost:3000`?",
+              "answer": "localhost is the phone itself. Use the laptop's LAN IP, and bind the server to `0.0.0.0`."
+            },
+            {
+              "text": "What's a port? Can two apps listen on the same port?",
+              "answer": "Not on the same IP and protocol, which gives `EADDRINUSE`."
+            },
+            {
+              "text": "What is NAT and why does it exist?",
+              "answer": ""
+            },
+            {
+              "text": "What does \"stateless\" mean for HTTP, and how do we add state?",
+              "answer": ""
+            },
+            {
+              "text": "What is a CIDR `/24`?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nimport http from 'node:http';\n// Only reachable from this machine:\nhttp.createServer(handler).listen(3000, '127.0.0.1');\n// Reachable from other machines (and inside Docker containers):\nhttp.createServer(handler).listen(3000, '0.0.0.0');\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-browsers-vs-servers-and-rendering-models",
+          "title": "Browsers vs Servers, and Rendering Models",
+          "description": "Browsers vs Servers, and Rendering Models within How the Web Works.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Browser responsibilities: fetch, parse, render, run JS, enforce security (same-origin policy, CORS), store data (cookies, storage).",
+            "Server responsibilities: receive requests, authenticate, run business logic, talk to databases and services, return responses. Never trust the client, because everything in the browser can be inspected and modified.",
+            "Static vs dynamic: static files are served as-is (CDN-friendly). Dynamic responses are generated per request.",
+            "Rendering models (overview, depth in Phases 3-4)",
+            "API-driven architecture: the frontend talks to a backend over HTTP/JSON (REST or GraphQL). Frontend and backend are decoupled."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "View source vs inspect element on a React site and an SSR site. Explain what you see.",
+            "Can you justify \"never trust the client\" with two concrete attacks?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Why must validation happen on the server even if the client validates?",
+              "answer": ""
+            },
+            {
+              "text": "CSR vs SSR: when would you pick each?",
+              "answer": ""
+            },
+            {
+              "text": "What's the difference between a website and a web app?",
+              "answer": ""
+            },
+            {
+              "text": "What can a user do with DevTools that affects your security model?",
+              "answer": "edit JS, change requests, forge any header or body, so enforce auth and validation server-side"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 1,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-hosting-domains-and-deployment-targets",
+          "title": "Hosting, Domains, and Deployment Targets",
+          "description": "Hosting, Domains, and Deployment Targets within How the Web Works.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Domain registrar (sells the name) vs DNS host (answers queries) vs web host (serves content). They can be three different companies.",
+            "Hosting types",
+            "HTTPS certificates: Let's Encrypt is free, and most platforms auto-provision.",
+            "Environments: local → staging → production, with separate config and secrets."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Deploy a static page to Netlify/Vercel/GitHub Pages and attach a custom domain with HTTPS."
+          ],
+          "interviewQuestions": [
+            {
+              "text": "How would you deploy a React + Express app for a small startup, and why?",
+              "answer": ""
+            },
+            {
+              "text": "What happens between buying a domain and it serving your site?",
+              "answer": ""
+            },
+            {
+              "text": "Serverless vs a VPS trade-offs?",
+              "answer": "cold starts, per-invocation pricing, limits vs. ops burden, fixed cost, control"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 1,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-how-the-web-works-frontend-vs-backend-vs-full-stack",
+          "title": "Frontend vs Backend vs Full Stack",
+          "description": "Frontend vs Backend vs Full Stack within How the Web Works.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Question: \"What does full stack mean to you?\""
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-2-absolute-foundations-terminal-and-linux-cli",
+      "title": "Terminal and Linux CLI",
+      "description": "Terminal and Linux CLI within Absolute Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-navigation-and-file-commands",
+          "title": "Navigation and file commands",
+          "description": "Navigation and file commands within Terminal and Linux CLI.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Absolute vs relative paths, ~ home, . current, .. parent.",
+            "Everything is a file (devices, sockets, pipes).",
+            "Wildcards (globbing): *.js, file?.txt, {a,b}, expanded by the *shell*, not the program.",
+            "rm -rf has no recycle bin, so double-check paths, especially with variables (rm -rf \"$DIR/\" with an empty $DIR is a famous disaster).",
+            "Quote variables with spaces: \"$file\"."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Where am I / list",
+              "answer": "pwd, ls -la"
+            },
+            {
+              "text": "Change directory",
+              "answer": "cd dir, cd .., cd ~, cd -"
+            },
+            {
+              "text": "Create",
+              "answer": "mkdir -p a/b/c, touch file"
+            },
+            {
+              "text": "Copy / move / delete",
+              "answer": "cp -r src dst, mv a b, rm -rf dir ⚠️"
+            },
+            {
+              "text": "View",
+              "answer": "cat, less, head -n 20, tail -n 20, tail -f app.log"
+            },
+            {
+              "text": "Disk",
+              "answer": "du -sh *, df -h"
+            },
+            {
+              "text": "Find a command",
+              "answer": "which node, type, man ls, ls --help"
+            },
+            {
+              "text": "History / shortcuts",
+              "answer": "history, Ctrl+R (reverse search), Ctrl+C, Ctrl+L, !!"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 8,
+            "questionCount": 8
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-permissions-and-ownership",
+          "title": "Permissions and ownership",
+          "description": "Permissions and ownership within Terminal and Linux CLI.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "r=4, w=2, x=1. chmod 755 f = rwxr-xr-x, chmod 644 f = rw-r--r--, chmod 600 = owner-only (SSH keys require it).",
+            "chmod +x script.sh makes a script executable. chown user:group file changes ownership.",
+            "Directories: x means you can enter (traverse) it, r means you can list it.",
+            "sudo runs as root. Use sparingly, and never sudo npm install -g as a habit (fix your npm prefix or use nvm instead).",
+            "Principle of least privilege: run services as non-root users."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain r=4, w=2, x=1. chmod 755 f = rwxr-xr-x, chmod 644 f = rw-r--r--, chmod 600 = owner-only (ssh keys require it). and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain chmod +x script.sh makes a script executable. chown user:group file changes ownership. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain directories: x means you can enter (traverse) it, r means you can list it. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain sudo runs as root. use sparingly, and never sudo npm install -g as a habit (fix your npm prefix or use nvm instead). and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain principle of least privilege: run services as non-root users. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\n-rwxr-xr--  1 alice  devs  1024 Jan 1 file.sh\n │└┬┘└┬┘└┬┘\n │ │  │  └─ others: r--  (4)\n │ │  └──── group:  r-x  (5)\n │ └─────── owner:  rwx  (7)\n └───────── type: - file, d directory, l symlink\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-pipes-and-redirection",
+          "title": "Pipes and redirection",
+          "description": "Pipes and redirection within Terminal and Linux CLI.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Text tools",
+            "Classic one-liner (log analysis): top 10 IPs hitting your server",
+            "Count 500 errors in a log (nginx combined format, status is column 9)"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain text tools and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain count 500 errors in a log (nginx combined format, status is column 9) and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\ncmd > file        # stdout to file (overwrite)\ncmd >> file       # append\ncmd 2> err.log    # stderr to file\ncmd > out 2>&1    # both streams to one file\ncmd1 | cmd2       # stdout of cmd1 becomes stdin of cmd2\ncmd < input.txt   # stdin from file\ncmd1 && cmd2      # run cmd2 only if cmd1 succeeded\ncmd1 || cmd2      # run cmd2 only if cmd1 failed\ncmd1 ; cmd2       # run both regardless\n```\n\n```bash\ngrep -rniE \"error|fail\" ./logs        # recursive, line numbers, case-insens., regex\ngrep -v \"healthcheck\" access.log      # invert match\nfind . -name \"*.log\" -mtime +7        # files modified more than 7 days ago\nfind . -type f -size +100M            # large files\nfind . -name node_modules -prune -o -name \"*.js\" -print\nsed 's/foo/bar/g' file                # substitute (use -i to edit in place; macOS needs -i '')\nawk '{print $1, $9}' access.log       # print columns 1 and 9\nawk -F, '{sum += $3} END {print sum}' sales.csv\nsort | uniq -c | sort -rn | head      # frequency count, top N\nwc -l file                            # count lines\ncut -d, -f1,3 file.csv                # extract CSV columns\nxargs                                 # build commands from stdin\njq '.items[] | .name' data.json       # JSON processing\n```\n\n```bash\nawk '{print $1}' access.log | sort | uniq -c | sort -rn | head -10\n```\n\n```bash\nawk '$9 == 500' access.log | wc -l\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-grep-find-sed-awk-basics",
+          "title": "grep/find/sed/awk basics",
+          "description": "grep/find/sed/awk basics — part of Terminal and Linux CLI in Absolute Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-environment-variables",
+          "title": "Environment variables",
+          "description": "Environment variables within Terminal and Linux CLI.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Key-value pairs inherited by child processes. Used for configuration and secrets (12-factor).",
+            "PATH: why command not found happens: the binary isn't in a directory listed in PATH.",
+            ".env files: loaded by tools (dotenv, Docker Compose, Vite). Never commit them. Provide .env.example.",
+            "Persistence: add to ~/.bashrc / ~/.zshrc (shell-wide) or use a secrets manager (production).",
+            "Node: process.env.API_KEY is always a *string*, so \"false\" is truthy.",
+            "Frontend caution: env vars bundled into client code (VITE_*, NEXT_PUBLIC_*) are public. Never put secrets there."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain key-value pairs inherited by child processes. used for configuration and secrets (12-factor). and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain path: why command not found happens: the binary isn't in a directory listed in path. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain .env files: loaded by tools (dotenv, docker compose, vite). never commit them. provide .env.example. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain persistence: add to ~/.bashrc / ~/.zshrc (shell-wide) or use a secrets manager (production). and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain node: process.env.api_key is always a *string*, so \"false\" is truthy. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\nexport API_KEY=abc123          # set for this shell and its children\nprintenv API_KEY               # read\necho \"$PATH\"                   # directories searched for commands\nAPI_KEY=abc node app.js        # set for one command only\nenv | grep NODE                # inspect\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-processes-and-signals",
+          "title": "Processes and signals",
+          "description": "Processes and signals within Terminal and Linux CLI.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Signals: SIGINT (2, Ctrl+C), SIGTERM (15, default kill, what Docker and Kubernetes send on stop), SIGKILL (9, forced).",
+            "Graceful shutdown (important for backend): handle SIGTERM, stop accepting requests, finish in-flight work, close DB connections, then exit.",
+            "Exit codes: 0 = success, non-zero = failure. $? holds the last exit code. CI uses this to pass or fail a step.",
+            "Daemon/service: a long-running background process, usually managed by systemd (systemctl status|restart nginx, journalctl -u nginx -f).",
+            "Zombie process: finished but not reaped by its parent. Orphan: parent died, adopted by init."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain signals: sigint (2, ctrl+c), sigterm (15, default kill, what docker and kubernetes send on stop), sigkill (9, forced). and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain graceful shutdown (important for backend): handle sigterm, stop accepting requests, finish in-flight work, close db connections, then exit. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain exit codes: 0 = success, non-zero = failure. $? holds the last exit code. ci uses this to pass or fail a step. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain daemon/service: a long-running background process, usually managed by systemd (systemctl status|restart nginx, journalctl -u nginx -f). and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain zombie process: finished but not reaped by its parent. orphan: parent died, adopted by init. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\nps aux | grep node                # list processes\ntop / htop                        # live resource usage\nlsof -i :3000                     # who is using port 3000? (macOS/Linux)\nss -tulpn | grep 3000             # Linux alternative\nkill 1234                         # SIGTERM (15): polite request to terminate\nkill -9 1234                      # SIGKILL (9): cannot be caught, no cleanup\nkill -HUP 1234                    # SIGHUP: often \"reload config\"\npkill -f \"node server.js\"\ncmd &                             # run in background\njobs; fg; bg                      # job control\nnohup cmd > out.log 2>&1 &        # survive terminal close\n```\n\n```js\nprocess.on('SIGTERM', () => {\n  server.close(async () => {   // stop accepting new connections\n    await db.end();            // release resources\n    process.exit(0);\n  });\n});\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-ssh-basics",
+          "title": "SSH basics",
+          "description": "SSH basics within Terminal and Linux CLI.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Key-based auth: private key stays on your machine (chmod 600), public key goes in the server's ~/.ssh/authorized_keys. Never share or commit the private key.",
+            "~/.ssh/config for aliases:",
+            "Hardening: disable password login and root login, use a firewall, and use fail2ban (Phase 8).",
+            "GitHub uses SSH keys too (ssh -T git@github.com)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain key-based auth: private key stays on your machine (chmod 600), public key goes in the server's ~/.ssh/authorized_keys. never share or commit the private key. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain ~/.ssh/config for aliases: and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain hardening: disable password login and root login, use a firewall, and use fail2ban (phase 8). and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain github uses ssh keys too (ssh -t git@github.com). and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\nssh-keygen -t ed25519 -C \"you@example.com\"   # generate a key pair\nssh user@host                                 # connect\nssh -i ~/.ssh/key user@host\nscp file user@host:/path                      # copy over SSH\nrsync -avz ./dist/ user@host:/var/www/app/    # efficient sync\nssh -L 5432:localhost:5432 user@host          # local port forward (tunnel to remote DB)\n```\n\n```\nHost prod\n  HostName 203.0.113.10\n  User deploy\n  IdentityFile ~/.ssh/id_ed25519\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-shell-scripting-basics",
+          "title": "Shell scripting basics",
+          "description": "Shell scripting basics within Terminal and Linux CLI.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "shebang, variables (\"$var\"), arguments ($1, $@, $#), conditionals ([[ ]]), loops, functions, exit codes, trap for cleanup, and set -euo pipefail for safety."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain shebang, variables (\"$var\"), arguments ($1, $@, $#), conditionals ([[ ]]), loops, functions, exit codes, trap for cleanup, and set -euo pipefail for safety. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\n#!/usr/bin/env bash\nset -euo pipefail            # exit on error, unset var, and pipe failures\n\nAPP_DIR=\"${1:-/var/www/app}\" # first arg, with default\nLOG=\"deploy.log\"\n\nlog() { echo \"[$(date +'%F %T')] $*\" | tee -a \"$LOG\"; }\n\nif [[ ! -d \"$APP_DIR\" ]]; then\n  log \"Directory $APP_DIR not found\"; exit 1\nfi\n\ncd \"$APP_DIR\"\ngit pull --ff-only\nnpm ci --omit=dev\nnpm run build\n\nfor svc in api worker; do\n  log \"Restarting $svc\"\n  systemctl restart \"$svc\"\ndone\nlog \"Done\"\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-terminal-and-linux-cli-pipes-redirection-and-text-tools",
+          "title": "Pipes, Redirection, and Text Tools",
+          "description": "Pipes, Redirection, and Text Tools within Terminal and Linux CLI.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Text tools",
+            "Classic one-liner (log analysis): top 10 IPs hitting your server",
+            "Count 500 errors in a log (nginx combined format, status is column 9)"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\ncmd > file        # stdout to file (overwrite)\ncmd >> file       # append\ncmd 2> err.log    # stderr to file\ncmd > out 2>&1    # both streams to one file\ncmd1 | cmd2       # stdout of cmd1 becomes stdin of cmd2\ncmd < input.txt   # stdin from file\ncmd1 && cmd2      # run cmd2 only if cmd1 succeeded\ncmd1 || cmd2      # run cmd2 only if cmd1 failed\ncmd1 ; cmd2       # run both regardless\n```\n\n```bash\ngrep -rniE \"error|fail\" ./logs        # recursive, line numbers, case-insens., regex\ngrep -v \"healthcheck\" access.log      # invert match\nfind . -name \"*.log\" -mtime +7        # files modified more than 7 days ago\nfind . -type f -size +100M            # large files\nfind . -name node_modules -prune -o -name \"*.js\" -print\nsed 's/foo/bar/g' file                # substitute (use -i to edit in place; macOS needs -i '')\nawk '{print $1, $9}' access.log       # print columns 1 and 9\nawk -F, '{sum += $3} END {print sum}' sales.csv\nsort | uniq -c | sort -rn | head      # frequency count, top N\nwc -l file                            # count lines\ncut -d, -f1,3 file.csv                # extract CSV columns\nxargs                                 # build commands from stdin\njq '.items[] | .name' data.json       # JSON processing\n```\n\n```bash\nawk '{print $1}' access.log | sort | uniq -c | sort -rn | head -10\n```\n\n```bash\nawk '$9 == 500' access.log | wc -l\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-2-absolute-foundations-git-and-github",
+      "title": "Git and GitHub",
+      "description": "Git and GitHub within Absolute Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-init-commit-branch-merge",
+          "title": "Init/commit/branch/merge",
+          "description": "Init/commit/branch/merge — part of Git and GitHub in Absolute Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-rebase-vs-merge",
+          "title": "Rebase vs merge",
+          "description": "Rebase vs merge within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "PR merge strategies on GitHub",
+            "Merge commit: keeps all commits plus a merge commit.",
+            "Squash and merge: collapses the PR into one commit on main (clean history, loses granularity).",
+            "Rebase and merge: replays commits linearly onto main (no merge commit).",
+            "Interactive rebase"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain pr merge strategies on github and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain interactive rebase and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "don't rebase public/shared history.",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nBefore:       A──B──C  (main)\n                 \\\n                  D──E  (feature)\n\nMerge:        A──B──C─────M   (main)       M = merge commit with two parents\n                 \\       /\n                  D──E──┘\n\nRebase:       A──B──C──D'──E'  (feature)   D', E' = new commits with new hashes\n```\n\n```bash\ngit rebase -i HEAD~4    # squash, reword, reorder, drop commits\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-conflict-resolution",
+          "title": "Conflict resolution",
+          "description": "Conflict resolution within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "git status to see conflicted files.",
+            "Open each file, decide the right result (often a combination), and remove the markers.",
+            "git add <file> then git merge --continue (or git rebase --continue).",
+            "Run tests. A conflict-free merge can still be a *semantic* conflict.",
+            "Abort anytime with git merge --abort / git rebase --abort.",
+            "Reduce conflicts: small PRs, frequent syncing with main, avoid mass reformatting, and clear file ownership.",
+            "Tools: VS Code merge editor, git mergetool. Enable rerere to reuse recorded resolutions."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain git status to see conflicted files. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain open each file, decide the right result (often a combination), and remove the markers. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain git add <file> then git merge --continue (or git rebase --continue). and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain run tests. a conflict-free merge can still be a *semantic* conflict. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain abort anytime with git merge --abort / git rebase --abort. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\n<<<<<<< HEAD\nyour version\n=======\ntheir version\n>>>>>>> feature/x\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-stash",
+          "title": "Stash",
+          "description": "Stash within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "git bisect",
+            "Force pushing"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain git bisect and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain force pushing and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\n# STASH: shelve uncommitted work\ngit stash push -m \"wip login\"      # (-u includes untracked files)\ngit stash list\ngit stash pop                      # apply and drop; `apply` keeps it\n\n# CHERRY-PICK: copy a specific commit onto the current branch\ngit cherry-pick <sha>              # use for hotfixes backported to a release branch\n\n# RESET: move the branch pointer (rewrites history locally)\ngit reset --soft HEAD~1            # undo commit; changes stay STAGED\ngit reset --mixed HEAD~1           # (default) undo commit; changes UNSTAGED\ngit reset --hard HEAD~1            # undo commit; DISCARD changes ⚠️\n\n# REVERT: create a NEW commit that undoes a previous one (safe for shared history)\ngit revert <sha>\n\n# REFLOG: local log of where HEAD has been, so you can recover \"lost\" commits\ngit reflog\ngit reset --hard HEAD@{3}          # go back to a prior state\ngit branch rescue <sha>            # safest: make a branch at the lost commit\n```\n\n```bash\ngit bisect start\ngit bisect bad                 # current commit is broken\ngit bisect good v1.2.0         # this one worked\n# git checks out midpoints; mark each good/bad (or `git bisect run npm test`)\ngit bisect reset\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-cherry-pick",
+          "title": "cherry-pick",
+          "description": "cherry-pick within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "git bisect",
+            "Force pushing"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain git bisect and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain force pushing and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\n# STASH: shelve uncommitted work\ngit stash push -m \"wip login\"      # (-u includes untracked files)\ngit stash list\ngit stash pop                      # apply and drop; `apply` keeps it\n\n# CHERRY-PICK: copy a specific commit onto the current branch\ngit cherry-pick <sha>              # use for hotfixes backported to a release branch\n\n# RESET: move the branch pointer (rewrites history locally)\ngit reset --soft HEAD~1            # undo commit; changes stay STAGED\ngit reset --mixed HEAD~1           # (default) undo commit; changes UNSTAGED\ngit reset --hard HEAD~1            # undo commit; DISCARD changes ⚠️\n\n# REVERT: create a NEW commit that undoes a previous one (safe for shared history)\ngit revert <sha>\n\n# REFLOG: local log of where HEAD has been, so you can recover \"lost\" commits\ngit reflog\ngit reset --hard HEAD@{3}          # go back to a prior state\ngit branch rescue <sha>            # safest: make a branch at the lost commit\n```\n\n```bash\ngit bisect start\ngit bisect bad                 # current commit is broken\ngit bisect good v1.2.0         # this one worked\n# git checks out midpoints; mark each good/bad (or `git bisect run npm test`)\ngit bisect reset\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-reset-vs-revert",
+          "title": "reset vs revert",
+          "description": "reset vs revert within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "git bisect",
+            "Force pushing"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain git bisect and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain force pushing and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\n# STASH: shelve uncommitted work\ngit stash push -m \"wip login\"      # (-u includes untracked files)\ngit stash list\ngit stash pop                      # apply and drop; `apply` keeps it\n\n# CHERRY-PICK: copy a specific commit onto the current branch\ngit cherry-pick <sha>              # use for hotfixes backported to a release branch\n\n# RESET: move the branch pointer (rewrites history locally)\ngit reset --soft HEAD~1            # undo commit; changes stay STAGED\ngit reset --mixed HEAD~1           # (default) undo commit; changes UNSTAGED\ngit reset --hard HEAD~1            # undo commit; DISCARD changes ⚠️\n\n# REVERT: create a NEW commit that undoes a previous one (safe for shared history)\ngit revert <sha>\n\n# REFLOG: local log of where HEAD has been, so you can recover \"lost\" commits\ngit reflog\ngit reset --hard HEAD@{3}          # go back to a prior state\ngit branch rescue <sha>            # safest: make a branch at the lost commit\n```\n\n```bash\ngit bisect start\ngit bisect bad                 # current commit is broken\ngit bisect good v1.2.0         # this one worked\n# git checks out midpoints; mark each good/bad (or `git bisect run npm test`)\ngit bisect reset\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-reflog-and-recovery",
+          "title": "Reflog and recovery",
+          "description": "Reflog and recovery — part of Git and GitHub in Absolute Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-branching-strategies-trunk-based-gitflow",
+          "title": "Branching strategies (trunk-based, Gitflow)",
+          "description": "Branching strategies (trunk-based, Gitflow) within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Branch naming"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain branch naming and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-pull-requests-and-reviews",
+          "title": "Pull requests and reviews",
+          "description": "Pull requests and reviews — part of Git and GitHub in Absolute Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-github-actions-intro",
+          "title": "GitHub Actions intro",
+          "description": "GitHub Actions intro within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```yaml\n# .github/workflows/ci.yml\nname: CI\non:\n  pull_request:\n  push:\n    branches: [main]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 20\n          cache: npm\n      - run: npm ci\n      - run: npm run lint\n      - run: npm test\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-conventional-commits",
+          "title": "Conventional commits",
+          "description": "Conventional commits within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            ".gitignore essentials"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain .gitignore essentials and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\n<type>(<scope>): <description>\n\nfeat(auth): add refresh token rotation\nfix(cart): correct rounding in total\ndocs: update README setup\nrefactor(api): extract validation middleware\ntest, chore, perf, ci, build\nfeat!: drop Node 16 support          # ! or BREAKING CHANGE: footer\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-the-mental-model",
+          "title": "The Mental Model",
+          "description": "The Mental Model within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Git stores snapshots, not diffs. Everything is content-addressed objects: blob (file contents), tree (directory), commit (snapshot + parent(s) + metadata), tag. Identified by SHA hashes.",
+            "A branch is just a movable pointer to a commit. HEAD points to the current branch (or directly to a commit in \"detached HEAD\" state).",
+            "Commits are immutable. \"Amending\" or \"rebasing\" creates *new* commits and moves the pointer. The old ones still exist until garbage-collected, which is why the reflog can save you.",
+            "Remote = another copy of the repo (origin). Remote-tracking branches (origin/main) are your last-known view of it."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nWorking directory ──git add──▶ Staging area (index) ──git commit──▶ Local repo ──git push──▶ Remote\n        ◀──────────────────git checkout/restore──────────────────       ◀──git fetch/pull──\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-everyday-commands",
+          "title": "Everyday Commands",
+          "description": "Everyday Commands within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\ngit init / git clone <url>\ngit status\ngit add -p                       # stage interactively, hunk by hunk (great habit)\ngit commit -m \"feat: add login\"\ngit log --oneline --graph --decorate --all\ngit diff                         # unstaged changes\ngit diff --staged                # staged changes\ngit switch -c feature/x          # create and switch branch (older: git checkout -b)\ngit switch main\ngit fetch                        # download remote changes, don't merge\ngit pull                         # fetch + merge (or rebase if configured)\ngit push -u origin feature/x\ngit restore file                 # discard working changes (older: checkout -- file)\ngit restore --staged file        # unstage\ngit commit --amend               # modify last commit (only if not pushed/shared!)\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-merge-vs-rebase",
+          "title": "Merge vs Rebase",
+          "description": "Merge vs Rebase within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "PR merge strategies on GitHub",
+            "Merge commit: keeps all commits plus a merge commit.",
+            "Squash and merge: collapses the PR into one commit on main (clean history, loses granularity).",
+            "Rebase and merge: replays commits linearly onto main (no merge commit).",
+            "Interactive rebase"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "don't rebase public/shared history.",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nBefore:       A──B──C  (main)\n                 \\\n                  D──E  (feature)\n\nMerge:        A──B──C─────M   (main)       M = merge commit with two parents\n                 \\       /\n                  D──E──┘\n\nRebase:       A──B──C──D'──E'  (feature)   D', E' = new commits with new hashes\n```\n\n```bash\ngit rebase -i HEAD~4    # squash, reword, reorder, drop commits\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-stash-cherry-pick-reset-vs-revert-reflog",
+          "title": "Stash, Cherry-pick, Reset vs Revert, Reflog",
+          "description": "Stash, Cherry-pick, Reset vs Revert, Reflog within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "git bisect",
+            "Force pushing"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```bash\n# STASH: shelve uncommitted work\ngit stash push -m \"wip login\"      # (-u includes untracked files)\ngit stash list\ngit stash pop                      # apply and drop; `apply` keeps it\n\n# CHERRY-PICK: copy a specific commit onto the current branch\ngit cherry-pick <sha>              # use for hotfixes backported to a release branch\n\n# RESET: move the branch pointer (rewrites history locally)\ngit reset --soft HEAD~1            # undo commit; changes stay STAGED\ngit reset --mixed HEAD~1           # (default) undo commit; changes UNSTAGED\ngit reset --hard HEAD~1            # undo commit; DISCARD changes ⚠️\n\n# REVERT: create a NEW commit that undoes a previous one (safe for shared history)\ngit revert <sha>\n\n# REFLOG: local log of where HEAD has been, so you can recover \"lost\" commits\ngit reflog\ngit reset --hard HEAD@{3}          # go back to a prior state\ngit branch rescue <sha>            # safest: make a branch at the lost commit\n```\n\n```bash\ngit bisect start\ngit bisect bad                 # current commit is broken\ngit bisect good v1.2.0         # this one worked\n# git checks out midpoints; mark each good/bad (or `git bisect run npm test`)\ngit bisect reset\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-branching-strategies",
+          "title": "Branching Strategies",
+          "description": "Branching Strategies within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Branch naming"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-git-and-github-pull-requests-and-code-review",
+          "title": "Pull Requests and Code Review",
+          "description": "Pull Requests and Code Review within Git and GitHub.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Good PR: small (ideally under 400 lines), one purpose, descriptive title and body (what, why, how to test, screenshots), linked issue, passing CI.",
+            "Reviewer etiquette: specific, kind, explain why, label nits. Author etiquette: self-review first, respond to every comment, and don't take feedback personally.",
+            "Protection rules: require review, require passing status checks, block force pushes, and require linear history if wanted.",
+            "Other GitHub features: Issues, Projects, Releases and tags, CODEOWNERS, Dependabot, Actions, Secrets, Pages.",
+            "Forking workflow (open source): fork → clone → branch → PR from fork to upstream."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-2-absolute-foundations-programming-fundamentals",
+      "title": "Programming Fundamentals",
+      "description": "Programming Fundamentals within Absolute Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-variables-and-types",
+          "title": "Variables and types",
+          "description": "Variables and types within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "JS primitives (7): string, number, bigint, boolean, undefined, null, symbol. Everything else is an object (arrays, functions, dates, maps).",
+            "Primitives are immutable and copied by value. Objects are copied by reference (the variable holds a pointer).",
+            "const ≠ immutable: it prevents *reassignment*, not mutation of the object.",
+            "let/const/var: block vs function scope, hoisting, and TDZ (deep dive in Phase 3).",
+            "Static vs dynamic typing; strong vs weak: JS is dynamically and weakly typed (implicit coercion). TypeScript adds static types at compile time.",
+            "Coercion gotchas: \"5\" + 1 === \"51\", \"5\" - 1 === 4, [] + {} === \"[object Object]\", null == undefined is true, null === undefined is false, typeof null === \"object\" (historic bug), NaN !== NaN (use Number.isNaN).",
+            "Falsy values: false, 0, -0, 0n, \"\", null, undefined, NaN. Everything else is truthy, including \"0\", [], {}.",
+            "Equality: always prefer ===.",
+            "Code-output drill"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Pass by value vs pass by reference. What does JS do?",
+              "answer": "Strictly: pass by value, but for objects the value is a reference. Reassigning a parameter doesn't affect the caller, mutating the object does."
+            },
+            {
+              "text": "`==` vs `===`?",
+              "answer": ""
+            },
+            {
+              "text": "What are falsy values?",
+              "answer": ""
+            },
+            {
+              "text": "What's the difference between `null` and `undefined`?",
+              "answer": ""
+            },
+            {
+              "text": "Shallow vs deep copy?",
+              "answer": ""
+            },
+            {
+              "text": "Why is `0.1 + 0.2 !== 0.3`? (see 2.6)",
+              "answer": ""
+            },
+            {
+              "text": "`typeof` of `[]`, `null`, `function(){}`, `NaN`?",
+              "answer": "`\"object\"`, `\"object\"`, `\"function\"`, `\"number\"`"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 7
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nlet a = 1; let b = a; b = 2;           // a is still 1\nconst o1 = { n: 1 }; const o2 = o1; o2.n = 2;   // o1.n is 2 (same object)\nconst copy = { ...o1 };                // shallow copy; nested objects still shared\nconst deep = structuredClone(o1);      // deep copy\n```\n\n```js\nfunction change(obj, n) { obj.x = 99; n = 99; obj = { x: 0 }; }\nconst o = { x: 1 }; let n = 1;\nchange(o, n);\nconsole.log(o.x, n);   // 99 1 : mutation visible; reassignment and primitive copy are not\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-conditionals-and-loops",
+          "title": "Conditionals and loops",
+          "description": "Conditionals and loops within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "if/else, switch (remember break), ternary, short-circuit (&&, ||), nullish coalescing (?? only treats null/undefined as empty, whereas || treats all falsy values as empty), optional chaining (?.).",
+            "Loops: for, while, do...while, for...of (values of iterables), for...in (enumerable keys, avoid on arrays), forEach/map/filter/reduce. break/continue don't work inside forEach callbacks.",
+            "Early return / guard clauses instead of deep nesting.",
+            "Off-by-one errors and loop invariants.",
+            "Await in loops: for...of with await runs sequentially, Promise.all(items.map(...)) runs in parallel (Phase 3)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "`||` vs `??`?",
+              "answer": "`0 || 10` → 10, `0 ?? 10` → 0."
+            },
+            {
+              "text": "`for...in` vs `for...of`?",
+              "answer": ""
+            },
+            {
+              "text": "How do you exit a `forEach` early?",
+              "answer": "you can't, so use `for...of`, `some`, or `every`."
+            },
+            {
+              "text": "Write FizzBuzz. *(see below)*",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nfor (let i = 1; i <= 100; i++) {\n  let out = '';\n  if (i % 3 === 0) out += 'Fizz';\n  if (i % 5 === 0) out += 'Buzz';\n  console.log(out || i);\n}\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-functions",
+          "title": "Functions",
+          "description": "Functions within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Declarations (hoisted) vs expressions vs arrow functions (lexical this, no arguments, can't be constructors).",
+            "First-class functions: can be assigned, passed, and returned. Higher-order function: takes or returns a function. Callback: a function passed to be called later.",
+            "Pure function: same input → same output, no side effects (no mutation, I/O, randomness, or time dependence). Easy to test, cache (memoize), and reason about.",
+            "Side effects: isolate them at the edges of your program.",
+            "Parameters: defaults, rest (...args), destructuring.",
+            "Scope and closures: a function remembers variables from where it was *defined* (full coverage in Phase 3).",
+            "Call stack: each call pushes a frame, and return pops it. Too many frames cause a stack overflow.",
+            "Single responsibility, small functions, descriptive names, few parameters (use an options object)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "What is a pure function? Why does it matter?",
+              "answer": ""
+            },
+            {
+              "text": "Function declaration vs expression vs arrow function?",
+              "answer": ""
+            },
+            {
+              "text": "What is a higher-order function? Give an example.",
+              "answer": ""
+            },
+            {
+              "text": "What is a callback? What problem can arise with many nested callbacks?",
+              "answer": "callback hell → promises/async-await"
+            },
+            {
+              "text": "What is the call stack?",
+              "answer": ""
+            },
+            {
+              "text": "What's the difference between parameters and arguments?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 1,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\n// pure\nconst add = (a, b) => a + b;\n// impure: depends on and mutates external state\nlet total = 0;\nconst addToTotal = n => { total += n; };\n\n// higher-order + closure\nconst makeCounter = () => { let c = 0; return () => ++c; };\nconst next = makeCounter(); next(); next(); // 1, 2\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-recursion",
+          "title": "Recursion",
+          "description": "A function that solves a problem by calling itself on a smaller version of the same problem.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Every recursion needs: a base case (stop) and a recursive case that progresses toward it.",
+            "Call stack depth: each call uses a stack frame, so depth n costs O(n) space. Deep recursion (roughly 10k+ frames in JS) throws RangeError: Maximum call stack size exceeded.",
+            "Tail-call optimization is in the spec, but most JS engines (V8) don't implement it, so don't rely on it.",
+            "Recursion ↔ iteration: anything recursive can be iterative with an explicit stack.",
+            "Overlapping subproblems → memoization (the bridge to dynamic programming).",
+            "Use cases: trees, graphs (DFS), divide and conquer, backtracking, nested structures (JSON, DOM, file systems)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "What are the two required parts of a recursive function?",
+              "answer": ""
+            },
+            {
+              "text": "Why is naive Fibonacci slow? How do you fix it?",
+              "answer": "exponential from recomputing subproblems → memoization or iteration."
+            },
+            {
+              "text": "What causes a stack overflow? How do you avoid it?",
+              "answer": ""
+            },
+            {
+              "text": "When would you choose iteration over recursion?",
+              "answer": ""
+            },
+            {
+              "text": "Write a function to deep-clone, flatten, or traverse a nested structure recursively.",
+              "answer": ""
+            },
+            {
+              "text": "What's the time and space complexity of recursive factorial?",
+              "answer": "O(n) time, O(n) space for the stack"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nconst factorial = n => (n <= 1 ? 1 : n * factorial(n - 1));\n\n// Naive Fibonacci: O(2^n) time\nconst fib = n => (n < 2 ? n : fib(n - 1) + fib(n - 2));\n\n// Memoized: O(n) time, O(n) space\nconst fibMemo = (n, memo = new Map()) => {\n  if (n < 2) return n;\n  if (memo.has(n)) return memo.get(n);\n  const v = fibMemo(n - 1, memo) + fibMemo(n - 2, memo);\n  memo.set(n, v);\n  return v;\n};\n\n// Practical: flatten nested arrays\nconst flatten = arr => arr.reduce(\n  (acc, x) => acc.concat(Array.isArray(x) ? flatten(x) : x), []);\n\n// Practical: walk a nested object\nconst countKeys = obj => Object.values(obj).reduce(\n  (n, v) => n + 1 + (v && typeof v === 'object' ? countKeys(v) : 0), 0);\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-oop-basics",
+          "title": "OOP basics",
+          "description": "OOP basics — part of Programming Fundamentals in Absolute Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-functional-programming-basics",
+          "title": "Functional programming basics",
+          "description": "Functional programming basics within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Pure functions, immutability, first-class and higher-order functions, composition, declarative style.",
+            "map / filter / reduce:",
+            "Immutability: create new values instead of mutating ({...obj, a: 1}, [...arr, x], arr.toSorted()). It matters in React and Redux, which detect changes by reference.",
+            "Composition: const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x);",
+            "Currying / partial application: const add = a => b => a + b;",
+            "Imperative vs declarative: *how* vs *what*.",
+            "Trade-offs: FP gives predictability and testability. Immutability has a copying cost (mitigated by structural sharing in libraries like Immer).",
+            "OOP vs FP, a balanced answer"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "What's a pure function and why prefer them?",
+              "answer": ""
+            },
+            {
+              "text": "`map` vs `forEach`?",
+              "answer": "`map` returns a new array, `forEach` returns undefined and is for side effects."
+            },
+            {
+              "text": "What does `reduce` do? Implement `map` with `reduce`.",
+              "answer": ""
+            },
+            {
+              "text": "What is immutability and why does React care?",
+              "answer": ""
+            },
+            {
+              "text": "What's function composition? Currying?",
+              "answer": ""
+            },
+            {
+              "text": "Mutating methods vs non-mutating: `sort`, `reverse`, `splice` vs `toSorted`, `toReversed`, `slice`?",
+              "answer": "`sort`, `reverse`, `splice`, `push`, `pop` mutate."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nconst orders = [{ total: 20, paid: true }, { total: 50, paid: false }, { total: 30, paid: true }];\nconst revenue = orders.filter(o => o.paid).map(o => o.total).reduce((a, b) => a + b, 0); // 50\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-error-handling",
+          "title": "Error handling",
+          "description": "Error handling within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Error types: syntax errors (can't parse), runtime errors (thrown while running), logic errors (wrong result, no exception, the hardest).",
+            "Operational vs programmer errors: operational ones are expected (network down, invalid input, file missing) and handled gracefully. Programmer ones are bugs (undefined is not a function) and are fixed, not caught and ignored.",
+            "try/catch/finally, throw, custom error classes, and error cause:",
+            "Async errors: try/catch works with await. Un-awaited promises produce unhandled rejections, which crash modern Node by default.",
+            "Principles: fail fast; don't swallow errors (catch {}); don't use exceptions for normal control flow; log with context; return meaningful errors to users without leaking internals (no stack traces to clients); validate at boundaries.",
+            "Alternatives: result types ({ok, value, error}), error codes."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "`try/catch/finally`: when does `finally` run?",
+              "answer": "Always, even after a `return` or throw."
+            },
+            {
+              "text": "How do you handle errors in async code?",
+              "answer": ""
+            },
+            {
+              "text": "What are operational vs programmer errors?",
+              "answer": ""
+            },
+            {
+              "text": "Why shouldn't you swallow errors?",
+              "answer": ""
+            },
+            {
+              "text": "What would you show a user vs log on the server after a failure?",
+              "answer": ""
+            },
+            {
+              "text": "Why create custom error classes?",
+              "answer": ""
+            },
+            {
+              "text": "What happens with an unhandled promise rejection in Node?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 1,
+            "questionCount": 7
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nclass ValidationError extends Error {\n  constructor(message, field) { super(message); this.name = 'ValidationError'; this.field = field; }\n}\ntry {\n  await save(user);\n} catch (err) {\n  if (err instanceof ValidationError) return res.status(422).json({ field: err.field, error: err.message });\n  throw new Error('Failed to save user', { cause: err }); // preserve context\n} finally {\n  await conn.release();          // always runs\n}\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-reading-documentation",
+          "title": "Reading documentation",
+          "description": "Reading documentation within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Reading docs",
+            "Start with the *overview/concepts*, then *API reference*, then *examples*. Check the version of the docs against your installed version.",
+            "Read changelogs and migration guides, and read error messages fully, because they usually name the cause.",
+            "Prefer official docs, then source code and tests, then reputable articles, then Q&A sites (verify the date).",
+            "The scientific debugging method",
+            "Reproduce reliably, with a minimal case.",
+            "Observe: read the full error and stack trace (the *first* line and the first frame in your code matter most).",
+            "Hypothesize one cause at a time.",
+            "Test the hypothesis (log, breakpoint, assertion), changing one thing at a time.",
+            "Fix the root cause, not the symptom.",
+            "Verify and prevent: add a regression test.",
+            "Techniques: rubber-duck debugging, binary search (comment out half), git bisect, diffing against last known good, reading the actual data rather than assuming it, checking the network tab and logs."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Walk me through how you debug a bug you can't reproduce locally. *(gather logs and environment info, compare configs, add targeted logging or tracing, check data differences, reproduce with production-like data, and use feature flags or canary releases to isolate.)*",
+              "answer": ""
+            },
+            {
+              "text": "A function sometimes returns the wrong result. First steps?",
+              "answer": ""
+            },
+            {
+              "text": "How do you approach an unfamiliar codebase?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-debugging-mindset",
+          "title": "Debugging mindset",
+          "description": "Debugging mindset within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Reading docs",
+            "Start with the *overview/concepts*, then *API reference*, then *examples*. Check the version of the docs against your installed version.",
+            "Read changelogs and migration guides, and read error messages fully, because they usually name the cause.",
+            "Prefer official docs, then source code and tests, then reputable articles, then Q&A sites (verify the date).",
+            "The scientific debugging method",
+            "Reproduce reliably, with a minimal case.",
+            "Observe: read the full error and stack trace (the *first* line and the first frame in your code matter most).",
+            "Hypothesize one cause at a time.",
+            "Test the hypothesis (log, breakpoint, assertion), changing one thing at a time.",
+            "Fix the root cause, not the symptom.",
+            "Verify and prevent: add a regression test.",
+            "Techniques: rubber-duck debugging, binary search (comment out half), git bisect, diffing against last known good, reading the actual data rather than assuming it, checking the network tab and logs."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Walk me through how you debug a bug you can't reproduce locally. *(gather logs and environment info, compare configs, add targeted logging or tracing, check data differences, reproduce with production-like data, and use feature flags or canary releases to isolate.)*",
+              "answer": ""
+            },
+            {
+              "text": "A function sometimes returns the wrong result. First steps?",
+              "answer": ""
+            },
+            {
+              "text": "How do you approach an unfamiliar codebase?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-conditionals-loops-and-control-flow",
+          "title": "Conditionals, Loops, and Control Flow",
+          "description": "Conditionals, Loops, and Control Flow within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "if/else, switch (remember break), ternary, short-circuit (&&, ||), nullish coalescing (?? only treats null/undefined as empty, whereas || treats all falsy values as empty), optional chaining (?.).",
+            "Loops: for, while, do...while, for...of (values of iterables), for...in (enumerable keys, avoid on arrays), forEach/map/filter/reduce. break/continue don't work inside forEach callbacks.",
+            "Early return / guard clauses instead of deep nesting.",
+            "Off-by-one errors and loop invariants.",
+            "Await in loops: for...of with await runs sequentially, Promise.all(items.map(...)) runs in parallel (Phase 3)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "`||` vs `??`?",
+              "answer": "`0 || 10` → 10, `0 ?? 10` → 0."
+            },
+            {
+              "text": "`for...in` vs `for...of`?",
+              "answer": ""
+            },
+            {
+              "text": "How do you exit a `forEach` early?",
+              "answer": "you can't, so use `for...of`, `some`, or `every`."
+            },
+            {
+              "text": "Write FizzBuzz. *(see below)*",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nfor (let i = 1; i <= 100; i++) {\n  let out = '';\n  if (i % 3 === 0) out += 'Fizz';\n  if (i % 5 === 0) out += 'Buzz';\n  console.log(out || i);\n}\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-object-oriented-programming-basics",
+          "title": "Object-Oriented Programming Basics",
+          "description": "Object-Oriented Programming Basics within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Four pillars: encapsulation (hide internal state behind an interface), abstraction (expose only what's necessary), inheritance (reuse via an \"is-a\" relationship), polymorphism (same interface, different behavior).",
+            "Class = blueprint, object/instance = concrete thing. Constructor, methods, properties, static members, private fields (#field).",
+            "JS classes are syntactic sugar over prototypes (Phase 3).",
+            "Composition over inheritance: prefer \"has-a\" and small composable pieces. Deep inheritance trees get brittle.",
+            "SOLID preview (Phase 11).",
+            "Polymorphism example"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain the four pillars of OOP with examples.",
+              "answer": ""
+            },
+            {
+              "text": "Inheritance vs composition? When do you prefer composition?",
+              "answer": ""
+            },
+            {
+              "text": "What's the difference between a class and an object?",
+              "answer": ""
+            },
+            {
+              "text": "What is encapsulation useful for in practice?",
+              "answer": "protecting invariants, so the balance can't go negative from outside code"
+            },
+            {
+              "text": "Abstract class vs interface?",
+              "answer": "In TS: interfaces describe shape and have no implementation. Abstract classes can share partial implementation."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nclass Account {\n  #balance = 0;                      // private field: encapsulation\n  deposit(n) {\n    if (n <= 0) throw new RangeError('Deposit must be positive');\n    this.#balance += n;\n  }\n  get balance() { return this.#balance; }\n}\nclass SavingsAccount extends Account {   // inheritance\n  addInterest(rate) { this.deposit(this.balance * rate); }\n}\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-programming-fundamentals-reading-documentation-and-the-debugging-mindset",
+          "title": "Reading Documentation and the Debugging Mindset",
+          "description": "Reading Documentation and the Debugging Mindset within Programming Fundamentals.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Reading docs",
+            "Start with the *overview/concepts*, then *API reference*, then *examples*. Check the version of the docs against your installed version.",
+            "Read changelogs and migration guides, and read error messages fully, because they usually name the cause.",
+            "Prefer official docs, then source code and tests, then reputable articles, then Q&A sites (verify the date).",
+            "The scientific debugging method",
+            "Reproduce reliably, with a minimal case.",
+            "Observe: read the full error and stack trace (the *first* line and the first frame in your code matter most).",
+            "Hypothesize one cause at a time.",
+            "Test the hypothesis (log, breakpoint, assertion), changing one thing at a time.",
+            "Fix the root cause, not the symptom.",
+            "Verify and prevent: add a regression test.",
+            "Techniques: rubber-duck debugging, binary search (comment out half), git bisect, diffing against last known good, reading the actual data rather than assuming it, checking the network tab and logs."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Walk me through how you debug a bug you can't reproduce locally. *(gather logs and environment info, compare configs, add targeted logging or tracing, check data differences, reproduce with production-like data, and use feature flags or canary releases to isolate.)*",
+              "answer": ""
+            },
+            {
+              "text": "A function sometimes returns the wrong result. First steps?",
+              "answer": ""
+            },
+            {
+              "text": "How do you approach an unfamiliar codebase?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-2-absolute-foundations-developer-environment",
+      "title": "Developer Environment",
+      "description": "Developer Environment within Absolute Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-vs-code-and-extensions",
+          "title": "VS Code and extensions",
+          "description": "VS Code and extensions — part of Developer Environment in Absolute Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-package-managers-npm-pnpm-yarn",
+          "title": "Package managers (npm, pnpm, yarn)",
+          "description": "Package managers (npm, pnpm, yarn) within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "package.json: metadata, scripts, dependencies (needed at runtime), devDependencies (build and test only), peerDependencies (the host app must provide, common for plugins and libraries), engines.",
+            "Lockfile (package-lock.json, pnpm-lock.yaml, yarn.lock): pins exact resolved versions for reproducible installs. Commit it.",
+            "npm install vs npm ci: install may update the lockfile. ci installs exactly from it, fails if it's out of sync, and is faster and deterministic, so use it in CI.",
+            "Semantic versioning: MAJOR.MINOR.PATCH. Major means breaking changes, minor means backwards-compatible features, patch means backwards-compatible fixes.",
+            "- ^1.2.3 allows >=1.2.3 <2.0.0 (minor and patch updates)",
+            "- ~1.2.3 allows >=1.2.3 <1.3.0 (patch only)",
+            "- 1.2.3 exact",
+            "node_modules resolution: Node looks in ./node_modules, then each parent directory's node_modules, upward.",
+            "pnpm: content-addressable global store with hard links (saves disk, faster installs) and strict, non-flat node_modules that prevents \"phantom dependencies\" (using packages you didn't declare).",
+            "npx / pnpm dlx: run a package binary without installing globally.",
+            "Scripts: npm run build, with lifecycle hooks (prepare, postinstall).",
+            "Workspaces: monorepo support (npm, pnpm, yarn)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "`dependencies` vs `devDependencies` vs `peerDependencies`?",
+              "answer": ""
+            },
+            {
+              "text": "What does the lockfile do? Should you commit it?",
+              "answer": ""
+            },
+            {
+              "text": "`npm install` vs `npm ci`?",
+              "answer": ""
+            },
+            {
+              "text": "What does `^1.2.3` mean? How about `~1.2.3`?",
+              "answer": ""
+            },
+            {
+              "text": "How do you upgrade dependencies safely?",
+              "answer": "small batches, read changelogs, run tests, one major at a time, use Renovate/Dependabot PRs."
+            },
+            {
+              "text": "Why pnpm over npm?",
+              "answer": ""
+            },
+            {
+              "text": "How would you evaluate whether to add a new library?",
+              "answer": ""
+            },
+            {
+              "text": "How do you resolve a \"works on my machine\" dependency problem?",
+              "answer": "lockfile mismatch, Node version, OS-specific binaries. Use `.nvmrc`/`engines`, `npm ci`, and containers."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 8
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-browser-devtools",
+          "title": "Browser DevTools",
+          "description": "Browser DevTools within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Practical skills",
+            "Debug a failed API call: Network tab → filter Fetch/XHR → check status, request payload, response body, headers (CORS errors show up in the Console, and the preflight is an OPTIONS request).",
+            "Debug layout: Elements → inspect the box model → toggle properties → check which rule wins.",
+            "Find slow interactions: Performance tab → record → look for long tasks (over 50ms).",
+            "Device emulation and network throttling to test mobile conditions."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "How would you debug a request that fails with a CORS error?",
+              "answer": ""
+            },
+            {
+              "text": "How do you find why a page is slow?",
+              "answer": ""
+            },
+            {
+              "text": "How would you find a memory leak?",
+              "answer": "Memory tab: take heap snapshots before and after an action, compare, and look for growing retained objects and detached DOM nodes."
+            },
+            {
+              "text": "How do you inspect what cookies a site set, and their flags?",
+              "answer": ""
+            },
+            {
+              "text": "How can you reproduce an API request outside the browser?",
+              "answer": "Network → \"Copy as cURL\"."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-debuggers-and-breakpoints",
+          "title": "Debuggers and breakpoints",
+          "description": "Debuggers and breakpoints within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Breakpoint types: line, conditional (user.id === 42), logpoint (log without editing code), exception (pause on throw), DOM mutation, XHR/fetch.",
+            "Controls: step over, step into, step out, continue.",
+            "Inspect: call stack, local and closure scope, watch expressions, hover values.",
+            "debugger; statement pauses when DevTools are open.",
+            "Node: node --inspect-brk app.js → attach Chrome DevTools (chrome://inspect) or VS Code.",
+            "Debugger vs console.log: logs are fine for quick checks and async flows. A debugger is better for complex state, because you can inspect everything at the pause and don't pollute code. Use both.",
+            "Source maps map bundled/transpiled code back to the original, and must be configured (and not shipped publicly in production without thought).",
+            "Debugging tests: run a single test with --inspect, or use the VS Code JS debug terminal."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Debug a deliberately broken Express route using breakpoints and a conditional breakpoint to catch a single bad request out of many."
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain breakpoint types: line, conditional (user.id === 42), logpoint (log without editing code), exception (pause on throw), dom mutation, xhr/fetch. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain controls: step over, step into, step out, continue. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain inspect: call stack, local and closure scope, watch expressions, hover values. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain debugger; statement pauses when devtools are open. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain node: node --inspect-brk app.js → attach chrome devtools (chrome://inspect) or vs code. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-linters-and-formatters-eslint-prettier",
+          "title": "Linters and formatters (ESLint, Prettier)",
+          "description": "Linters and formatters (ESLint, Prettier) within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why both: formatting debates disappear from code review, and real issues get caught early.",
+            "Enforcement stack: editor on-save → pre-commit hooks (husky + lint-staged, run only on staged files) → CI (the final authority, since local hooks can be bypassed).",
+            "Typecheck in CI: tsc --noEmit.",
+            "Config: ESLint flat config (eslint.config.js), eslint-config-prettier to avoid rule conflicts. Biome is a fast all-in-one alternative.",
+            "EditorConfig for cross-editor basics."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "linter vs formatter? Why run checks in CI and not just locally? How do you introduce a linter to a legacy codebase without a thousand-line PR? *(Enable gradually: warn first, auto-fix in a dedicated commit, ignore-blame-revs file, enforce on changed files only.)*",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```json\n// package.json (excerpt)\n\"scripts\": { \"lint\": \"eslint .\", \"format\": \"prettier --write .\", \"typecheck\": \"tsc --noEmit\" },\n\"lint-staged\": { \"*.{ts,tsx,js}\": [\"eslint --fix\", \"prettier --write\"] }\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-semantic-versioning",
+          "title": "Semantic versioning",
+          "description": "Semantic versioning within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Semver in practice: libraries should bump major on breaking changes. 0.x versions can break at any minor.",
+            "Node versions: use even-numbered LTS releases for production. Manage with nvm, fnm, or volta, and pin with .nvmrc and engines in package.json.",
+            "Reproducibility checklist: lockfile committed, pinned Node version, .env.example, one-command setup (npm run dev or docker compose up), documented prerequisites, and seed data.",
+            "Changelogs and releases: conventional commits + semantic-release or Changesets automate versions."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain semver in practice: libraries should bump major on breaking changes. 0.x versions can break at any minor. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain node versions: use even-numbered lts releases for production. manage with nvm, fnm, or volta, and pin with .nvmrc and engines in package.json. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain reproducibility checklist: lockfile committed, pinned node version, .env.example, one-command setup (npm run dev or docker compose up), documented prerequisites, and seed data. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain changelogs and releases: conventional commits + semantic-release or changesets automate versions. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-ai-coding-assistants-use-and-limits",
+          "title": "AI coding assistants (use and limits)",
+          "description": "AI coding assistants (use and limits) within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Where they fail",
+            "Professional practice",
+            "You own every line you commit. Read and understand it. Review AI code with *more* skepticism than a colleague's.",
+            "Verify with tests, types, linters, and the docs. Don't paste secrets or proprietary code into unapproved tools (follow company policy).",
+            "Give context (stack, versions, constraints, examples) and iterate in small steps.",
+            "Check licensing and provenance concerns for large generated chunks.",
+            "Keep your fundamentals sharp, because you can't review what you can't understand."
+          ],
+          "commonMistakes": [
+            "not committing the lockfile; global installs for project tools; npm install in CI; ignoring audit warnings forever; relying only on console.log; accepting AI output unread."
+          ],
+          "practiceTasks": [
+            "Set up a fresh project with ESLint, Prettier, husky, lint-staged, a typecheck script, .nvmrc, .env.example, and a CI workflow, so the repo is clone, npm ci, run in under 2 minutes.",
+            "Can you debug a failing API call end to end (Network tab → payload → server breakpoint) in 5 minutes?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "How do you use AI tools in your workflow, and how do you verify their output?",
+              "answer": ""
+            },
+            {
+              "text": "Tell me about a time an AI suggestion was wrong. How did you catch it?",
+              "answer": ""
+            },
+            {
+              "text": "What risks do AI tools introduce to a codebase?",
+              "answer": "security flaws, inconsistent style, bloat, license issues, skill atrophy, leaked data"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "follow the stated rules. If AI tools aren't permitted, don't use them. If they are, show your judgment: prompt precisely, verify output, and explain what you changed and why.",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [
+              "boilerplate, tests, regex, explaining unfamiliar code, refactoring, translating between languages, rubber-ducking, and docs drafts."
+            ],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 1,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [
+            "VS Code docs (\"Tips and Tricks\"), Chrome DevTools docs (developer.chrome.com/docs/devtools), npm docs, pnpm docs, ESLint and Prettier docs, semver.org."
+          ],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-vs-code-and-editor-fluency",
+          "title": "VS Code and Editor Fluency",
+          "description": "VS Code and Editor Fluency within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Shortcuts worth drilling (Cmd on Mac, Ctrl elsewhere)",
+            "Cmd+P go to file · Cmd+Shift+P command palette · Cmd+Shift+F search project",
+            "F12 go to definition · Shift+F12 find references · F2 rename symbol",
+            "Cmd+D select next occurrence · Alt+Click multi-cursor · Alt+↑/↓ move line",
+            "Cmd+/ comment · Cmd+. quick fix · Ctrl+\\ toggle terminal",
+            "Cmd+B toggle sidebar · Cmd+Shift+O go to symbol in file",
+            "Debugging config (.vscode/launch.json)",
+            "Interview tip"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "extensions (ESLint, Prettier, GitLens, Error Lens, language support), settings sync, format on save, workspace settings committed in .vscode/ for team consistency, and snippets."
+          ],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```json\n{\n  \"version\": \"0.2.0\",\n  \"configurations\": [\n    {\n      \"type\": \"node\",\n      \"request\": \"launch\",\n      \"name\": \"Debug API\",\n      \"program\": \"${workspaceFolder}/src/server.js\",\n      \"envFile\": \"${workspaceFolder}/.env\"\n    }\n  ]\n}\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-package-managers",
+          "title": "Package Managers",
+          "description": "Package Managers within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "package.json: metadata, scripts, dependencies (needed at runtime), devDependencies (build and test only), peerDependencies (the host app must provide, common for plugins and libraries), engines.",
+            "Lockfile (package-lock.json, pnpm-lock.yaml, yarn.lock): pins exact resolved versions for reproducible installs. Commit it.",
+            "npm install vs npm ci: install may update the lockfile. ci installs exactly from it, fails if it's out of sync, and is faster and deterministic, so use it in CI.",
+            "Semantic versioning: MAJOR.MINOR.PATCH. Major means breaking changes, minor means backwards-compatible features, patch means backwards-compatible fixes.",
+            "- ^1.2.3 allows >=1.2.3 <2.0.0 (minor and patch updates)",
+            "- ~1.2.3 allows >=1.2.3 <1.3.0 (patch only)",
+            "- 1.2.3 exact",
+            "node_modules resolution: Node looks in ./node_modules, then each parent directory's node_modules, upward.",
+            "pnpm: content-addressable global store with hard links (saves disk, faster installs) and strict, non-flat node_modules that prevents \"phantom dependencies\" (using packages you didn't declare).",
+            "npx / pnpm dlx: run a package binary without installing globally.",
+            "Scripts: npm run build, with lifecycle hooks (prepare, postinstall).",
+            "Workspaces: monorepo support (npm, pnpm, yarn)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "`dependencies` vs `devDependencies` vs `peerDependencies`?",
+              "answer": ""
+            },
+            {
+              "text": "What does the lockfile do? Should you commit it?",
+              "answer": ""
+            },
+            {
+              "text": "`npm install` vs `npm ci`?",
+              "answer": ""
+            },
+            {
+              "text": "What does `^1.2.3` mean? How about `~1.2.3`?",
+              "answer": ""
+            },
+            {
+              "text": "How do you upgrade dependencies safely?",
+              "answer": "small batches, read changelogs, run tests, one major at a time, use Renovate/Dependabot PRs."
+            },
+            {
+              "text": "Why pnpm over npm?",
+              "answer": ""
+            },
+            {
+              "text": "How would you evaluate whether to add a new library?",
+              "answer": ""
+            },
+            {
+              "text": "How do you resolve a \"works on my machine\" dependency problem?",
+              "answer": "lockfile mismatch, Node version, OS-specific binaries. Use `.nvmrc`/`engines`, `npm ci`, and containers."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 8
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-linters-and-formatters",
+          "title": "Linters and Formatters",
+          "description": "Linters and Formatters within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why both: formatting debates disappear from code review, and real issues get caught early.",
+            "Enforcement stack: editor on-save → pre-commit hooks (husky + lint-staged, run only on staged files) → CI (the final authority, since local hooks can be bypassed).",
+            "Typecheck in CI: tsc --noEmit.",
+            "Config: ESLint flat config (eslint.config.js), eslint-config-prettier to avoid rule conflicts. Biome is a fast all-in-one alternative.",
+            "EditorConfig for cross-editor basics."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "linter vs formatter? Why run checks in CI and not just locally? How do you introduce a linter to a legacy codebase without a thousand-line PR? *(Enable gradually: warn first, auto-fix in a dedicated commit, ignore-blame-revs file, enforce on changed files only.)*",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```json\n// package.json (excerpt)\n\"scripts\": { \"lint\": \"eslint .\", \"format\": \"prettier --write .\", \"typecheck\": \"tsc --noEmit\" },\n\"lint-staged\": { \"*.{ts,tsx,js}\": [\"eslint --fix\", \"prettier --write\"] }\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-developer-environment-semantic-versioning-node-versions-and-reproducibility",
+          "title": "Semantic Versioning, Node Versions, and Reproducibility",
+          "description": "Semantic Versioning, Node Versions, and Reproducibility within Developer Environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Semver in practice: libraries should bump major on breaking changes. 0.x versions can break at any minor.",
+            "Node versions: use even-numbered LTS releases for production. Manage with nvm, fnm, or volta, and pin with .nvmrc and engines in package.json.",
+            "Reproducibility checklist: lockfile committed, pinned Node version, .env.example, one-command setup (npm run dev or docker compose up), documented prerequisites, and seed data.",
+            "Changelogs and releases: conventional commits + semantic-release or Changesets automate versions."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-2-absolute-foundations-computer-science-basics-for-web",
+      "title": "Computer Science Basics for Web",
+      "description": "Computer Science Basics for Web within Absolute Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-binary-and-number-systems",
+          "title": "Binary and number systems",
+          "description": "Binary and number systems within Computer Science Basics for Web.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Bit (0/1), byte = 8 bits (0-255). Hex (base 16) is compact for bytes: 0xFF = 255, used in colors (#ff8800), hashes, and memory addresses. Octal appears in Unix permissions.",
+            "Conversions: (10).toString(2) → \"1010\", parseInt(\"1010\", 2) → 10, (255).toString(16) → \"ff\".",
+            "Two's complement: how signed integers are stored. In 8 bits, -1 = 11111111. The range is -128 to 127.",
+            "Bitwise operators: &, |, ^, ~, <<, >>, >>>. Useful for flags, permissions masks, and some algorithm tricks. JS bitwise ops work on 32-bit signed ints.",
+            "Floating point (IEEE 754): JS number is a 64-bit double. It can't represent most decimals exactly, so 0.1 + 0.2 === 0.30000000000000004.",
+            "Overflow: fixed-width integers wrap (in languages like C/Java). JS numbers lose precision instead."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Why is `0.1 + 0.2 !== 0.3`? How do you handle money?",
+              "answer": ""
+            },
+            {
+              "text": "What's the largest safe integer in JS and what happens beyond it? When have you seen this in the real world?",
+              "answer": ""
+            },
+            {
+              "text": "Convert 13 to binary. What's `0xFF` in decimal?",
+              "answer": ""
+            },
+            {
+              "text": "How would you check if a number is a power of two?",
+              "answer": "`n & (n-1) === 0`"
+            },
+            {
+              "text": "Why are colors written in hex?",
+              "answer": "each channel is one byte = 2 hex digits"
+            },
+            {
+              "text": "How are negative numbers represented?",
+              "answer": "two's complement"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 3,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nconst READ = 1, WRITE = 2, EXEC = 4;\nlet perms = READ | WRITE;        // 3\nconst canWrite = (perms & WRITE) !== 0;   // true\nconst isPowerOfTwo = n => n > 0 && (n & (n - 1)) === 0;\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-memory-stack-vs-heap",
+          "title": "Memory (stack vs heap)",
+          "description": "Memory (stack vs heap) within Computer Science Basics for Web.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Stack: fast, automatically managed, LIFO memory for function call frames, local variables, and primitives/references. Fixed, limited size, which is why infinite recursion overflows it.",
+            "Heap: larger, dynamically allocated memory for objects, arrays, and closures. It needs management (GC), and allocation is slower than stack allocation.",
+            "Garbage collection (V8): automatic reclamation of memory unreachable from roots. Uses mark-and-sweep (reachability), not just reference counting, so circular references are collected. It is generational: new objects go in a \"young generation\" (collected often and cheaply), survivors move to the \"old generation\". GC may cause short pauses, and V8 uses incremental and concurrent techniques to minimize them.",
+            "Memory leaks in JS (objects remain reachable accidentally):",
+            "WeakMap/WeakRef: hold references that don't prevent GC.",
+            "Node memory limits: the V8 old-space default depends on the version and system. Raise it with --max-old-space-size, but fix leaks rather than raising limits.",
+            "Code: classic leak"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Stack vs heap? Where do primitives and objects live?",
+              "answer": "Conceptually, local primitives on the stack and objects on the heap, though engines optimize. Say \"conceptually\" in an interview."
+            },
+            {
+              "text": "How does garbage collection work in JS?",
+              "answer": ""
+            },
+            {
+              "text": "What causes a memory leak in a JS app? How do you find one?",
+              "answer": "heap snapshots and comparison, Memory tab, `--inspect`, and `process.memoryUsage()` trends"
+            },
+            {
+              "text": "What is a stack overflow? How is it different from running out of heap memory?",
+              "answer": ""
+            },
+            {
+              "text": "How would you implement a bounded in-memory cache?",
+              "answer": "LRU with Map; eviction."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 3,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nSTACK                          HEAP\n┌─────────────────┐            ┌──────────────────────┐\n│ main()          │            │ {name:'Ada', ...} ◀──┼─┐\n│  user ──────────┼──pointer──▶│                      │ │\n│  count = 5      │            └──────────────────────┘ │\n│ greet()         │                                     │\n│  u ─────────────┼─────────────────────────────────────┘\n└─────────────────┘\n```\n\n```js\n// LEAK: listener never removed; component instances pile up\nuseEffect(() => {\n  window.addEventListener('resize', onResize);\n}, []);\n\n// FIX\nuseEffect(() => {\n  window.addEventListener('resize', onResize);\n  return () => window.removeEventListener('resize', onResize);\n}, []);\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-compilation-vs-interpretation",
+          "title": "Compilation vs interpretation",
+          "description": "Compilation vs interpretation within Computer Science Basics for Web.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Compiled (C, Go, Rust): source → machine code ahead of time (AOT). Fast execution, build step, platform-specific binaries.",
+            "Interpreted (historically Python, early JS): executed line by line by an interpreter. Flexible, slower.",
+            "Modern reality: JIT (just-in-time) compilation. V8 parses JS to an AST, generates bytecode (Ignition), runs it, and hot code is optimized to machine code (TurboFan). Optimizations rely on assumptions (e.g., a function always receives integers), and if violated, it deoptimizes. Writing type-stable code helps.",
+            "Transpilation: source → source (TypeScript → JS, JSX → JS, modern JS → older JS via Babel/SWC).",
+            "Bundling/minification: many modules → few optimized files for browsers.",
+            "Static vs dynamic typing: type errors caught at compile time vs at runtime. TypeScript is erased at compile time, so there are *no runtime types*. Validate external data at runtime (Zod).",
+            "Bytecode/VM languages: Java (JVM), C# (CLR), and WebAssembly (a portable binary format that runs near-native in browsers)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Is JavaScript compiled or interpreted?",
+              "answer": "Both: JIT-compiled by modern engines. The language isn't inherently either."
+            },
+            {
+              "text": "What does TypeScript compile to? Do types exist at runtime?",
+              "answer": ""
+            },
+            {
+              "text": "What is a JIT compiler?",
+              "answer": ""
+            },
+            {
+              "text": "What's the difference between a compiler, interpreter, and transpiler?",
+              "answer": ""
+            },
+            {
+              "text": "What does a bundler do and why do we need one?",
+              "answer": ""
+            },
+            {
+              "text": "What is WebAssembly and when would you use it?",
+              "answer": "CPU-heavy tasks: video, image processing, games, ports of existing C/Rust libraries."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-processes-vs-threads",
+          "title": "Processes vs threads",
+          "description": "Processes vs threads — part of Computer Science Basics for Web in Absolute Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-character-encoding-ascii-utf-8",
+          "title": "Character encoding (ASCII, UTF-8)",
+          "description": "Character encoding (ASCII, UTF-8) within Computer Science Basics for Web.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "ASCII: 7-bit, 128 characters (English only).",
+            "Unicode: a universal catalog assigning each character a code point (U+1F600 😀). It is *not* an encoding.",
+            "UTF-8: variable-width encoding (1-4 bytes per code point), ASCII-compatible, the dominant web encoding. UTF-16 (2 or 4 bytes) is what JS strings use internally. UTF-32 is fixed 4 bytes.",
+            "Always: <meta charset=\"utf-8\">, Content-Type: text/html; charset=utf-8, UTF-8 in the DB (utf8mb4 in MySQL, because MySQL's utf8 is a 3-byte subset that can't store emoji!).",
+            "JS string gotchas",
+            "Mojibake: garbled text (Ã© instead of é) from decoding bytes with the wrong encoding.",
+            "Base64: encodes binary as ASCII text (about 33% bigger). It's for transport, not encryption. URL encoding (encodeURIComponent) escapes unsafe characters in URLs. HTML escaping prevents XSS. All three are *encoding*, not security (Phase 7: hashing vs encryption vs encoding)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "ASCII vs Unicode vs UTF-8?",
+              "answer": ""
+            },
+            {
+              "text": "Why does `'😀'.length` equal 2?",
+              "answer": ""
+            },
+            {
+              "text": "What is Base64 and is it secure?",
+              "answer": "No, anyone can decode it."
+            },
+            {
+              "text": "Why would a database or page show garbled characters?",
+              "answer": "encoding mismatch between source, DB, connection, and header"
+            },
+            {
+              "text": "Bytes vs characters: how would you truncate a string to 100 *bytes* safely for UTF-8?",
+              "answer": "Don't cut mid-sequence. Use TextEncoder/Decoder or backtrack to a character boundary."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 3,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\n'😀'.length                 // 2 (UTF-16 code units, not characters)\n[...'😀'].length            // 1 (iterates by code point)\n'é'.length                  // 1 or 2 depending on normalization (é vs e + combining accent)\n'é'.normalize('NFC') === 'e\\u0301'.normalize('NFC')   // true\nnew TextEncoder().encode('é').length   // 2 bytes in UTF-8\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-data-formats-json-xml-yaml-csv",
+          "title": "Data formats (JSON, XML, YAML, CSV)",
+          "description": "Data formats (JSON, XML, YAML, CSV) within Computer Science Basics for Web.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "JSON gotchas",
+            "Circular references throw in JSON.stringify.",
+            "JSON Schema/Zod validate shape at runtime.",
+            "Dates: transmit as ISO 8601 strings in UTC (2025-01-31T10:00:00Z) or epoch milliseconds. Convert for display on the client.",
+            "Large IDs: send as strings if they exceed 2^53."
+          ],
+          "commonMistakes": [
+            "floats for money; assuming .length equals characters; treating Base64 as encryption; ignoring event-loop blocking; non-UTF-8 databases; JSON.parse without try/catch."
+          ],
+          "practiceTasks": [
+            "Write a function that safely adds two dollar amounts as integer cents and formats them.",
+            "Reproduce and fix a memory leak: a Node server that stores per-request data in a global array. Observe it with process.memoryUsage(), then fix it.",
+            "Block the event loop with a CPU loop, measure the latency of another endpoint, then fix with worker_threads.",
+            "Encode and decode \"héllo 😀\" in UTF-8 bytes, Base64, and URL-encoded forms, and write down the byte lengths.",
+            "Can you explain event-loop blocking, why '😀'.length === 2, and why floats are wrong for money, in 90 seconds each?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "JSON vs XML vs YAML. When use each?",
+              "answer": ""
+            },
+            {
+              "text": "What can't JSON represent? What happens to `undefined`, `Date`, `NaN`?",
+              "answer": ""
+            },
+            {
+              "text": "Why is `JSON.parse(JSON.stringify(obj))` a flawed deep clone?",
+              "answer": ""
+            },
+            {
+              "text": "How do you safely parse JSON from an untrusted source?",
+              "answer": "try/catch, size limits, schema validation, and never `eval`"
+            },
+            {
+              "text": "What are the pitfalls of CSV parsing?",
+              "answer": "commas and newlines inside quoted fields, encoding, BOM, delimiter variations, number/date ambiguity"
+            },
+            {
+              "text": "Why is Protobuf more compact than JSON?",
+              "answer": "field numbers instead of names, a binary varint encoding, and a schema known to both ends"
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 3,
+            "questionCount": 6
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\nJSON.stringify({ a: undefined, b: () => {}, c: NaN, d: new Date(0), e: 10n });\n// BigInt throws TypeError. Without e: {\"c\":null,\"d\":\"1970-01-01T00:00:00.000Z\"}\n// undefined and function props are dropped; NaN → null; Date → ISO string (not revived on parse)\n\nJSON.parse('{\"a\":1,}')    // SyntaxError: no trailing commas\nJSON.parse(userInput)     // always wrap in try/catch\n// JSON.parse(JSON.stringify(x)) as a deep clone is lossy: use structuredClone\n```",
+          "resources": [
+            "*Code: The Hidden Language of Computer Hardware and Software* (Petzold), CS50 (Harvard, free), javascript.info (Numbers, Strings, Memory), \"The Absolute Minimum Every Software Developer Must Know About Unicode\" (Joel Spolsky), MDN (TextEncoder, BigInt, structuredClone), Node.js docs (Event Loop guide)."
+          ],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-memory-stack-vs-heap-garbage-collection",
+          "title": "Memory: Stack vs Heap, Garbage Collection",
+          "description": "Memory: Stack vs Heap, Garbage Collection within Computer Science Basics for Web.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Stack: fast, automatically managed, LIFO memory for function call frames, local variables, and primitives/references. Fixed, limited size, which is why infinite recursion overflows it.",
+            "Heap: larger, dynamically allocated memory for objects, arrays, and closures. It needs management (GC), and allocation is slower than stack allocation.",
+            "Garbage collection (V8): automatic reclamation of memory unreachable from roots. Uses mark-and-sweep (reachability), not just reference counting, so circular references are collected. It is generational: new objects go in a \"young generation\" (collected often and cheaply), survivors move to the \"old generation\". GC may cause short pauses, and V8 uses incremental and concurrent techniques to minimize them.",
+            "Memory leaks in JS (objects remain reachable accidentally):",
+            "WeakMap/WeakRef: hold references that don't prevent GC.",
+            "Node memory limits: the V8 old-space default depends on the version and system. Raise it with --max-old-space-size, but fix leaks rather than raising limits.",
+            "Code: classic leak"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Stack vs heap? Where do primitives and objects live?",
+              "answer": "Conceptually, local primitives on the stack and objects on the heap, though engines optimize. Say \"conceptually\" in an interview."
+            },
+            {
+              "text": "How does garbage collection work in JS?",
+              "answer": ""
+            },
+            {
+              "text": "What causes a memory leak in a JS app? How do you find one?",
+              "answer": "heap snapshots and comparison, Memory tab, `--inspect`, and `process.memoryUsage()` trends"
+            },
+            {
+              "text": "What is a stack overflow? How is it different from running out of heap memory?",
+              "answer": ""
+            },
+            {
+              "text": "How would you implement a bounded in-memory cache?",
+              "answer": "LRU with Map; eviction."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 3,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```\nSTACK                          HEAP\n┌─────────────────┐            ┌──────────────────────┐\n│ main()          │            │ {name:'Ada', ...} ◀──┼─┐\n│  user ──────────┼──pointer──▶│                      │ │\n│  count = 5      │            └──────────────────────┘ │\n│ greet()         │                                     │\n│  u ─────────────┼─────────────────────────────────────┘\n└─────────────────┘\n```\n\n```js\n// LEAK: listener never removed; component instances pile up\nuseEffect(() => {\n  window.addEventListener('resize', onResize);\n}, []);\n\n// FIX\nuseEffect(() => {\n  window.addEventListener('resize', onResize);\n  return () => window.removeEventListener('resize', onResize);\n}, []);\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-processes-vs-threads-and-concurrency-basics",
+          "title": "Processes vs Threads, and Concurrency Basics",
+          "description": "Processes vs Threads, and Concurrency Basics within Computer Science Basics for Web.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Process: an independent running program with its own memory space. Isolated, so a crash doesn't take down others, and communication needs IPC. Heavier to create.",
+            "Thread: a unit of execution *within* a process, sharing its memory. Lightweight, and shared memory makes communication easy and also creates race conditions and deadlocks.",
+            "Concurrency vs parallelism: concurrency is *dealing with* many things at once (interleaving), and parallelism is *doing* many things at once (multiple cores).",
+            "JS/Node model: JavaScript runs on a single thread with an event loop for concurrency. I/O is handed off (to the OS or libuv's thread pool) and callbacks are queued. This is great for I/O-bound work and bad for CPU-bound work, which blocks everything. Solutions: worker_threads, cluster / multiple processes, offloading to a queue, or another service.",
+            "Browser: the main thread runs JS, layout, and paint, so long tasks cause jank. Use Web Workers for heavy computation.",
+            "Context switching: the OS saving and restoring execution state to switch tasks. It has a cost.",
+            "Blocking vs non-blocking, sync vs async I/O.",
+            "Race condition: the outcome depends on timing. Deadlock: two tasks each wait for the other's resource. (OS and concurrency depth in Phase 10.)"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Process vs thread?",
+              "answer": ""
+            },
+            {
+              "text": "Concurrency vs parallelism?",
+              "answer": ""
+            },
+            {
+              "text": "If JS is single-threaded, how does Node handle thousands of connections?",
+              "answer": "event loop + non-blocking I/O + libuv/OS"
+            },
+            {
+              "text": "What happens if you run a heavy loop in a Node request handler? How do you fix it?",
+              "answer": ""
+            },
+            {
+              "text": "What's a race condition? Give a web example. *(Two requests read-modify-write the same balance. Fix with DB transactions, atomic updates, or locks.)*",
+              "answer": ""
+            },
+            {
+              "text": "What's a deadlock?",
+              "answer": ""
+            },
+            {
+              "text": "Is Node truly single-threaded?",
+              "answer": "Your JS is. libuv's thread pool, worker threads, and the V8 GC threads exist."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 2,
+            "questionCount": 7
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\n// BLOCKS the entire Node server for the duration (CPU-bound on the main thread)\napp.get('/hash', (req, res) => { res.send(crypto.pbkdf2Sync(pw, salt, 1e7, 64, 'sha512')); });\n\n// FIX: async version uses the libuv thread pool\napp.get('/hash', async (req, res) => { /* crypto.pbkdf2 (async), or worker thread */ });\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-2-absolute-foundations-computer-science-basics-for-web-character-encoding",
+          "title": "Character Encoding",
+          "description": "Character Encoding within Computer Science Basics for Web.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "ASCII: 7-bit, 128 characters (English only).",
+            "Unicode: a universal catalog assigning each character a code point (U+1F600 😀). It is *not* an encoding.",
+            "UTF-8: variable-width encoding (1-4 bytes per code point), ASCII-compatible, the dominant web encoding. UTF-16 (2 or 4 bytes) is what JS strings use internally. UTF-32 is fixed 4 bytes.",
+            "Always: <meta charset=\"utf-8\">, Content-Type: text/html; charset=utf-8, UTF-8 in the DB (utf8mb4 in MySQL, because MySQL's utf8 is a 3-byte subset that can't store emoji!).",
+            "JS string gotchas",
+            "Mojibake: garbled text (Ã© instead of é) from decoding bytes with the wrong encoding.",
+            "Base64: encodes binary as ASCII text (about 33% bigger). It's for transport, not encryption. URL encoding (encodeURIComponent) escapes unsafe characters in URLs. HTML escaping prevents XSS. All three are *encoding*, not security (Phase 7: hashing vs encryption vs encoding)."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "ASCII vs Unicode vs UTF-8?",
+              "answer": ""
+            },
+            {
+              "text": "Why does `'😀'.length` equal 2?",
+              "answer": ""
+            },
+            {
+              "text": "What is Base64 and is it secure?",
+              "answer": "No, anyone can decode it."
+            },
+            {
+              "text": "Why would a database or page show garbled characters?",
+              "answer": "encoding mismatch between source, DB, connection, and header"
+            },
+            {
+              "text": "Bytes vs characters: how would you truncate a string to 100 *bytes* safely for UTF-8?",
+              "answer": "Don't cut mid-sequence. Use TextEncoder/Decoder or backtrack to a character boundary."
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 3,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\n'😀'.length                 // 2 (UTF-16 code units, not characters)\n[...'😀'].length            // 1 (iterates by code point)\n'é'.length                  // 1 or 2 depending on normalization (é vs e + combining accent)\n'é'.normalize('NFC') === 'e\\u0301'.normalize('NFC')   // true\nnew TextEncoder().encode('é').length   // 2 bytes in UTF-8\n```",
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    }
+  ]
+}

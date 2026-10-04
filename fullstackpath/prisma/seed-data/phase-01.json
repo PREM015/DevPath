@@ -1,0 +1,2274 @@
+{
+  "order": 1,
+  "slug": "phase-1-interview-preparation-foundations",
+  "title": "Interview Preparation Foundations",
+  "description": "How the interview pipeline actually works, and how to plan, resource and track your preparation so you walk into each round with a plan.",
+  "difficulty": "BEGINNER",
+  "difficultyLabel": "Beginner",
+  "icon": "🧭",
+  "color": "#6366f1",
+  "estimatedHours": 20,
+  "objectives": [
+    "Know the stages of a full stack interview loop and what each one tests",
+    "Build a backward plan from a fixed interview date with realistic buffers",
+    "Run mock interviews on a schedule rather than at the last minute"
+  ],
+  "practice": [
+    {
+      "kind": "qa",
+      "title": "Phase 1: Interview-style Q&A",
+      "afterTopic": "Asking Good Questions at the End",
+      "items": [
+        "How do you keep your skills up to date?",
+        "How do you approach learning a new technology?",
+        "How would you prioritize if given a task with unclear requirements?",
+        "Tell me about a time you learned something quickly.",
+        "What are your strengths and weaknesses?",
+        "Why should we hire you?"
+      ],
+      "questions": [
+        {
+          "number": null,
+          "text": "How do you keep your skills up to date?",
+          "answer": "Specific: docs and changelogs (React, Node releases), 1-2 trusted newsletters, a side project to try new tools, and an example of something you recently adopted and why"
+        },
+        {
+          "number": null,
+          "text": "How do you approach learning a new technology?",
+          "answer": "Official docs and a small project, build something real, read the source or RFC for the *why*, compare with what I know, then write notes"
+        },
+        {
+          "number": null,
+          "text": "How would you prioritize if given a task with unclear requirements?",
+          "answer": "Clarify with stakeholders, identify the smallest valuable slice, state assumptions, deliver incrementally, and get feedback early"
+        },
+        {
+          "number": null,
+          "text": "Tell me about a time you learned something quickly.",
+          "answer": "Short STAR story with a measurable result and what you'd do differently"
+        },
+        {
+          "number": null,
+          "text": "What are your strengths and weaknesses?",
+          "answer": "Real strength with evidence. A genuine weakness plus the concrete steps you're taking, not a disguised strength"
+        },
+        {
+          "number": null,
+          "text": "Why should we hire you?",
+          "answer": "Map 2-3 of your strengths directly to their stated needs, with evidence"
+        }
+      ],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": null
+    },
+    {
+      "kind": "checklist",
+      "title": "Phase 1 Final Readiness Checklist",
+      "afterTopic": "Asking Good Questions at the End",
+      "items": [
+        "Planning",
+        "[ ] Diagnostic done, weak areas identified",
+        "[ ] Target date, track, and level chosen",
+        "[ ] Week-by-week schedule written",
+        "[ ] Resource map built (one per area)",
+        "Systems",
+        "[ ] Tracker (study, DSA log, applications) set up",
+        "[ ] Flashcard deck and error log started",
+        "[ ] Notes organized by topic",
+        "Materials",
+        "[ ] Resume rewritten with metrics",
+        "[ ] 2-3 portfolio projects deployed with READMEs",
+        "[ ] Talking-points sheet for each project",
+        "[ ] 90-second intro memorized",
+        "Practice",
+        "[ ] First mock done and scored",
+        "[ ] Weekly mock scheduled",
+        "[ ] Pre-interview routine written",
+        "[ ] Remote setup tested",
+        "Communication",
+        "[ ] Practiced thinking aloud with the 7-step coding structure",
+        "[ ] List of clarifying questions by category",
+        "[ ] Trade-off template memorized",
+        "[ ] 5 end-of-interview questions ready"
+      ],
+      "questions": [],
+      "whyAsked": "",
+      "evaluation": [],
+      "sayOutLoud": "",
+      "probe": [],
+      "signal": "",
+      "symptoms": [],
+      "investigation": [],
+      "rootCause": [],
+      "fix": [],
+      "prevention": [],
+      "tools": [],
+      "mistakes": [],
+      "reference": null,
+      "markdown": null
+    }
+  ],
+  "groups": [
+    {
+      "slug": "phase-1-interview-preparation-foundations-full-stack-interview",
+      "title": "Full Stack Interview",
+      "description": "Full Stack Interview within Interview Preparation Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-timeline-planning",
+          "title": "Timeline planning",
+          "description": "Working backward from your target interview date to schedule what you learn, practice, and apply, with buffers.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Backward planning: fix the date, subtract a 1-week buffer, then divide the remainder into phases.",
+            "Diagnostic first: rate yourself 0-3 on each area below. Time goes to your weakest high-weight areas, not your favorite ones.",
+            "Interview sequencing: schedule your *least-wanted* companies first as warm-up, and cluster real interviews into a 2-3 week window so offers overlap and you can negotiate.",
+            "Weekly rhythm: learn new material → practice → review mistakes → mock.",
+            "Buffer: plan for 80% of available hours. Life interferes.",
+            "Diagnostic (rate yourself 0-3)",
+            "Suggested time allocation (balanced mid-level full stack)",
+            "Sample weekly rhythm (10 hrs/week)"
+          ],
+          "commonMistakes": [
+            "Starting applications before you're ready, then burning through your best companies.",
+            "Planning 40 hrs/week while working full-time, then quitting by week 3.",
+            "No buffer, so one missed week collapses the plan.",
+            "Studying only what feels comfortable."
+          ],
+          "practiceTasks": [
+            "Fill in the diagnostic, pick your date, and write a week-by-week plan with the top 3 weak areas given the most hours. Keep it in a doc you revisit weekly.",
+            "Can you state your target date, your top 3 weak areas, and this week's plan in under 60 seconds?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain diagnostic (rate yourself 0-3) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain suggested time allocation (balanced mid-level full stack) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain sample weekly rhythm (10 hrs/week) and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-resource-selection",
+          "title": "Resource selection",
+          "description": "Choosing a small, high-quality set of learning materials and sticking with them.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "One primary resource per area, plus one reference. Add a second only if the first fails you.",
+            "Official docs first for tools and languages. They're current and authoritative.",
+            "Active over passive: if a resource doesn't make you write code or answer questions, pair it with exercises.",
+            "Recency check: frameworks change fast, so prefer material updated within the last 1-2 years (React, Next.js, and Node especially).",
+            "Free-first: pay only for something that fills a verified gap (structured question banks, mock platforms).",
+            "Recommended starter stack",
+            "Evaluating a resource (5 questions)",
+            "Is it current (check publish and update dates)?",
+            "Does it include exercises or projects?",
+            "Does it explain *why*, not just *how*?",
+            "Do experienced engineers recommend it?"
+          ],
+          "commonMistakes": [
+            "Collecting 50 bookmarks and finishing none.",
+            "Watching videos at 2x without taking notes or writing code.",
+            "Using outdated React tutorials that teach class components as the default."
+          ],
+          "practiceTasks": [
+            "Build a one-page \"resource map\" listing one primary resource per row in the table above, with a completion target date.",
+            "Can you name your one primary resource for each of the 8 major areas?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain recommended starter stack and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain evaluating a resource (5 questions) and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-mock-interviews",
+          "title": "Mock interviews",
+          "description": "Simulated interviews under realistic conditions (time limit, another person, no looking things up) followed by structured feedback.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Types: coding, system design, behavioral, frontend/domain, and pair programming.",
+            "Cadence: begin mocks by roughly 25-30% into your timeline. Do 1 per week, rising to 2-3 per week in the final 2-3 weeks.",
+            "Sources: friends and colleagues, peer platforms (Pramp, interviewing.io), paid experienced interviewers for system design, or solo with a timer and recorded screen and audio.",
+            "Realism: same tools you'll use in the interview (CoderPad-style editor or a shared doc, no autocomplete if the real one has none), a strict 45 minutes, and talking out loud the whole time.",
+            "Feedback loop: every mock ends with scoring and 2-3 specific action items.",
+            "Scorecard (score each 1-4)",
+            "Self-mock protocol (no partner)",
+            "Pick a problem you haven't seen. Set a 45-minute timer.",
+            "Record screen and microphone.",
+            "Talk the entire time as if someone is listening.",
+            "Rewatch at 1.5x and score yourself. Note every filler word, silence over 15 seconds, and missed edge case."
+          ],
+          "commonMistakes": [
+            "Doing mocks only with friends who go easy on you.",
+            "Skipping feedback, which turns a mock into practice with no learning.",
+            "Never mocking system design, which is hard to self-assess."
+          ],
+          "practiceTasks": [
+            "Book your first mock for this week and write down its score so you have a baseline.",
+            "Do you have a scorecard and a scheduled mock for each of the next 3 weeks?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain scorecard (score each 1-4) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain self-mock protocol (no partner) and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-resume-review",
+          "title": "Resume review",
+          "description": "Structuring and refining your resume so it passes an ATS and a 10-second recruiter scan, and gives interviewers good questions to ask.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "One page for under 10 years of experience. Reverse chronological. Single column, standard fonts, and no graphics or tables, so ATS can parse it.",
+            "Bullet formula: *Action verb + what you did + how (tech) + measurable result.*",
+            "Skills section: group by category (Languages, Frontend, Backend, Databases, Cloud/DevOps) and list only what you can discuss for 10 minutes.",
+            "Projects: include 2-3 with links, a one-line problem statement, stack, and a metric if available.",
+            "Tailoring: mirror keywords from the job description honestly.",
+            "Before and after",
+            "Checklist",
+            "[ ] One page, PDF, named FirstName-LastName-Resume.pdf",
+            "[ ] Every bullet starts with a strong verb",
+            "[ ] 60% or more of bullets contain a result",
+            "[ ] No typos (read it aloud, and have someone else read it)"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Rewrite your 5 weakest bullets using the formula.",
+            "Can you give a 2-minute story behind each bullet?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain before and after and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain checklist and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain [ ] one page, pdf, named firstname-lastname-resume.pdf and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain [ ] every bullet starts with a strong verb and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-portfolio-building",
+          "title": "Portfolio building",
+          "description": "A small set of deployed, well-documented projects that demonstrate real full stack skill.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Depth over breadth: 2-3 substantial projects beat 10 tutorial clones.",
+            "What makes a project interview-worthy",
+            "- Solves a real problem (even a small one)",
+            "- Has authentication, relational data, and non-trivial business logic",
+            "- Deployed with a live URL",
+            "- Has tests and CI",
+            "- README with architecture diagram, setup steps, and trade-off decisions",
+            "Project ladder: see the 8 projects in the cross-cutting section (later part).",
+            "Talking points sheet: for each project, prepare answers to the questions below.",
+            "Project talking-points template",
+            "README checklist"
+          ],
+          "commonMistakes": [
+            "Todo app with no auth, no tests, no deployment.",
+            "Copy-pasting tutorial code you can't explain.",
+            "Broken live links, which interviewers do click.",
+            "Hiding limitations. Honest \"known issues\" sections read as maturity."
+          ],
+          "practiceTasks": [
+            "Pick your strongest project and fill in the talking-points template. Practice the architecture walkthrough out loud in 3 minutes.",
+            "Can you explain any file in your best project and justify its design?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "What problem does it solve and for whom?",
+              "answer": ""
+            },
+            {
+              "text": "Why this stack? What alternatives did you consider?",
+              "answer": ""
+            },
+            {
+              "text": "Draw the architecture.",
+              "answer": ""
+            },
+            {
+              "text": "What was the hardest bug? How did you find it?",
+              "answer": ""
+            },
+            {
+              "text": "What would break at 100x scale?",
+              "answer": ""
+            },
+            {
+              "text": "What did you cut or defer, and why?",
+              "answer": ""
+            },
+            {
+              "text": "What would you do differently?",
+              "answer": ""
+            },
+            {
+              "text": "How is it tested and deployed?",
+              "answer": ""
+            },
+            {
+              "text": "Security considerations?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 9
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-mental-readiness",
+          "title": "Mental readiness",
+          "description": "Managing stress, confidence, and energy so your performance reflects your ability.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Exposure: the most effective remedy is repeated realistic practice. Mocks make the real thing feel familiar.",
+            "Reframing: treat the interview as a collaborative problem-solving session, not an exam. The interviewer wants you to succeed, since hiring is expensive for them.",
+            "Physiological tools: box breathing (4 in, 4 hold, 4 out, 4 hold), a short walk before the interview, and avoiding extra caffeine.",
+            "Pre-interview routine (60 minutes before): eat, test your tech (camera, mic, editor, internet backup), skim your one-page cheat sheet, and review your first-two-minutes introduction. Don't learn anything new.",
+            "In-the-moment tools: slow your speech, pause before answering (\"Let me think about that for a moment\"), and write things down.",
+            "Rejection hygiene: a rejection is data about one loop on one day. Debrief, log what went wrong, then move on. Don't ruminate.",
+            "Sleep and sustainability: cramming the night before hurts recall. Protect 7+ hours of sleep.",
+            "If you blank mid-interview (script)",
+            "Post-interview debrief (within 2 hours)",
+            "What went well? What went poorly?",
+            "Which questions surprised me?"
+          ],
+          "commonMistakes": [
+            "Treating one rejection as proof you're not good enough.",
+            "All-night cramming.",
+            "Comparing yourself to others' highlight reels online.",
+            "Not practicing talking while coding."
+          ],
+          "practiceTasks": [
+            "Write your personal pre-interview checklist and use it in your next mock.",
+            "Do you have a go-to technique for each of: nerves before, blanking during, and rejection after?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain if you blank mid-interview (script) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain post-interview debrief (within 2 hours) and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-tracking-progress",
+          "title": "Tracking progress",
+          "description": "Measuring your preparation with data so you can see what's working.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Study tracker columns: date, topic, activity, time spent, confidence (1-5), follow-up needed.",
+            "DSA log: problem, pattern, difficulty, time to solve, solved unaided (Y/N), mistake type, revisit date.",
+            "Mock score history: plot scorecard totals over time.",
+            "Weak-topic list: updated weekly, with the top 3 driving the next week's plan.",
+            "Application funnel: applications → recruiter screens → technical screens → onsites → offers, so you can see where the pipeline leaks. Low screen rate means fix the resume. Low technical pass rate means more practice.",
+            "Weekly review (20 minutes, every Sunday): what I did, what I learned, what's still weak, next week's plan.",
+            "Metrics worth tracking",
+            "Problems solved per pattern, and percentage solved without hints",
+            "Average time-to-solution by difficulty",
+            "Mock scores by dimension",
+            "Flashcard retention rate"
+          ],
+          "commonMistakes": [
+            "tracking vanity numbers (\"300 problems solved\") instead of retention and unaided success rate."
+          ],
+          "practiceTasks": [
+            "Set up a spreadsheet or Notion board with the DSA log and application funnel tabs.",
+            "Can you name your three weakest topics from data, not feelings?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain metrics worth tracking and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain problems solved per pattern, and percentage solved without hints and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain average time-to-solution by difficulty and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain mock scores by dimension and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-job-description-analysis",
+          "title": "Job description analysis",
+          "description": "Decomposing a job posting into what the company needs, so you prepare and tailor accordingly.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Split requirements into: hard skills (React, PostgreSQL), practices (CI/CD, code review), scope signals (\"own features end to end\"), and level signals (\"mentor,\" \"drive architecture\").",
+            "Required vs nice-to-have: apply even if you match 60-70% of the required items, but weight prep toward the required stack.",
+            "Keyword mapping: list their top 8-10 technologies and map each to a resume bullet or project of yours. Any unmapped keyword is a prep gap.",
+            "Company stage signals: \"fast-paced, wear many hats\" means startup generalist. \"Cross-functional alignment, scalability at millions of users\" means a larger company.",
+            "Red flags: unrealistic stacks (10+ unrelated technologies as \"required\"), vague ownership, and \"rockstar/ninja\" language.",
+            "Worked example"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Take 3 job descriptions for your target role and build a frequency table of the technologies. That's your priority list.",
+            "For any job post, can you produce a prioritized prep list in 10 minutes?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain worked example and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-target-role-selection-frontend-leaning-backend-leaning-balanced",
+          "title": "Target role selection (frontend-leaning / backend-leaning / balanced)",
+          "description": "Choosing which flavor of full stack you're interviewing for, because the emphasis differs.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Pick one track and write a one-sentence positioning statement: *\"I'm a full stack engineer leaning backend, strongest in Node, PostgreSQL, and API design, comfortable shipping React UIs.\"* Use it in intros.",
+            "Does your resume, portfolio, and intro all point to the same track?"
+          ],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-target-level-junior-mid-senior-staff",
+          "title": "Target level (junior, mid, senior, staff)",
+          "description": "Understanding what's expected at junior, mid, senior, and staff so you can aim for, and prepare for, the right level.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Level calibration tips",
+            "Interviewing above your level gets you a down-level offer at worst, so it's usually safe to try.",
+            "Titles vary by company (\"Senior\" at a startup may equal \"Mid\" at big tech). Ask about the leveling guide.",
+            "Your year count matters less than demonstrated scope and impact."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "For your target level, write 3 stories that demonstrate its scope signals.",
+            "Can you describe how the expectations differ between your current level and the next?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain level calibration tips and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-spaced-repetition-and-note-system",
+          "title": "Spaced repetition and note system",
+          "description": "A review schedule and note structure designed so what you learn is still in your head on interview day.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Review intervals: day 1, 3, 7, 14, 30. Tools like Anki automate this.",
+            "Good flashcards: one fact per card, phrased as a question, answerable in about 10 seconds.",
+            "- ✅ *\"What are the phases of the Node.js event loop?\"*",
+            "- ✅ *\"Difference between Promise.all and Promise.allSettled?\"*",
+            "- ❌ *\"Explain everything about closures.\"* (too broad)",
+            "Card types to use",
+            "- Concept (definition and why)",
+            "- Compare (X vs Y)",
+            "- Code-output (\"What does this log?\")",
+            "- Complexity (\"Time complexity of heap insert?\")",
+            "Error log: every mistake in a mock or problem becomes a card or a note. Mistakes show your actual weak spots."
+          ],
+          "commonMistakes": [
+            "Making cards by copying paragraphs.",
+            "Skipping reviews for a week, so the backlog snowballs.",
+            "Taking notes that are never revisited."
+          ],
+          "practiceTasks": [
+            "Create 20 flashcards from JS Core topics you got wrong. Review daily for a week.",
+            "Do you have an error log, and does each entry produce a review item?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain - ✅ *\"what are the phases of the node.js event loop?\"* and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain - ✅ *\"difference between promise.all and promise.allsettled?\"* and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain - ❌ *\"explain everything about closures.\"* (too broad) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain card types to use and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-handling-interview-anxiety",
+          "title": "Handling interview anxiety",
+          "description": "Handling interview anxiety — part of Full Stack Interview in Interview Preparation Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-study-schedule-templates-2-week-8-week-6-month-12-month",
+          "title": "Study-schedule templates (2-week, 8-week, 6-month, 12-month)",
+          "description": "Study-schedule templates (2-week, 8-week, 6-month, 12-month) within Full Stack Interview.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "2-week crash (about 3-4 hrs/day, for experienced devs refreshing)",
+            "8-week",
+            "6-month",
+            "12-month from zero"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain 2-week crash (about 3-4 hrs/day, for experienced devs refreshing) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain 12-month from zero and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-target-role-selection",
+          "title": "Target Role Selection",
+          "description": "Choosing which flavor of full stack you're interviewing for, because the emphasis differs.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Pick one track and write a one-sentence positioning statement: *\"I'm a full stack engineer leaning backend, strongest in Node, PostgreSQL, and API design, comfortable shipping React UIs.\"* Use it in intros.",
+            "Does your resume, portfolio, and intro all point to the same track?"
+          ],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-target-level",
+          "title": "Target Level",
+          "description": "Understanding what's expected at junior, mid, senior, and staff so you can aim for, and prepare for, the right level.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Level calibration tips",
+            "Interviewing above your level gets you a down-level offer at worst, so it's usually safe to try.",
+            "Titles vary by company (\"Senior\" at a startup may equal \"Mid\" at big tech). Ask about the leveling guide.",
+            "Your year count matters less than demonstrated scope and impact."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "For your target level, write 3 stories that demonstrate its scope signals.",
+            "Can you describe how the expectations differ between your current level and the next?"
+          ],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-full-stack-interview-study-schedule-templates",
+          "title": "Study-Schedule Templates",
+          "description": "Study-Schedule Templates within Full Stack Interview.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "2-week crash (about 3-4 hrs/day, for experienced devs refreshing)",
+            "8-week",
+            "6-month",
+            "12-month from zero"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-1-interview-preparation-foundations-preparation-strategy",
+      "title": "Preparation Strategy",
+      "description": "Preparation Strategy within Interview Preparation Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-recruiter-screens",
+          "title": "Recruiter screens",
+          "description": "A 20-30 minute call (often non-technical) to check fit, motivations, logistics, and compensation range.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Model \"Tell me about yourself\" (present → past → future, 90 seconds)",
+            "Salary question: deflect politely first"
+          ],
+          "commonMistakes": [
+            "speaking negatively about your current employer, giving a number first with no research, being vague about your own contributions."
+          ],
+          "practiceTasks": [
+            "Write and rehearse a 90-second intro and a 30-second \"why this company\" for your top three targets.",
+            "Can you do your intro without notes, in under 90 seconds, with no filler?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Tell me about yourself.",
+              "answer": ""
+            },
+            {
+              "text": "Why are you looking to leave your current role?",
+              "answer": ""
+            },
+            {
+              "text": "Why this company and this role?",
+              "answer": ""
+            },
+            {
+              "text": "What are your salary expectations?",
+              "answer": ""
+            },
+            {
+              "text": "What's your timeline and are you interviewing elsewhere?",
+              "answer": ""
+            },
+            {
+              "text": "What are you looking for in your next role?",
+              "answer": ""
+            },
+            {
+              "text": "team structure, interview process and timeline, what success looks like in 6 months, why the role is open.",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [
+              "communication, relevance of experience, motivation, salary and location fit, timeline and visa."
+            ],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 7
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-technical-assessments",
+          "title": "Technical assessments",
+          "description": "Timed, automated coding tests (HackerRank, CodeSignal, Codility, or a company's own platform), typically 60-120 minutes with 2-4 problems.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why it matters",
+            "Strategy",
+            "Read all problems first (2-3 minutes). Start with the easiest to bank points.",
+            "Time-box: if you're stuck for 15 minutes, move on and return.",
+            "Partial credit: a correct brute-force solution that passes some tests beats a half-written optimal one.",
+            "Test your own edge cases: empty input, single element, duplicates, negatives, maximum size.",
+            "Use the platform's custom input to run your tests before submitting.",
+            "Mind constraints: an input of 10⁵ needs O(n log n) or better. Constraints hint at the intended complexity.",
+            "Know your language's I/O and standard library (sorting with comparators, maps, heaps) before the test.",
+            "Rules: many tests are proctored (webcam, tab-switching detection). Follow the stated rules.",
+            "Constraints cheat sheet"
+          ],
+          "commonMistakes": [
+            "spending 50 minutes on one problem, ignoring hidden-test edge cases, not practicing on the platform's format beforehand."
+          ],
+          "practiceTasks": [
+            "Do two timed practice sets (90 minutes, 3 problems) on the platform your target company uses.",
+            "Do you have a rule for when to abandon a problem and move on?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain why it matters and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain strategy and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain constraints cheat sheet and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 3
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-system-design-rounds",
+          "title": "System design rounds",
+          "description": "A 45-60 minute open-ended discussion where you design a system (e.g., a URL shortener or chat app) and justify trade-offs.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Time-boxed framework (45 minutes)"
+          ],
+          "commonMistakes": [
+            "diving into a database choice before clarifying requirements, drawing a giant diagram without explaining it, never mentioning trade-offs, ignoring the interviewer's hints."
+          ],
+          "practiceTasks": [
+            "Design a URL shortener using the framework in 40 minutes, talking aloud.",
+            "Can you recite the 7 steps from memory?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain time-boxed framework (45 minutes) and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [
+              "structured thinking, requirement gathering, knowledge of building blocks, trade-off reasoning, and communication. There is no single right answer."
+            ],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-behavioral-interviews",
+          "title": "Behavioral interviews",
+          "description": "Questions about past behavior (\"Tell me about a time...\") used to predict future performance.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Prepare"
+          ],
+          "commonMistakes": [
+            "using \"we\" throughout so your contribution is unclear, stories with no result, blaming others, and answering hypothetically instead of from real experience."
+          ],
+          "practiceTasks": [
+            "Write 3 stories this week and practice them aloud."
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain prepare and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-pair-programming",
+          "title": "Pair programming",
+          "description": "You and an interviewer work together on a realistic task, such as adding a feature, fixing failing tests, or building a small component or API, often in your own editor or a shared environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "How to do well",
+            "Restate and plan before typing: \"I'll build the endpoint first, then the UI, then handle errors.\"",
+            "Work in small steps and run the code often.",
+            "Narrate your reasoning and invite input: \"Does that approach make sense to you?\"",
+            "Read existing code first. Follow the repo's conventions.",
+            "Use tools fluently: shortcuts, debugger, test runner, and browser DevTools. Fluency signals real-world experience.",
+            "Handle stuck moments aloud: \"I'm not sure about this API. I'd normally check the docs. Is it okay if I look?\" (Looking things up is usually allowed and realistic.)",
+            "Write at least a few tests or manually verify behavior."
+          ],
+          "commonMistakes": [
+            "coding silently for 10 minutes, ignoring the interviewer's suggestions, over-engineering instead of getting something working, never running the code."
+          ],
+          "practiceTasks": [
+            "build a paginated list with search, implement a debounced autocomplete, add an endpoint with validation, fix a bug in a failing test suite, refactor a messy function.",
+            "Pair with a friend on building a searchable, paginated user list (React + mock API) in 60 minutes.",
+            "Do you narrate while coding and run the code every few minutes?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain how to do well and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [
+              "how you collaborate, not just whether the code works. They watch how you break down a task, use tools, debug, and respond to input."
+            ],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-hiring-manager-chats",
+          "title": "Hiring manager chats",
+          "description": "A conversation with the future manager covering your experience, working style, motivation, and team fit. It's often semi-technical.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [
+            "asking only about perks or compensation, not asking any questions, giving generic answers without specifics."
+          ],
+          "practiceTasks": [
+            "Prepare the \"most impactful project\" story with context, your role, trade-offs, results, and learnings."
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Walk me through your most impactful project.",
+              "answer": ""
+            },
+            {
+              "text": "How do you prioritize when everything is urgent?",
+              "answer": ""
+            },
+            {
+              "text": "How do you handle disagreement with a teammate or product manager?",
+              "answer": ""
+            },
+            {
+              "text": "What kind of environment helps you do your best work?",
+              "answer": ""
+            },
+            {
+              "text": "Where do you want to grow in the next 2 years?",
+              "answer": ""
+            },
+            {
+              "text": "What do you do when you disagree with a technical decision that's already been made?",
+              "answer": ""
+            },
+            {
+              "text": "What does success look like in the first 90 days?",
+              "answer": ""
+            },
+            {
+              "text": "How does the team decide what to build?",
+              "answer": ""
+            },
+            {
+              "text": "How are code reviews and deployments handled?",
+              "answer": ""
+            },
+            {
+              "text": "What's the biggest technical challenge the team is facing?",
+              "answer": ""
+            },
+            {
+              "text": "How do you give feedback and handle growth conversations?",
+              "answer": ""
+            },
+            {
+              "text": "What's the on-call situation?",
+              "answer": ""
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [
+              "ownership, communication, how you handle ambiguity and feedback, and whether you'd be productive and pleasant to work with."
+            ],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 12
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-onsite-loops",
+          "title": "Onsite loops",
+          "description": "A series of back-to-back interviews (virtual or in person), typically 3-6 rounds of 45-60 minutes, done in one day or spread across a few days.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Typical composition",
+            "Managing the loop",
+            "Energy: eat well, hydrate, and use breaks to reset. Don't replay the last round in your head.",
+            "Each round is independent: interviewers typically submit separate feedback, so a bad round doesn't doom you. Don't spiral.",
+            "Consistency: the same candidate often meets multiple interviewers, so keep your technical decisions and story details consistent.",
+            "Thank-you notes: a short, specific follow-up to the recruiter is fine."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Run a full mock loop with 4 back-to-back 45-minute sessions (coding, domain, design, behavioral), with friends playing interviewers if possible.",
+            "Do you have a plan for energy, breaks, and recovering after a bad round?"
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain typical composition and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain managing the loop and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-online-assessments-hackerrank-codesignal",
+          "title": "Online assessments (HackerRank, CodeSignal)",
+          "description": "Online assessments (HackerRank, CodeSignal) — part of Preparation Strategy in Interview Preparation Foundations.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": null,
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "structure-only"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-take-home-assignments",
+          "title": "Take-home assignments",
+          "description": "A small project you complete on your own time, often with a stated 2-4 hour expectation, then discuss in a follow-up interview.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Strategy",
+            "Clarify scope and time expectation. Ask what to prioritize.",
+            "Time-box strictly. Don't spend 20 hours on a \"3-hour\" task. If you need to cut features, say so explicitly.",
+            "Deliver a working, runnable solution with clear setup instructions. A working small solution beats a broken ambitious one.",
+            "README essentials: how to run, how to test, what you built, what you skipped and why, how you'd extend it, and the assumptions you made.",
+            "Include tests for the core logic, with a few meaningful tests rather than a coverage chase.",
+            "Commit history: small, logical commits with clear messages.",
+            "Be ready to discuss every decision in the follow-up, and to extend it live.",
+            "Grader's checklist",
+            "[ ] Runs on first try with the given instructions",
+            "[ ] Clear structure (separation of concerns)",
+            "[ ] Input validation and error handling"
+          ],
+          "commonMistakes": [
+            "gold-plating the UI while core logic is untested, skipping the README, over-engineering with unneeded patterns, using libraries you can't explain."
+          ],
+          "practiceTasks": [
+            "Do a practice take-home (e.g., \"build a URL shortener API with tests\") in a strict 3 hours, then write the README."
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain strategy and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain grader's checklist and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain [ ] runs on first try with the given instructions and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain [ ] clear structure (separation of concerns) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain [ ] input validation and error handling and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [
+              "code quality, structure, testing, communication, product judgment, and whether you can finish and ship."
+            ],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-live-debugging-rounds",
+          "title": "Live debugging rounds",
+          "description": "You're given broken code (a failing test suite, a buggy endpoint, a misbehaving component) and asked to find and fix the issues.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Systematic approach",
+            "Reproduce the failure and read the error message and stack trace fully.",
+            "Form a hypothesis about the cause, and state it aloud.",
+            "Isolate: narrow with console.log, the debugger, or bisecting (comment out half).",
+            "Verify the hypothesis before changing code. Change one thing at a time.",
+            "Fix, then re-run the failing case plus related cases.",
+            "Explain the root cause and how to prevent recurrence (a test, validation, a type).",
+            "Commonly planted bugs"
+          ],
+          "commonMistakes": [
+            "randomly changing code hoping it works, not reading the error message, fixing the symptom instead of the cause."
+          ],
+          "practiceTasks": [
+            "Debug a deliberately broken Express and React app that a friend prepares, narrating aloud."
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain systematic approach and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain commonly planted bugs and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 2
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-code-review-rounds",
+          "title": "Code review rounds",
+          "description": "You're shown a pull request or code snippet and asked to review it as you would on the job.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "What to look for (in priority order)",
+            "Correctness: does it do what's intended? Edge cases?",
+            "Security: injection, auth checks, secrets, unsafe input.",
+            "Performance: N+1 queries, unnecessary re-renders, blocking operations.",
+            "Design: separation of concerns, naming, duplication.",
+            "Tests: are the important paths covered?",
+            "Readability and style.",
+            "Practice snippet. How many issues can you find?",
+            "Issues",
+            "SQL injection (string interpolation), so use parameterized queries",
+            "Leaks password, so return only needed fields",
+            "N+1 queries and sequential awaits, so use one WHERE id = ANY($1) query or a join"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "Review 3 open-source PRs on GitHub and write your comments as practice."
+          ],
+          "interviewQuestions": [
+            {
+              "text": "Explain what to look for (in priority order) and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain sql injection (string interpolation), so use parameterized queries and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain leaks password, so return only needed fields and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain n+1 queries and sequential awaits, so use one where id = any($1) query or a join and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain select * over-fetches and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": "```js\napp.get('/user/:id', async (req, res) => {\n  const user = await db.query(`SELECT * FROM users WHERE id = ${req.params.id}`);\n  const posts = [];\n  for (const p of user.postIds) {\n    posts.push(await db.query(`SELECT * FROM posts WHERE id = ${p}`));\n  }\n  res.json({ ...user, posts, password: user.password });\n});\n```",
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-bar-raiser-culture-rounds",
+          "title": "Bar-raiser / culture rounds",
+          "description": "A round (often with an interviewer from outside the hiring team) that evaluates long-term potential, values alignment, and whether you raise or lower the team's bar.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Prepare"
+          ],
+          "commonMistakes": [
+            "memorized, generic answers with no specifics, treating the round as a formality."
+          ],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain prepare and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [
+              "ownership, learning ability, handling of ambiguity and failure, integrity, and collaboration. Values are often public (e.g., Amazon's Leadership Principles), so research and map your stories."
+            ],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-company-type-differences-startup-vs-faang-vs-agency-vs-enterprise",
+          "title": "Company-type differences (startup vs FAANG vs agency vs enterprise)",
+          "description": "Company-type differences (startup vs FAANG vs agency vs enterprise) within Preparation Strategy.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "For your top 3 targets, write which of these five types they are and adjust your prep emphasis."
+          ],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-remote-interview-etiquette",
+          "title": "Remote interview etiquette",
+          "description": "Remote interview etiquette within Preparation Strategy.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "added",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Checklist",
+            "[ ] Tech check 30 minutes early: camera, mic, headphones, screen share, the specific meeting tool, a stable connection, and a phone hotspot as a backup",
+            "[ ] Environment: quiet, front-facing light, neutral background, notifications off, other apps closed",
+            "[ ] Editor ready: font size large enough to read when shared, a clean desktop, and no sensitive tabs open",
+            "[ ] Materials: water, pen and paper (for diagrams), a short cheat sheet only if allowed, and your resume visible",
+            "[ ] Camera discipline: look at the camera when speaking, and nod and respond visibly since remote cues are weaker",
+            "[ ] Narrate more than in person: silence on a call feels longer",
+            "[ ] If tech fails: message the recruiter immediately and stay calm. This is common and understood",
+            "[ ] No outside help: don't use AI assistants or notes unless explicitly permitted. Interviewers can often tell, and it ends candidacies"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain checklist and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-pair-programming-rounds",
+          "title": "Pair Programming Rounds",
+          "description": "You and an interviewer work together on a realistic task, such as adding a feature, fixing failing tests, or building a small component or API, often in your own editor or a shared environment.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "How to do well",
+            "Restate and plan before typing: \"I'll build the endpoint first, then the UI, then handle errors.\"",
+            "Work in small steps and run the code often.",
+            "Narrate your reasoning and invite input: \"Does that approach make sense to you?\"",
+            "Read existing code first. Follow the repo's conventions.",
+            "Use tools fluently: shortcuts, debugger, test runner, and browser DevTools. Fluency signals real-world experience.",
+            "Handle stuck moments aloud: \"I'm not sure about this API. I'd normally check the docs. Is it okay if I look?\" (Looking things up is usually allowed and realistic.)",
+            "Write at least a few tests or manually verify behavior."
+          ],
+          "commonMistakes": [
+            "coding silently for 10 minutes, ignoring the interviewer's suggestions, over-engineering instead of getting something working, never running the code."
+          ],
+          "practiceTasks": [
+            "build a paginated list with search, implement a debounced autocomplete, add an endpoint with validation, fix a bug in a failing test suite, refactor a messy function.",
+            "Pair with a friend on building a searchable, paginated user list (React + mock API) in 60 minutes.",
+            "Do you narrate while coding and run the code every few minutes?"
+          ],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [
+              "how you collaborate, not just whether the code works. They watch how you break down a task, use tools, debug, and respond to input."
+            ],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-bar-raiser-and-culture-rounds",
+          "title": "Bar-Raiser and Culture Rounds",
+          "description": "A round (often with an interviewer from outside the hiring team) that evaluates long-term potential, values alignment, and whether you raise or lower the team's bar.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Prepare"
+          ],
+          "commonMistakes": [
+            "memorized, generic answers with no specifics, treating the round as a formality."
+          ],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [
+              "ownership, learning ability, handling of ambiguity and failure, integrity, and collaboration. Values are often public (e.g., Amazon's Leadership Principles), so research and map your stories."
+            ],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-company-type-differences",
+          "title": "Company-Type Differences",
+          "description": "Company-Type Differences within Preparation Strategy.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [
+            "For your top 3 targets, write which of these five types they are and adjust your prep emphasis."
+          ],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-preparation-strategy-remote-interview-etiquette-and-setup",
+          "title": "Remote Interview Etiquette and Setup",
+          "description": "Remote Interview Etiquette and Setup within Preparation Strategy.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "expanded",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Checklist",
+            "[ ] Tech check 30 minutes early: camera, mic, headphones, screen share, the specific meeting tool, a stable connection, and a phone hotspot as a backup",
+            "[ ] Environment: quiet, front-facing light, neutral background, notifications off, other apps closed",
+            "[ ] Editor ready: font size large enough to read when shared, a clean desktop, and no sensitive tabs open",
+            "[ ] Materials: water, pen and paper (for diagrams), a short cheat sheet only if allowed, and your resume visible",
+            "[ ] Camera discipline: look at the camera when speaking, and nod and respond visibly since remote cues are weaker",
+            "[ ] Narrate more than in person: silence on a call feels longer",
+            "[ ] If tech fails: message the recruiter immediately and stay calm. This is common and understood",
+            "[ ] No outside help: don't use AI assistants or notes unless explicitly permitted. Interviewers can often tell, and it ends candidacies"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded-only"
+        }
+      ]
+    },
+    {
+      "slug": "phase-1-interview-preparation-foundations-interview-communication",
+      "title": "Interview Communication",
+      "description": "Interview Communication within Interview Preparation Foundations.",
+      "difficulty": "BEGINNER",
+      "estimatedHours": null,
+      "objectives": [],
+      "topics": [
+        {
+          "slug": "phase-1-interview-preparation-foundations-interview-communication-thinking-out-loud",
+          "title": "Thinking out loud",
+          "description": "Thinking out loud within Interview Communication.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Why",
+            "Structure for coding problems",
+            "Restate: \"So I need to return the indices of two numbers that add to the target.\"",
+            "Examples: \"For [2,7,11,15] and target 9, the answer is [0,1].\"",
+            "Brute force: \"Check every pair, O(n²). Works but slow.\"",
+            "Optimize: \"A hash map of seen values gives O(n).\"",
+            "Confirm before coding: \"Does that approach sound good?\"",
+            "Code while narrating, then test with an example and an edge case.",
+            "State complexity: \"Time O(n), space O(n).\""
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain structure for coding problems and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [
+              "narrating every keystroke, or going silent for more than 30-60 seconds."
+            ],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-interview-communication-clarifying-questions",
+          "title": "Clarifying questions",
+          "description": "Clarifying questions within Interview Communication.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 0
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-interview-communication-handling-hints",
+          "title": "Handling hints",
+          "description": "Handling hints within Interview Communication.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Hints are not failures. Interviewers give them to see how you collaborate.",
+            "Acknowledge, then integrate: \"That's helpful. If I sort first, I can use two pointers...\"",
+            "Don't argue defensively or ignore the hint. If you disagree, say why politely and with reasoning.",
+            "If you needed a hint, show you could solve the *variant* afterward. That recovers the signal."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain hints are not failures. interviewers give them to see how you collaborate. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain acknowledge, then integrate: \"that's helpful. if i sort first, i can use two pointers...\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain don't argue defensively or ignore the hint. if you disagree, say why politely and with reasoning. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain if you needed a hint, show you could solve the *variant* afterward. that recovers the signal. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-interview-communication-recovering-from-blanking",
+          "title": "Recovering from blanking",
+          "description": "Recovering from blanking within Interview Communication.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Pause and breathe. Say: \"Give me a moment to think.\"",
+            "Work a small example by hand on paper.",
+            "Restate what you *do* know and the constraint you're stuck on.",
+            "Try the brute force. A working slow solution is a platform to optimize from.",
+            "Ask a clarifying question to buy thinking time and information.",
+            "If still stuck: \"Here's where I'm stuck: [specific]. Could you nudge me on [specific area]?\" Specific beats \"I don't know.\""
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain pause and breathe. say: \"give me a moment to think.\" and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain work a small example by hand on paper. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain restate what you *do* know and the constraint you're stuck on. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain try the brute force. a working slow solution is a platform to optimize from. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain ask a clarifying question to buy thinking time and information. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 5
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-interview-communication-explaining-trade-offs",
+          "title": "Explaining trade-offs",
+          "description": "Explaining trade-offs within Interview Communication.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Template",
+            "Example"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain template and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-interview-communication-whiteboard-and-shared-editor-habits",
+          "title": "Whiteboard and shared-editor habits",
+          "description": "Whiteboard and shared-editor habits within Interview Communication.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Whiteboard/diagram: write large, in boxes and arrows left to right, label data flows, and number the steps of a request. Leave room for additions.",
+            "Shared editor: use meaningful names, write helper function signatures first, and keep code compact but readable. Comment your plan as // TODO outlines first.",
+            "Structure first: outline function names, then fill them in. This shows you can plan.",
+            "Test on the page: walk an example through your code line by line, tracking variable values."
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain whiteboard/diagram: write large, in boxes and arrows left to right, label data flows, and number the steps of a request. leave room for additions. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain shared editor: use meaningful names, write helper function signatures first, and keep code compact but readable. comment your plan as // todo outlines first. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain structure first: outline function names, then fill them in. this shows you can plan. and when you would use it.",
+              "answer": "",
+              "derived": true
+            },
+            {
+              "text": "Explain test on the page: walk an example through your code line by line, tracking variable values. and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 4
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        },
+        {
+          "slug": "phase-1-interview-preparation-foundations-interview-communication-asking-good-questions-at-the-end",
+          "title": "Asking good questions at the end",
+          "description": "Asking good questions at the end within Interview Communication.",
+          "difficulty": "BEGINNER",
+          "estimatedMinutes": 60,
+          "origin": "original",
+          "priority": null,
+          "objectives": [],
+          "keyConcepts": [
+            "Good questions",
+            "What's the most interesting technical challenge the team has tackled recently?",
+            "How does the team handle technical debt and refactoring?",
+            "What does the code review and release process look like?",
+            "What do successful engineers here do differently?",
+            "What are the biggest priorities for the team in the next 6 months?",
+            "What would you change about working here?"
+          ],
+          "commonMistakes": [],
+          "practiceTasks": [],
+          "interviewQuestions": [
+            {
+              "text": "Explain good questions and when you would use it.",
+              "answer": "",
+              "derived": true
+            }
+          ],
+          "interview": {
+            "whyAsked": "",
+            "evaluation": [],
+            "sayOutLoud": "",
+            "probe": [],
+            "wrongAnswers": [
+              "questions answerable from the careers page, only asking about compensation or perks with engineers, and \"no questions.\""
+            ],
+            "tradeoffs": [],
+            "signal": "",
+            "prerequisites": [],
+            "answeredCount": 0,
+            "questionCount": 1
+          },
+          "troubleshooting": null,
+          "referenceMarkdown": null,
+          "resources": [],
+          "contentSource": "expanded"
+        }
+      ]
+    }
+  ]
+}
