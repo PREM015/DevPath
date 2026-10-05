@@ -4,7 +4,7 @@ import { requireUserPage } from "@/lib/permissions";
 import { prisma } from "@/lib/db/prisma";
 import { listQuestions, getQuestionStats } from "@/server/services/interview-kit";
 import { QuestionBank } from "@/features/interview/components/question-bank";
-import { Card, CardContent } from "@/components/ui/card";
+import { QuestionFilters } from "@/features/interview/components/question-filters";
 import { Button } from "@/components/ui/button";
 import { PageHeader, EmptyState } from "@/components/ui/feedback";
 import { HelpCircle } from "lucide-react";
@@ -49,6 +49,8 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
 
   const totalPages = Math.max(1, Math.ceil(result.total / pageSize));
 
+  // Pagination links only need to carry the page number; the filter bar owns
+  // the filters and already resets to page 1 whenever one changes.
   const buildHref = (overrides: Partial<Search>) => {
     const next = { ...params, ...overrides };
     const query = new URLSearchParams();
@@ -71,96 +73,12 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         }
       />
 
-      {/* Filters */}
-      <Card>
-        <CardContent className="p-4">
-          <form className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4" method="get">
-            <input
-              name="q"
-              defaultValue={params.q ?? ""}
-              placeholder="Search questions…"
-              aria-label="Search questions"
-              className="h-9 rounded-lg border border-input bg-background px-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            />
-
-            <select
-              name="phase"
-              defaultValue={params.phase ?? ""}
-              aria-label="Filter by phase"
-              className="h-9 rounded-lg border border-input bg-background px-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <option value="">All phases</option>
-              {phases.map((phase) => (
-                <option key={phase.id} value={phase.id}>
-                  {phase.order}. {phase.title}
-                </option>
-              ))}
-            </select>
-
-            <select
-              name="result"
-              defaultValue={params.result ?? ""}
-              aria-label="Filter by how you answered"
-              className="h-9 rounded-lg border border-input bg-background px-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <option value="">Any result</option>
-              <option value="unattempted">Never attempted</option>
-              <option value="BLANK">Went blank</option>
-              <option value="PARTIAL">Partial</option>
-              <option value="CONFIDENT">Confident</option>
-            </select>
-
-            <select
-              name="difficulty"
-              defaultValue={params.difficulty ?? ""}
-              aria-label="Filter by difficulty"
-              className="h-9 rounded-lg border border-input bg-background px-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <option value="">Any difficulty</option>
-              <option value="BEGINNER">Beginner</option>
-              <option value="INTERMEDIATE">Intermediate</option>
-              <option value="ADVANCED">Advanced</option>
-              <option value="SENIOR">Senior</option>
-            </select>
-
-            <div className="flex gap-2 sm:col-span-2 lg:col-span-4">
-              <Button type="submit" size="sm">
-                Apply
-              </Button>
-              <Button asChild size="sm" variant="ghost">
-                <Link href="/interview/questions">Reset</Link>
-              </Button>
-              <span className="ml-auto self-center text-xs text-muted-foreground">
-                {result.total.toLocaleString()} match{result.total === 1 ? "" : "es"}
-              </span>
-            </div>
-          </form>
-
-          {/* Quick jumps to the gaps that matter */}
-          <div className="mt-3 flex flex-wrap gap-1.5 border-t border-border pt-3">
-            <Button asChild size="xs" variant="outline">
-              <Link href={buildHref({ result: "BLANK" })}>
-                Went blank ({stats.blank})
-              </Link>
-            </Button>
-            <Button asChild size="xs" variant="outline">
-              <Link href={buildHref({ result: "unattempted" })}>
-                Never attempted ({stats.unattempted})
-              </Link>
-            </Button>
-            <Button asChild size="xs" variant="outline">
-              <Link href={buildHref({ result: "PARTIAL" })}>
-                Partial ({stats.partial})
-              </Link>
-            </Button>
-            <Button asChild size="xs" variant="outline">
-              <Link href={buildHref({ result: "CONFIDENT" })}>
-                Confident ({stats.confident})
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <QuestionFilters
+        phases={phases.map((phase) => ({ id: phase.id, order: phase.order, title: phase.title }))}
+        total={result.total}
+        totalAll={stats.total}
+        stats={stats}
+      />
 
       {result.items.length === 0 ? (
         <EmptyState
