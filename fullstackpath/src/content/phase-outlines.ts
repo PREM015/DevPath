@@ -20,17 +20,17 @@ export const PHASE_1_OUTLINE: PhaseOutlineEntry = {
   "color": "#6366f1",
   "difficulty": "BEGINNER",
   "summary": "How the interview pipeline actually works, and how to plan, resource and track your preparation so you walk into each round with a plan.",
-  "topics": 41,
+  "topics": 38,
   "groups": [
     "Full Stack Interview",
     "Preparation Strategy",
     "Interview Communication"
   ],
-  "deepTopics": 39,
-  "questions": 105,
-  "answeredQuestions": 6,
-  "practiceBlocks": 2,
-  "practiceItems": 30
+  "deepTopics": 36,
+  "questions": 125,
+  "answeredQuestions": 26,
+  "practiceBlocks": 3,
+  "practiceItems": 66
 };
 
 export const PHASE_2_OUTLINE: PhaseOutlineEntry = {
@@ -40,7 +40,7 @@ export const PHASE_2_OUTLINE: PhaseOutlineEntry = {
   "color": "#10b981",
   "difficulty": "BEGINNER",
   "summary": "Zero-level foundations: how the web works, the terminal, Git, programming fundamentals and the developer environment.",
-  "topics": 70,
+  "topics": 61,
   "groups": [
     "How the Web Works",
     "Terminal and Linux CLI",
@@ -49,11 +49,11 @@ export const PHASE_2_OUTLINE: PhaseOutlineEntry = {
     "Developer Environment",
     "Computer Science Basics for Web"
   ],
-  "deepTopics": 62,
-  "questions": 263,
-  "answeredQuestions": 99,
-  "practiceBlocks": 4,
-  "practiceItems": 112
+  "deepTopics": 60,
+  "questions": 438,
+  "answeredQuestions": 196,
+  "practiceBlocks": 12,
+  "practiceItems": 307
 };
 
 export const PHASE_3_OUTLINE: PhaseOutlineEntry = {
@@ -63,7 +63,7 @@ export const PHASE_3_OUTLINE: PhaseOutlineEntry = {
   "color": "#3b82f6",
   "difficulty": "INTERMEDIATE",
   "summary": "Frontend foundations: HTML, CSS, JavaScript core, TypeScript, browser internals, performance, accessibility and build tooling.",
-  "topics": 198,
+  "topics": 185,
   "groups": [
     "Frontend Basics: HTML Fundamentals",
     "CSS Styling",
@@ -75,11 +75,11 @@ export const PHASE_3_OUTLINE: PhaseOutlineEntry = {
     "Build Tools and Tooling",
     "Progressive Web Apps and Web APIs"
   ],
-  "deepTopics": 123,
-  "questions": 874,
-  "answeredQuestions": 391,
-  "practiceBlocks": 10,
-  "practiceItems": 256
+  "deepTopics": 108,
+  "questions": 960,
+  "answeredQuestions": 539,
+  "practiceBlocks": 20,
+  "practiceItems": 512
 };
 
 export const PHASE_4_OUTLINE: PhaseOutlineEntry = {
@@ -89,7 +89,7 @@ export const PHASE_4_OUTLINE: PhaseOutlineEntry = {
   "color": "#06b6d4",
   "difficulty": "INTERMEDIATE",
   "summary": "Frontend frameworks: React in depth, meta-frameworks, state management, data fetching, routing and frontend architecture.",
-  "topics": 181,
+  "topics": 159,
   "groups": [
     "React Concepts",
     "Next.js and Meta-Frameworks",
@@ -98,11 +98,11 @@ export const PHASE_4_OUTLINE: PhaseOutlineEntry = {
     "Routing Strategies",
     "Frontend Architecture and Ecosystem"
   ],
-  "deepTopics": 147,
-  "questions": 854,
-  "answeredQuestions": 322,
-  "practiceBlocks": 58,
-  "practiceItems": 356
+  "deepTopics": 130,
+  "questions": 1105,
+  "answeredQuestions": 468,
+  "practiceBlocks": 87,
+  "practiceItems": 534
 };
 
 export const PHASE_5_OUTLINE: PhaseOutlineEntry = {
@@ -112,7 +112,7 @@ export const PHASE_5_OUTLINE: PhaseOutlineEntry = {
   "color": "#f59e0b",
   "difficulty": "INTERMEDIATE",
   "summary": "Backend foundations: the Node.js runtime, Express, API design, background jobs, real-time systems and backend practices.",
-  "topics": 231,
+  "topics": 198,
   "groups": [
     "Nodejs Runtime",
     "Express Framework",
@@ -125,11 +125,11 @@ export const PHASE_5_OUTLINE: PhaseOutlineEntry = {
     "Other Backend Languages",
     "Backend Engineering Practices"
   ],
-  "deepTopics": 189,
-  "questions": 1134,
-  "answeredQuestions": 253,
-  "practiceBlocks": 120,
-  "practiceItems": 160
+  "deepTopics": 159,
+  "questions": 1125,
+  "answeredQuestions": 303,
+  "practiceBlocks": 180,
+  "practiceItems": 240
 };
 
 export const PHASE_6_OUTLINE: PhaseOutlineEntry = {
@@ -139,7 +139,7 @@ export const PHASE_6_OUTLINE: PhaseOutlineEntry = {
   "color": "#eab308",
   "difficulty": "INTERMEDIATE",
   "summary": "Database systems: SQL and NoSQL, data modelling, ORMs, search and specialised stores, and caching layers.",
-  "topics": 225,
+  "topics": 203,
   "groups": [
     "SQL Databases",
     "NoSQL Databases",
@@ -170,11 +170,11 @@ export const PHASE_6_OUTLINE: PhaseOutlineEntry = {
     "Database Systems: Additional Topics 27",
     "Database Systems: Additional Topics 29"
   ],
-  "deepTopics": 181,
-  "questions": 950,
-  "answeredQuestions": 543,
-  "practiceBlocks": 36,
-  "practiceItems": 552
+  "deepTopics": 161,
+  "questions": 1214,
+  "answeredQuestions": 794,
+  "practiceBlocks": 54,
+  "practiceItems": 828
 };
 
 export const PHASE_7_OUTLINE: PhaseOutlineEntry = {
@@ -184,7 +184,7 @@ export const PHASE_7_OUTLINE: PhaseOutlineEntry = {
   "color": "#ef4444",
   "difficulty": "INTERMEDIATE",
   "summary": "Networking and security: protocols, TLS, auth, cryptography and web application security.",
-  "topics": 150,
+  "topics": 130,
   "groups": [
     "Network Protocols",
     "Auth Mechanisms",
@@ -192,7 +192,6 @@ export const PHASE_7_OUTLINE: PhaseOutlineEntry = {
     "Secure Engineering Practices",
     "Networking and Security: Additional Topics 17",
     "Networking and Security: Additional Topics 18",
-    "Networking and Security: Additional Topics 19",
     "Networking and Security: Additional Topics 20",
     "Networking and Security: Additional Topics 21",
     "Networking and Security: Additional Topics 22",
@@ -200,11 +199,11 @@ export const PHASE_7_OUTLINE: PhaseOutlineEntry = {
     "Networking and Security: Additional Topics 24",
     "Networking and Security: Additional Topics 25"
   ],
-  "deepTopics": 119,
-  "questions": 703,
-  "answeredQuestions": 530,
-  "practiceBlocks": 102,
-  "practiceItems": 456
+  "deepTopics": 103,
+  "questions": 994,
+  "answeredQuestions": 785,
+  "practiceBlocks": 153,
+  "practiceItems": 684
 };
 
 export const PHASE_8_OUTLINE: PhaseOutlineEntry = {
@@ -214,7 +213,7 @@ export const PHASE_8_OUTLINE: PhaseOutlineEntry = {
   "color": "#0ea5e9",
   "difficulty": "INTERMEDIATE",
   "summary": "DevOps and cloud: containers, CI/CD, Linux in production, infrastructure as code, Kubernetes, networking and observability.",
-  "topics": 162,
+  "topics": 150,
   "groups": [
     "Linux Server Administration",
     "Containerization",
@@ -224,11 +223,11 @@ export const PHASE_8_OUTLINE: PhaseOutlineEntry = {
     "Cloud Platforms",
     "Observability and Reliability"
   ],
-  "deepTopics": 125,
-  "questions": 586,
-  "answeredQuestions": 161,
-  "practiceBlocks": 30,
-  "practiceItems": 266
+  "deepTopics": 115,
+  "questions": 654,
+  "answeredQuestions": 193,
+  "practiceBlocks": 45,
+  "practiceItems": 399
 };
 
 export const PHASE_9_OUTLINE: PhaseOutlineEntry = {
@@ -238,18 +237,18 @@ export const PHASE_9_OUTLINE: PhaseOutlineEntry = {
   "color": "#14b8a6",
   "difficulty": "INTERMEDIATE",
   "summary": "Testing strategies: unit, integration and end-to-end tests, TDD, test doubles and coverage that means something.",
-  "topics": 85,
+  "topics": 67,
   "groups": [
     "Unit Testing",
     "Integration Testing",
     "End to End Testing",
     "Quality Beyond Tests"
   ],
-  "deepTopics": 74,
-  "questions": 204,
-  "answeredQuestions": 102,
-  "practiceBlocks": 30,
-  "practiceItems": 402
+  "deepTopics": 55,
+  "questions": 235,
+  "answeredQuestions": 135,
+  "practiceBlocks": 45,
+  "practiceItems": 603
 };
 
 export const PHASE_10_OUTLINE: PhaseOutlineEntry = {
@@ -259,7 +258,7 @@ export const PHASE_10_OUTLINE: PhaseOutlineEntry = {
   "color": "#8b5cf6",
   "difficulty": "INTERMEDIATE",
   "summary": "Coding challenges, CS fundamentals and DSA: complexity, core data structures, classic patterns and problem solving under time pressure.",
-  "topics": 131,
+  "topics": 109,
   "groups": [
     "Data Structures",
     "Algorithms",
@@ -267,11 +266,11 @@ export const PHASE_10_OUTLINE: PhaseOutlineEntry = {
     "OS and Concurrency Fundamentals",
     "Practice Plan"
   ],
-  "deepTopics": 109,
-  "questions": 352,
-  "answeredQuestions": 194,
-  "practiceBlocks": 72,
-  "practiceItems": 578
+  "deepTopics": 90,
+  "questions": 497,
+  "answeredQuestions": 296,
+  "practiceBlocks": 111,
+  "practiceItems": 1092
 };
 
 export const PHASE_11_OUTLINE: PhaseOutlineEntry = {
@@ -281,18 +280,18 @@ export const PHASE_11_OUTLINE: PhaseOutlineEntry = {
   "color": "#d946ef",
   "difficulty": "INTERMEDIATE",
   "summary": "Architecture patterns and low-level design: SOLID, design patterns, domain-driven design and low-level system design.",
-  "topics": 94,
+  "topics": 81,
   "groups": [
     "Design Patterns",
     "OOP, SOLID and Clean Code",
     "Architectural Styles",
     "Low-Level Design Case Studies"
   ],
-  "deepTopics": 76,
-  "questions": 166,
+  "deepTopics": 65,
+  "questions": 181,
   "answeredQuestions": 12,
-  "practiceBlocks": 30,
-  "practiceItems": 554
+  "practiceBlocks": 45,
+  "practiceItems": 831
 };
 
 export const PHASE_12_OUTLINE: PhaseOutlineEntry = {
@@ -302,7 +301,7 @@ export const PHASE_12_OUTLINE: PhaseOutlineEntry = {
   "color": "#a855f7",
   "difficulty": "INTERMEDIATE",
   "summary": "System design: scalability, estimation, distributed systems, a repeatable design framework and classic case studies.",
-  "topics": 89,
+  "topics": 81,
   "groups": [
     "Scalability Principles",
     "System Estimation",
@@ -310,11 +309,11 @@ export const PHASE_12_OUTLINE: PhaseOutlineEntry = {
     "System Design Framework",
     "Classic Case Studies"
   ],
-  "deepTopics": 78,
-  "questions": 250,
-  "answeredQuestions": 80,
-  "practiceBlocks": 66,
-  "practiceItems": 428
+  "deepTopics": 70,
+  "questions": 290,
+  "answeredQuestions": 120,
+  "practiceBlocks": 99,
+  "practiceItems": 756
 };
 
 export const PHASE_13_OUTLINE: PhaseOutlineEntry = {
@@ -338,8 +337,8 @@ export const PHASE_13_OUTLINE: PhaseOutlineEntry = {
   "deepTopics": 55,
   "questions": 6,
   "answeredQuestions": 0,
-  "practiceBlocks": 28,
-  "practiceItems": 248
+  "practiceBlocks": 42,
+  "practiceItems": 372
 };
 
 export const PHASE_14_OUTLINE: PhaseOutlineEntry = {
@@ -349,17 +348,17 @@ export const PHASE_14_OUTLINE: PhaseOutlineEntry = {
   "color": "#f59e0b",
   "difficulty": "BEGINNER",
   "summary": "Behavioral and engineering culture: storytelling, collaboration, code review practice, and what senior and staff scope looks like.",
-  "topics": 74,
+  "topics": 60,
   "groups": [
     "Behavioral Questions",
     "Engineering Culture",
     "Seniority and Leadership"
   ],
-  "deepTopics": 65,
-  "questions": 167,
+  "deepTopics": 50,
+  "questions": 161,
   "answeredQuestions": 20,
-  "practiceBlocks": 6,
-  "practiceItems": 80
+  "practiceBlocks": 9,
+  "practiceItems": 240
 };
 
 export const PHASE_15_OUTLINE: PhaseOutlineEntry = {
@@ -369,7 +368,7 @@ export const PHASE_15_OUTLINE: PhaseOutlineEntry = {
   "color": "#10b981",
   "difficulty": "BEGINNER",
   "summary": "Job search, offers and career: application materials, search strategy and negotiation.",
-  "topics": 97,
+  "topics": 81,
   "groups": [
     "Application Materials",
     "Job Search Strategy",
@@ -379,21 +378,21 @@ export const PHASE_15_OUTLINE: PhaseOutlineEntry = {
     "Level Tracks",
     "Interview Kit"
   ],
-  "deepTopics": 61,
-  "questions": 293,
-  "answeredQuestions": 147,
-  "practiceBlocks": 18,
-  "practiceItems": 334
+  "deepTopics": 47,
+  "questions": 338,
+  "answeredQuestions": 199,
+  "practiceBlocks": 22,
+  "practiceItems": 530
 };
 /** Totals across all phases, from the same source as the entries above. */
 export const CONTENT_TOTALS = {
   "phases": 15,
-  "groups": 118,
-  "topics": 1894,
-  "deepTopics": 1503,
-  "questions": 6907,
-  "answeredQuestions": 2860,
-  "practiceBlocks": 612,
-  "practiceItems": 4812
+  "groups": 117,
+  "topics": 1669,
+  "deepTopics": 1304,
+  "questions": 8323,
+  "answeredQuestions": 4086,
+  "practiceBlocks": 927,
+  "practiceItems": 7994
 } as const;
 

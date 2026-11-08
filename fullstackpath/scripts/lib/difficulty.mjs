@@ -39,6 +39,11 @@ export const DIFFICULTY_NAME = {
  * late". They are process, behavioural and career material: the most
  * senior-sounding phases in the document and technically among the easiest, so
  * a level-based guess would label them wrongly.
+ *
+ * Phase 16 is the cross-cutting layer (projects, learning paths, role and level
+ * tracks, interview kit). It spans the whole programme, so no single level fits
+ * it; Intermediate is the honest midpoint and the level-track groups are
+ * marked up explicitly in the source.
  */
 export const PHASE_DIFFICULTY_DEFAULT = {
   1: "BEGINNER", // process, logistics and communication; no technical depth
@@ -56,6 +61,7 @@ export const PHASE_DIFFICULTY_DEFAULT = {
   13: "INTERMEDIATE", // heading is explicitly (Intermediate) in the source
   14: "BEGINNER", // behavioural and culture; Seniority group is already marked Senior
   15: "BEGINNER", // job search, offers and career logistics
+  16: "INTERMEDIATE", // cross-cutting: projects, learning paths, role/level tracks, interview kit
 };
 
 /**

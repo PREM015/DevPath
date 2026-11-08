@@ -24,7 +24,7 @@
  * first file winning on conflicts.
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseSection } from "./lib/parse-section.mjs";
@@ -33,12 +33,46 @@ const here = dirname(fileURLToPath(import.meta.url));
 const projectRoot = join(here, "..");
 const outDir = join(projectRoot, "prisma", "seed-data");
 
-const structurePath =
-  process.argv[2] ?? join(projectRoot, "..", "# Complete Full Stack Interview Roa.txt");
+/**
+ * The roadmap structure file. It has been published as both `.txt` and `.md`
+ * over the life of the project, so resolve whichever exists rather than failing
+ * with ENOENT when someone renames or re-exports it.
+ */
+function resolveStructurePath() {
+  if (process.argv[2]) return process.argv[2];
+  const base = join(projectRoot, "..", "# Complete Full Stack Interview Roa");
+  for (const candidate of [`${base}.md`, `${base}.txt`]) {
+    if (existsSync(candidate)) return candidate;
+  }
+  return null;
+}
 
+const structurePath = resolveStructurePath();
+const phaseDir = join(projectRoot, "..", "phase");
+
+/**
+ * Content sources.
+ *
+ * The standalone outline and `expand.md` were folded into ../phase by hand: the
+ * cross-cutting tracks and interview kit became `00-roadmap-spine.md` and each
+ * per-phase deep dive absorbed the parts of `expand.md` that belonged to it. So
+ * ../phase is now the only authoritative input, and the outline is optional
+ * rather than required. Files load in name order - the spine first, then the
+ * fifteen phases - and are appended rather than replacing one another, so
+ * nothing already ingested is dropped: a section is matched to a roadmap topic
+ * by title where one exists and adopted as a new topic where one does not.
+ */
 const expandedPaths = process.argv.slice(3);
 if (expandedPaths.length === 0) {
-  expandedPaths.push(structurePath, join(projectRoot, "..", "expand.md"));
+  if (existsSync(phaseDir)) {
+    const perPhase = readdirSync(phaseDir)
+      .filter((name) => /^\d{2}.*\.md$/.test(name))
+      .sort();
+    for (const name of perPhase) expandedPaths.push(join(phaseDir, name));
+  }
+  for (const candidate of [resolveStructurePath(), join(projectRoot, "..", "expand.md")]) {
+    if (candidate && existsSync(candidate)) expandedPaths.push(candidate);
+  }
 }
 
 import {
@@ -75,6 +109,10 @@ function normalizeKey(text) {
     .trim();
 }
 
+/**
+ * Strips emoji and the source document's legend markers from a heading so the
+ * title a learner sees is plain text.
+ */
 function stripEmoji(text) {
   return text
     // Pictographs, symbols and variation selectors.
@@ -149,6 +187,8 @@ function cleanHeading(text) {
   return stripEmoji(
     text
       .replace(/^\s*[\d.]+\s*/, "")
+      // Cross-cutting chapters are numbered `X.1.1`.
+      .replace(/^\s*[A-Za-z](?:\.\d+)+\s+/, "")
       .replace(/\*\*/g, "")
       .replace(/`/g, "")
       .replace(/\(\s*\)\s*$/, "")
@@ -161,6 +201,74 @@ function cleanHeading(text) {
 // ─────────────────────────────────────────────
 // Part 1: structure
 // ─────────────────────────────────────────────
+
+const CROSS_CUTTING_ORDER = 16;
+const CROSS_CUTTING_TITLE = "Cross-cutting Tracks and the Final Interview Kit";
+const KIT_GROUP_ORDER = 5;
+
+/**
+ * Classifies a heading by its numbering rather than by how many hashes precede
+ * it.
+ *
+ * The per-phase files are not consistent about depth. 01.md declares a topic as
+ * `### 1.1.3`, while 02.md and 06.md declare the same two levels as `# 2.1` and
+ * `## 2.1.1`. Keying off depth therefore read three quarters of Phase 2 and
+ * Phase 6 as groups and captured none of their chapters as topics, which is
+ * where most of the missing coverage was.
+ *
+ * A space is required after the number so `3.5GHz` is not read as a group.
+ * `X.*` is the cross-cutting layer - projects, learning paths, role and level
+ * tracks - and `K.*` the final interview kit; both belong to Phase 16.
+ *
+ * Returns null for a heading that is not part of the numbered skeleton.
+ */
+function classifyHeading(text) {
+  const phaseHead = text.match(/^PHASE\s+(\d+)\b(?:\s*,?\s*PART\s*\d+)?\s*:?\s*(.*)$/i);
+  if (phaseHead) {
+    return {
+      kind: "phase",
+      phaseOrder: Number(phaseHead[1]),
+      groupOrder: null,
+      topicOrder: null,
+      title: stripEmoji(phaseHead[2] || "").replace(/\*\*+$/, "").trim(),
+    };
+  }
+
+  const cross = text.match(/^X\.(\d+)(?:\.(\d+))?\s+(\S.*)$/);
+  if (cross) {
+    return {
+      kind: cross[2] === undefined ? "group" : "topic",
+      phaseOrder: CROSS_CUTTING_ORDER,
+      groupOrder: Number(cross[1]),
+      topicOrder: cross[2] === undefined ? null : Number(cross[2]),
+      title: cleanHeading(cross[3]),
+    };
+  }
+
+  const kit = text.match(/^K\.(\d+)(?:\.(\d+))?\s+(\S.*)$/);
+  if (kit) {
+    return {
+      kind: "topic",
+      phaseOrder: CROSS_CUTTING_ORDER,
+      groupOrder: KIT_GROUP_ORDER,
+      topicOrder: Number(kit[1]),
+      title: cleanHeading(kit[3]),
+    };
+  }
+
+  const numbered = text.match(/^(\d+)\.(\d+)(?:\.(\d+))?\s+(\S.*)$/);
+  if (numbered) {
+    return {
+      kind: numbered[3] === undefined ? "group" : "topic",
+      phaseOrder: Number(numbered[1]),
+      groupOrder: Number(numbered[2]),
+      topicOrder: numbered[3] === undefined ? null : Number(numbered[3]),
+      title: cleanHeading(numbered[4]),
+    };
+  }
+
+  return null;
+}
 
 function parseStructure(lines) {
   const phases = [];
@@ -433,10 +541,49 @@ function parseExpanded(lines, { requireMarker = true } = {}) {
 
   // The main roadmap file announces the expanded edition explicitly. Secondary
   // documents are expanded content from the first line, so the marker is skipped.
-  if (markerIndex !== -1) lines = lines.slice(markerIndex);
-  else if (requireMarker) return new Map();
+  //
+  // Only slice when the caller actually wants the outline's semantics. Applying
+  // it to the per-phase files was destructive: 15.md repeats the marker at line
+  // 3,274 of 16,424, so everything above it - a fifth of the phase, including
+  // the whole of "Application Materials" - was thrown away before parsing began.
+  if (requireMarker) {
+    if (markerIndex === -1) return new Map();
+    lines = lines.slice(markerIndex);
+  }
 
   const sections = [];
+  const groupIntros = [];
+  const phaseIntros = [];
+  let orphansAttached = 0;
+  let orphansDropped = 0;
+  let orphanMarkdown = "";
+
+  /** Preserve the pending group prose before a new group heading displaces it. */
+  const stashGroupIntro = () => {
+    if (groupIntro && groupBody.join("\n").trim()) {
+      groupIntros.push({
+        title: groupIntro.title,
+        number: groupIntro.number,
+        bodyMarkdown: groupBody.join("\n").trim(),
+      });
+    }
+    groupIntro = null;
+    groupBody = [];
+  };
+
+  /** Same, for phase-level prose. A "PART 2" heading displaces "PART 1". */
+  const stashPhaseIntro = () => {
+    if (phaseIntro && phaseBody.join("\n").trim()) {
+      phaseIntros.push({
+        order: phaseIntro.order,
+        title: phaseIntro.title,
+        bodyMarkdown: phaseBody.join("\n").trim(),
+      });
+    }
+    phaseIntro = null;
+    phaseBody = [];
+  };
+
   let heading = null;
   let headingNumber = null;
   let headingLine = -1;
@@ -445,6 +592,20 @@ function parseExpanded(lines, { requireMarker = true } = {}) {
   let parentNumber = null;
   let body = [];
   let inFence = false;
+  // Prose that belongs to a group or a phase rather than to any single chapter.
+  // It has no topic of its own, so without somewhere to put it it was dropped:
+  // Phase 10 lost 600+ lines to group headings alone.
+  let groupIntro = null;
+  let groupBody = [];
+  let phaseIntro = null;
+  let phaseBody = [];
+  let topicOrder = 0;
+  // Content that arrives with no topic, group or phase open - Phase 7's
+  // debugging scenarios, for instance, are headed `## 7. A WAF rule change...`
+  // and sit after the last numbered chapter of their group. Dropping it was the
+  // single largest remaining hole, so it is attached to the chapter above
+  // instead, which is where a reader would look for it.
+  let orphanBody = [];
   /** The most recent numbered topic title, used to give a practice block context. */
   let lastTopicTitle = null;
   /** The most recent numbered topic's own numbering, used to place a block. */
@@ -509,23 +670,32 @@ function parseExpanded(lines, { requireMarker = true } = {}) {
     if (line.trim().startsWith("```")) {
       inFence = !inFence;
       if (heading !== null) body.push(line);
+      else if (groupIntro) groupBody.push(line);
+      else if (phaseIntro) phaseBody.push(line);
       continue;
     }
     if (inFence) {
       if (heading !== null) body.push(line);
+      else if (groupIntro) groupBody.push(line);
+      else if (phaseIntro) phaseBody.push(line);
       continue;
     }
 
-    const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
+const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
     if (headingMatch) {
-      const numbers = (headingMatch[2].match(/^\s*(\d+)\.(\d+)\.(\d+)/) ?? []).slice(1);
-      const isNumberedTopic = numbers.length === 3;
-      const kind = archetypeOf(headingMatch[2]);
+      const raw = headingMatch[2];
+      const trimmed = raw.trim();
+      const kind = archetypeOf(trimmed);
+      const info = classifyHeading(trimmed);
 
-      if (isNumberedTopic) {
+      if (info && info.kind === "topic") {
+        // A numbered chapter: `1.1.3 Topic`, `X.1.1 Project`, `K.1 Scorecards`.
+        // Depth is ignored - 01.md writes these at `###` and 02.md at `##` - so
+        // the numbering decides. `X.*` and `K.*` belong to Phase 16.
         flush();
-        heading = cleanHeading(headingMatch[2]);
-        headingNumber = numbers.map(Number);
+        heading = info.title;
+        topicOrder += 1;
+        headingNumber = [info.phaseOrder, info.groupOrder, info.topicOrder ?? topicOrder];
         headingLine = i;
         lastTopicTitle = heading;
         lastTopicNumber = headingNumber;
@@ -534,27 +704,68 @@ function parseExpanded(lines, { requireMarker = true } = {}) {
         // A practice block. It follows the numbered topic above it, so it keeps
         // that topic's context and is stored as practice rather than as a topic.
         flush();
-        heading = cleanHeading(headingMatch[2]) || headingMatch[2].trim();
+        heading = cleanHeading(trimmed) || trimmed;
         headingNumber = null;
         headingLine = i;
         archetype = kind;
         parentTopic = lastTopicTitle;
         parentNumber = lastTopicNumber;
         body = [];
-      } else if (QUESTION_HEADING_RE.test(headingMatch[2]) && heading !== null) {
+      } else if (info && info.kind === "group") {
+        // A group heading ends the chapter above it and opens prose that belongs
+        // to the group, not to any chapter. The outgoing prose is stashed first:
+        // overwriting it here kept only the last prose group in each file, which
+        // is how fifteen of Phase 7's sixteen groups were silently emptied.
+        flush();
+        stashGroupIntro();
+        stashPhaseIntro();
+        groupIntro = { title: info.title, number: [info.phaseOrder, info.groupOrder] };
+        groupBody = [];
+      } else if (info && info.kind === "phase") {
+        flush();
+        stashPhaseIntro();
+        stashGroupIntro();
+        phaseIntro = { order: info.phaseOrder, title: info.title };
+        phaseBody = [];
+      } else if (QUESTION_HEADING_RE.test(raw) && heading !== null) {
         // Keep the question heading with the block that owns it.
         body.push(line);
+      } else if (headingMatch[1].length >= 2 && /^\*\*/.test(trimmed) && heading !== null) {
+        // A bold sub-heading such as "## **8-week standard**" is part of the
+        // section above it, not a new one. Treating it as a boundary split the
+        // section into several same-titled pieces, and since rows are keyed by
+        // slug only the last survived, silently dropping the earlier text.
+        body.push(line);
+      } else if (headingMatch[1].length >= 2 && heading !== null) {
+        // Any sub-heading inside a section - "## REST and HTTP semantics",
+        // "## STORY 1 - the win", "#### Weak answer" - belongs to the section
+        // above it. Treating them as boundaries ended the enclosing section,
+        // so everything beneath was dropped or re-keyed into a duplicate that
+        // overwrote the original. Phase 10 alone loses 600+ lines this way.
+        body.push(line);
+      } else if (heading !== null || groupIntro || phaseIntro) {
+        // An unnumbered heading inside a group- or phase-level preamble is part
+        // of that preamble ("## Why this phase exists").
+        if (groupIntro) groupBody.push(line);
+        else if (phaseIntro) phaseBody.push(line);
+        else body.push(line);
       } else {
-        // Group, phase or section heading: ends the current block.
-        flush();
-        body = [];
+        // Nothing is open. Keep the line against the chapter above rather than
+        // discarding it.
+        orphanBody.push(line);
       }
       continue;
     }
 
     if (heading !== null) body.push(line);
+    else if (groupIntro) groupBody.push(line);
+    else if (phaseIntro) phaseBody.push(line);
+    else orphanBody.push(line);
   }
   flush();
+  stashGroupIntro();
+  stashPhaseIntro();
+  // Orphan attachment is deferred until `topics` is built below.
 
   const topics = new Map();
   const practice = [];
@@ -579,7 +790,27 @@ function parseExpanded(lines, { requireMarker = true } = {}) {
     if (!topics.has(key)) topics.set(key, parsed);
   }
 
+  // Attach orphan prose (content with no topic, group or phase open) to the
+  // chapter above it, if one exists. This catches Phase 7's debugging scenarios
+  // and other trailing prose that would otherwise be discarded.
+  if (orphanBody.join("\n").trim()) {
+    const orphanKey = lastTopicTitle ? normalizeKey(lastTopicTitle) : "";
+    const owner = orphanKey ? topics.get(orphanKey) : null;
+    if (owner) {
+      owner.bodyMarkdown = appendBody(owner, orphanBody.join("\n").trim()).bodyMarkdown;
+      orphansAttached += 1;
+    } else {
+      orphanMarkdown = orphanBody.join("\n").trim();
+      orphansDropped = orphanBody.filter((l) => l.trim()).length;
+    }
+  }
+
+  topics.orphanMarkdown = orphanMarkdown;
+  topics.orphansDropped = orphansDropped;
+  topics.orphansAttached = orphansAttached;
   topics.practice = practice;
+  topics.groupIntros = groupIntros;
+  topics.phaseIntros = phaseIntros;
   return topics;
 }
 
@@ -660,6 +891,13 @@ function adoptOrphanSections(phases, expanded) {
   for (const [key, section] of expanded) {
     if (byKey.has(key)) continue;
 
+    // The deep dives restate a topic in a fuller title: the outline says
+    // "Resource selection" where the chapter heading says "Resource Selection
+    // and Curation". Folding those together by title similarity was tried and
+    // reverted: a prefix test also matched unrelated pairs such as "Unit
+    // Testing" against "Integration Testing", which deleted real topics. The
+    // duplicate is left in place rather than risk losing content.
+
     let phase = null;
     let group = null;
 
@@ -719,7 +957,7 @@ function adoptOrphanSections(phases, expanded) {
       interviewQuestions: section.questions.slice(0, 12).map((question) => ({
         text: question.text,
         answer: question.answer ?? "",
-      })),
+})),
       interview: {
         whyAsked: section.whyAsked ?? "",
         evaluation: section.evaluation.slice(0, 8),
@@ -745,7 +983,8 @@ function adoptOrphanSections(phases, expanded) {
               tools: section.tools.slice(0, 6),
             }
           : null,
-      referenceMarkdown: (section.__reference ?? "").slice(0, 20_000) || null,
+      referenceMarkdown:
+        (section.bodyMarkdown || section.__reference || "").slice(0, 200_000) || null,
       resources: section.resources.slice(0, 10),
       description:
         [section.definition, section.whyAsked].filter(Boolean).join(" ") ||
@@ -824,7 +1063,7 @@ function mergeContent(phases, expanded, stats) {
           continue;
         }
 
-        stats.enriched += 1;
+        console.log(`[MERGE] topic: ${topic.title}, has checklist: ${Array.isArray(section.checklist) ? section.checklist.length : "no"}`);
 
         if (section.difficulty) topic.difficulty = section.difficulty;
 
@@ -835,6 +1074,11 @@ function mergeContent(phases, expanded, stats) {
         topic.keyConcepts = section.keyConcepts.slice(0, 12);
         topic.commonMistakes = section.mistakes.slice(0, 8);
         topic.practiceTasks = [...section.practice, ...section.selfCheck].slice(0, 8);
+        topic.checklist = section.checklist ?? [];
+        if (section.checklist && section.checklist.length > 0) {
+          console.log(`[MERGE] topic: ${topic.title}, section.checklist: ${section.checklist.length}, topic.checklist: ${topic.checklist.length}`);
+        }
+        console.log(`[DEBUG] topic: ${topic.title}, checklist length: ${topic.checklist.length}`);
         topic.resources = section.resources.slice(0, 10);
 
         // Questions keep their model answers attached. A question with no answer
@@ -885,6 +1129,10 @@ function mergeContent(phases, expanded, stats) {
           questionCount: topic.interviewQuestions.length,
         };
 
+        // Verbatim body so nothing the author wrote is lost (tables, prose outside
+        // recognised labels, etc.). This is the safety net for 100% coverage.
+        topic.bodyMarkdown = section.bodyMarkdown ?? "";
+
         // The debugging-runbook archetype: symptom -> investigation -> cause ->
         // fix -> prevention. Present only on the scenario topics that use it.
         const isRunbook =
@@ -900,7 +1148,8 @@ function mergeContent(phases, expanded, stats) {
             }
           : null;
 
-        topic.referenceMarkdown = (section.__reference ?? "").slice(0, 20_000) || null;
+        topic.referenceMarkdown =
+          (section.bodyMarkdown || section.__reference || "").slice(0, 200_000) || null;
 
         topic._priority = section.priority;
         topic._contentSource = "expanded";
@@ -988,7 +1237,16 @@ function attachPractice(phases, practiceBlocks, stats) {
       ...block.selfCheck,
     ].slice(0, 40);
 
-    const reference = (block.__reference ?? "").slice(0, 20_000) || null;
+    // A block's prose body is the only guarantee that nothing authored is lost:
+    // extraction is a heuristic, and the per-phase files carry a great deal of
+    // prose in blocks that also have structured fields. The body therefore goes
+    // into the reference slot for structured blocks - the card renders it in a
+    // scrollable "Reference material" panel - and into markdown for blocks that
+    // have no structured rendering at all.
+    const bodyText = (rawBodyOf(block) ?? "").trim().slice(0, 200_000);
+    const reference =
+      [block.__reference ?? "", bodyText].filter(Boolean).join("\n\n").trim().slice(0, 200_000) ||
+      null;
 
     const hasStructuredContent =
       items.length > 0 ||
@@ -1003,9 +1261,7 @@ function attachPractice(phases, practiceBlocks, stats) {
     // A block whose content is a table, a diagram or prose has none of the
     // structured fields. Dropping it would lose authored content, so the raw
     // body is kept as markdown and rendered verbatim instead.
-    const rawMarkdown = hasStructuredContent
-      ? null
-      : (rawBodyOf(block) ?? "").trim().slice(0, 20_000) || null;
+    const rawMarkdown = hasStructuredContent ? null : bodyText || null;
 
     if (!hasStructuredContent && !rawMarkdown) {
       stats.emptyPractice = (stats.emptyPractice ?? 0) + 1;
@@ -1070,8 +1326,12 @@ function serialisePhase(phase) {
       difficulty: group.difficulty,
       estimatedHours: group.estimatedHours,
       objectives: group.objectives,
-      topics: group.topics.map((topic) => ({
-        slug: topic.slug,
+      topics: group.topics.map((topic) => {
+        if (topic.checklist && topic.checklist.length > 0) {
+          console.log(`[SERIALISE] topic: ${topic.title}, checklist: ${topic.checklist.length}`);
+        }
+        return {
+          slug: topic.slug,
         title: topic.title,
         description: topic.description,
         difficulty: topic.difficulty,
@@ -1086,27 +1346,179 @@ function serialisePhase(phase) {
         interview: topic.interview ?? null,
         troubleshooting: topic.troubleshooting ?? null,
         referenceMarkdown: topic.referenceMarkdown ?? null,
+        bodyMarkdown: topic.bodyMarkdown ?? null,
+        checklist: topic.checklist ?? null,
         resources: topic.resources,
         contentSource: topic._contentSource,
-      })),
-    })),
+}}) ,
+}),
   };
 }
 
-const raw = readFileSync(structurePath, "utf8");
-const lines = raw.split(/\r?\n/);
+/**
+ * Builds the roadmap structure from the per-phase files themselves.
+ *
+ * The standalone outline was folded into ../phase by hand - the cross-cutting
+ * tracks became `00-roadmap-spine.md` and each deep dive absorbed its share of
+ * `expand.md` - so the numbered headings in those files are now the only
+ * description of the roadmap. Detection is by numbering (see
+ * `classifyHeading`), never by heading depth.
+ *
+ * Returns the same shape as `parseStructure`, so every downstream step
+ * (merge, adopt, fold, serialise) is unchanged.
+ */
+function parseStructureFromPhaseFiles(paths) {
+  const phases = new Map();
 
-console.log(`Structure source: ${structurePath}`);
-console.log(`Lines:           ${lines.length}`);
+  const ensurePhase = (order, title) => {
+    let phase = phases.get(order);
+    if (!phase) {
+      const resolved = title || `Phase ${order}`;
+      phase = {
+        order,
+        title: resolved,
+        difficulty: phaseDifficultyFor(order, ""),
+        slug: `phase-${order}-${slugify(resolved)}`,
+        icon: phaseIcon(order),
+        color: phaseColor(order),
+        estimatedHours: PHASE_HOURS[order] ?? 40,
+        description: "",
+        objectives: [],
+        groups: [],
+      };
+      phases.set(order, phase);
+    } else if (title && /^Phase \d+$/.test(phase.title)) {
+      // The numbered heading arrived before the `# PHASE n:` title; fill it in.
+      phase.title = title;
+      phase.slug = `phase-${order}-${slugify(title)}`;
+    }
+    return phase;
+  };
 
-const phases = parseStructure(lines);
+  const ensureGroup = (phase, order, title, difficulty) => {
+    let group = phase.groups.find((g) => g.order === order);
+    if (!group) {
+      group = {
+        order,
+        title: title || `Group ${order}`,
+        slug: `phase-${phase.order}-${slugify(`${order}-${title || "group"}`)}`,
+        difficulty,
+        description: "",
+        estimatedHours: null,
+        objectives: [],
+        topics: [],
+      };
+      phase.groups.push(group);
+    } else if (title && /^Group \d+$/.test(group.title)) {
+      group.title = title;
+      group.slug = `phase-${phase.order}-${slugify(`${order}-${title}`)}`;
+    }
+    return group;
+  };
+
+  const addTopic = (group, order, title, minutes) => {
+    if (!title) return;
+    if (group.topics.some((topic) => topic.title === title)) return;
+    group.topics.push({
+      order,
+      title,
+      slug: `${group.slug}-${slugify(title)}`,
+      difficulty: group.difficulty,
+      origin: "new",
+      estimatedMinutes: minutes ?? 60,
+      objectives: [],
+      keyConcepts: [],
+      commonMistakes: [],
+      practiceTasks: [],
+      interviewQuestions: [],
+      resources: [],
+    });
+  };
+
+  for (const path of paths) {
+    const name = path.replace(/\\/g, "/").split("/").pop();
+    // `00-roadmap-spine.md` is the cross-cutting layer and becomes Phase 16.
+    const fileOrder = Number((name.match(/^(\d{2})/) ?? [])[1] ?? 0);
+    let lines;
+    try {
+      lines = readFileSync(path, "utf8").split(/\r?\n/);
+    } catch {
+      continue;
+    }
+
+    let phaseOrder = fileOrder === 0 ? CROSS_CUTTING_ORDER : fileOrder;
+    if (phaseOrder === 0) phaseOrder = CROSS_CUTTING_ORDER;
+    let topicOrder = 0;
+
+    for (const line of lines) {
+      const heading = line.match(/^#{1,6}\s+(.+)$/);
+      if (!heading) continue;
+      const info = classifyHeading(heading[1].trim());
+      if (!info) continue;
+
+      if (info.kind === "phase") {
+        phaseOrder = info.phaseOrder;
+        ensurePhase(phaseOrder, info.title);
+        continue;
+      }
+
+      const phase = ensurePhase(info.phaseOrder, info.phaseOrder === CROSS_CUTTING_ORDER ? CROSS_CUTTING_TITLE : null);
+      const group = ensureGroup(phase, info.groupOrder, info.title, phase.difficulty);
+      if (info.kind === "topic") {
+        topicOrder += 1;
+        addTopic(group, info.topicOrder ?? topicOrder, info.title);
+      }
+    }
+  }
+
+  return [...phases.values()].sort((a, b) => a.order - b.order);
+}
+
+let phases;
+let structureLabel;
+if (structurePath) {
+  const lines = readFileSync(structurePath, "utf8").split(/\r?\n/);
+  structureLabel = structurePath;
+  phases = parseStructure(lines);
+} else {
+  // No standalone outline: the numbered headings in ../phase are the roadmap.
+  structureLabel = `../phase (${expandedPaths.length} files)`;
+  phases = parseStructureFromPhaseFiles(expandedPaths);
+}
+
+console.log(`Structure source: ${structureLabel}`);
 console.log(
   `Parsed ${phases.length} phases, ${phases.reduce((sum, p) => sum + p.groups.length, 0)} groups, ${phases.reduce((sum, p) => sum + p.groups.reduce((g, g2) => g + g2.topics.length, 0), 0)} topics`,
 );
 
-// Merge every expanded document into a single lookup. Earlier files win.
+// Merge every expanded document into a single lookup.
+//
+// Two different rules, on purpose.
+//
+// Structured fields - definition, key concepts, questions, mistakes - are
+// first-wins. The outline and the expanded edition describe the same topics,
+// and letting a later, differently-shaped source replace a section wholesale
+// silently dropped a third of the question bank. First-wins keeps that stable.
+//
+// The raw body is the opposite: it accumulates. Structured extraction is a
+// lossy heuristic, so the verbatim text is the only guarantee that nothing the
+// author wrote is lost, and the per-phase deep dives must not be dropped just
+// because the outline already mentioned the topic.
 const expanded = new Map();
 const practiceBlocks = [];
+const groupIntros = new Map();
+const phaseIntros = new Map();
+const phaseOrphans = new Map();
+
+/** Concatenate a later source's body onto the one already held. */
+function appendBody(existing, incoming) {
+  const a = (existing?.bodyMarkdown ?? "").trim();
+  const b = (incoming ?? "").trim();
+  if (!b) return existing;
+  if (!a) return { ...existing, bodyMarkdown: b };
+  if (a.includes(b)) return existing;
+  return { ...existing, bodyMarkdown: `${a}\n\n---\n\n${b}` };
+}
 
 for (const path of expandedPaths) {
   let document;
@@ -1118,16 +1530,157 @@ for (const path of expandedPaths) {
   }
   const before = expanded.size;
   const parsed = parseExpanded(document, { requireMarker: false });
+  let extended = 0;
   for (const [key, value] of parsed) {
-    if (!expanded.has(key)) expanded.set(key, value);
+    const existing = expanded.get(key);
+    if (!existing) {
+      expanded.set(key, value);
+      continue;
+    }
+    expanded.set(key, appendBody(existing, value.bodyMarkdown));
+    if ((value.bodyMarkdown ?? "").trim()) extended += 1;
   }
   practiceBlocks.push(...(parsed.practice ?? []));
+  // Prose that belongs to a group or a phase rather than to any chapter. It is
+  // collected here and attached to the group/phase description once every source
+  // has been read, so repeated introductions concatenate rather than overwrite.
+  for (const intro of parsed.groupIntros ?? []) {
+    const key = `${intro.number[0]}:${intro.number[1]}`;
+    const existing = groupIntros.get(key);
+    groupIntros.set(key, {
+      number: intro.number,
+      bodyMarkdown: existing
+        ? `${existing.bodyMarkdown}\n\n---\n\n${intro.bodyMarkdown}`
+        : intro.bodyMarkdown,
+    });
+  }
+  for (const intro of parsed.phaseIntros ?? []) {
+    const existing = phaseIntros.get(intro.order);
+    phaseIntros.set(intro.order, {
+      order: intro.order,
+      bodyMarkdown: existing
+        ? `${existing.bodyMarkdown}\n\n---\n\n${intro.bodyMarkdown}`
+        : intro.bodyMarkdown,
+    });
+  }
+  if (parsed.orphanMarkdown?.trim()) {
+    const fileOrder = Number((path.split(/[\\/]/).pop()?.match(/^(\d{2})/) ?? [])[1] ?? 0);
+    const phaseOrder = fileOrder === 0 ? CROSS_CUTTING_ORDER : fileOrder;
+    const existing = phaseOrphans.get(phaseOrder);
+    phaseOrphans.set(phaseOrder, {
+      bodyMarkdown: existing
+        ? `${existing.bodyMarkdown}\n\n---\n\n${parsed.orphanMarkdown.trim()}`
+        : parsed.orphanMarkdown.trim(),
+      dropped: (existing?.dropped ?? 0) + (parsed.orphansDropped ?? 0),
+      attached: (existing?.attached ?? 0) + (parsed.orphansAttached ?? 0),
+    });
+  }
   console.log(
-    `Content source:   ${path} → ${expanded.size - before} topic sections, ${(parsed.practice ?? []).length} practice blocks (${expanded.size} topics total)`,
+    `Content source:   ${path}  ${expanded.size - before} topic sections, ${extended} bodies extended, ` +
+      `${(parsed.practice ?? []).length} practice blocks (${expanded.size} topics total)`,
   );
+}
+/**
+ * Fold a chapter section into the outline topic it restates.
+ *
+ * The per-phase deep dives title a chapter more fully than the outline does:
+ * the outline says "Resource selection", the chapter says "Resource Selection
+ * and Curation". Left alone both are seeded and the roadmap shows the same
+ * topic twice.
+ *
+ * The match is deliberately strict. Two titles must share their first two words
+ * and one must be a prefix of the other, both normalised. A looser test was
+ * tried and reverted: it matched "Unit Testing" against "Integration Testing"
+ * and deleted real topics.
+ *
+ * The merge is a union, never a replacement, so no authored field or line of
+ * body text is lost by folding.
+ */
+function foldChapterDuplicates(phases, expanded) {
+  const outlineTopics = new Map();
+  for (const phase of phases) {
+    for (const group of phase.groups) {
+      for (const topic of group.topics) {
+        outlineTopics.set(normalizeKey(topic.title), { phaseOrder: phase.order, groupTitle: group.title });
+      }
+    }
+  }
+
+  // Chapter headings carry their number ("1.1.2 Resource Selection and
+  // Curation"), so the numbering has to come off before the words are
+  // compared, otherwise every chapter starts with "1".
+  const words = (value) =>
+    normalizeKey(String(value ?? "").replace(/^\s*\d+(?:\.\d+)*\s+/, ""))
+      .split(" ")
+      .filter(Boolean);
+
+  const isRestatement = (chapterWords, topicWords) => {
+    if (chapterWords.length < 2 || topicWords.length < 2) return false;
+    if (chapterWords[0] !== topicWords[0] || chapterWords[1] !== topicWords[1]) return false;
+    const [short, long] = chapterWords.length <= topicWords.length ? [chapterWords, topicWords] : [topicWords, chapterWords];
+    return short.every((word, index) => long[index] === word);
+  };
+
+  /** Union two extracted sections without discarding anything. */
+  const union = (target, incoming) => {
+    const out = { ...target };
+    for (const [key, value] of Object.entries(incoming)) {
+      if (key === "raw" || key === "__reference" || key === "bodyMarkdown") continue;
+      if (Array.isArray(value)) {
+        if (!Array.isArray(out[key])) out[key] = [];
+        const seen = new Set(out[key].map((entry) => normalizeKey(JSON.stringify(entry))));
+        for (const entry of value) {
+          const sig = normalizeKey(JSON.stringify(entry));
+          if (!sig || seen.has(sig)) continue;
+          seen.add(sig);
+          out[key].push(entry);
+        }
+      } else if (typeof value === "string") {
+        if (!out[key]) out[key] = value;
+        else if (value.length > String(out[key]).length) out[key] = value;
+      } else if (out[key] === null || out[key] === undefined) {
+        out[key] = value;
+      }
+    }
+    const a = (target.bodyMarkdown ?? "").trim();
+    const b = (incoming.bodyMarkdown ?? "").trim();
+    if (b && !a.includes(b)) out.bodyMarkdown = a ? `${a}\n\n---\n\n${b}` : b;
+    return out;
+  };
+
+  let folded = 0;
+  const report = [];
+  for (const [key, section] of [...expanded]) {
+    if (section.number && section.number.length < 3) continue; // only numbered chapters
+    if (outlineTopics.has(key)) continue; // already attached to the outline topic of the same name
+    const chapterWords = words(section.raw ?? key);
+    if (chapterWords.length < 2) continue;
+
+    for (const [topicKey, info] of outlineTopics) {
+      if (topicKey === key) continue;
+      if (!isRestatement(chapterWords, words(topicKey))) continue;
+      if (info.phaseOrder !== (section.number?.[0] ?? info.phaseOrder)) continue;
+
+      const existing = expanded.get(topicKey);
+      expanded.set(topicKey, existing ? union(existing, section) : section);
+      expanded.delete(key);
+      folded += 1;
+      report.push(`    phase ${info.phaseOrder}: "${section.raw}" -> "${topicKey}"`);
+      break;
+    }
+  }
+
+  if (folded > 0) {
+    console.log(`  folded ${folded} chapter section(s) into the outline topic they restate:`);
+    for (const line of report) console.log(line);
+  }
+  return folded;
 }
 
 const stats = { topics: 0, enriched: 0, questions: 0, practice: 0, duplicates: 0 };
+// Must run before mergeContent: folding rewrites section keys, and mergeContent
+// is what maps those keys onto roadmap topics.
+foldChapterDuplicates(phases, expanded);
 dedupeGroupTopics(phases, stats);
 mergeContent(phases, expanded, stats);
 
@@ -1162,22 +1715,70 @@ attachPractice(phases, practiceBlocks, stats);
 
 mkdirSync(outDir, { recursive: true });
 
-// A group with no topics renders as an expandable node a learner can open to
-// find nothing. That reads as broken rather than empty, so drop those groups
-// before anything is written. Their topics, if a later pass adds any, will
-// recreate the group.
+// Attach group- and phase-level prose to the descriptions that render it. A
+// group taught as continuous text with no numbered chapters has its material
+// here and nowhere else, so without this those groups are both empty and
+// silent.
+let groupIntrosApplied = 0;
+let phaseIntrosApplied = 0;
+let orphansTotalAttached = 0;
+let orphansTotalDropped = 0;
+for (const phase of phases) {
+  for (const group of phase.groups) {
+    const intro = groupIntros.get(`${phase.order}:${group.order}`);
+    if (intro?.bodyMarkdown?.trim()) {
+      group.description = appendBody(
+        { bodyMarkdown: group.description ?? "" },
+        intro.bodyMarkdown,
+      ).bodyMarkdown;
+      groupIntrosApplied += 1;
+    }
+  }
+  const phaseIntro = phaseIntros.get(phase.order);
+  if (phaseIntro?.bodyMarkdown?.trim()) {
+    phase.description = appendBody(
+      { bodyMarkdown: phase.description ?? "" },
+      phaseIntro.bodyMarkdown,
+    ).bodyMarkdown;
+    phaseIntrosApplied += 1;
+  }
+  const phaseOrphan = phaseOrphans.get(phase.order);
+  if (phaseOrphan?.bodyMarkdown?.trim()) {
+    phase.description = appendBody(
+      { bodyMarkdown: phase.description ?? "" },
+      phaseOrphan.bodyMarkdown,
+    ).bodyMarkdown;
+    if (phaseOrphan.dropped) orphansTotalDropped += phaseOrphan.dropped;
+    if (phaseOrphan.attached) orphansTotalAttached += phaseOrphan.attached;
+  }
+}
+console.log(
+  `  attached prose to ${groupIntrosApplied} group(s), ${phaseIntrosApplied} phase(s), and ${orphansTotalAttached} orphan segment(s)`,
+  orphansTotalDropped ? ` (${orphansTotalDropped} truly unplaceable lines)` : "",
+);
+
+// A group with no topics and no prose renders as an expandable node a learner can
+// open to find nothing. That reads as broken rather than empty, so drop those
+// groups. A group that carries its own written introduction is not empty and is
+// kept: Phase 7 declares sixteen groups whose material is taught as continuous
+// prose under the group heading with no numbered chapters at all, and dropping
+// them was silently deleting several hundred lines of teaching.
 const emptyGroups = phases.flatMap((phase) =>
-  phase.groups.filter((group) => group.topics.length === 0).map((group) => `${phase.order}/${group.title}`),
+  phase.groups
+    .filter((group) => group.topics.length === 0 && !(group.description ?? "").trim())
+    .map((group) => `${phase.order}/${group.title}`),
 );
 for (const phase of phases) {
-  phase.groups = phase.groups.filter((group) => group.topics.length > 0);
+  phase.groups = phase.groups.filter(
+    (group) => group.topics.length > 0 || (group.description ?? "").trim(),
+  );
 }
 if (emptyGroups.length > 0) {
   console.log(`  dropped ${emptyGroups.length} empty group(s): ${emptyGroups.join(", ")}`);
 }
 
 const manifest = {
-  structureSource: structurePath.replace(/\\/g, "/").split("/").pop(),
+  structureSource: structureLabel,
   contentSources: expandedPaths.map((path) => path.replace(/\\/g, "/").split("/").pop()),
   generatedBy: "scripts/parse-roadmap.mjs",
   phases: phases.length,

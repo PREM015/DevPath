@@ -51,6 +51,10 @@ const FIELD_BY_LABEL = [
   ["definition", "definition"],
   ["what it is", "definition"],
   ["what is it", "definition"],
+  ["why it matters", "whyAsked"],
+  ["why it is important", "whyAsked"],
+  ["why interviewers care", "whyAsked"],
+  ["why you are asked this", "whyAsked"],
   // Structural prose labels the expanded edition uses heavily.
   //
   // "bodyOnly" means: keep whatever prose follows as concepts, but discard the
@@ -295,6 +299,7 @@ export function parseSection(body) {
     fix: [],
     prevention: [],
     tools: [],
+    checklist: [],
   };
 
   // Table-recovered questions, surfaced for coverage reporting.
@@ -462,6 +467,12 @@ export function parseSection(body) {
     if (/^[-*]\s+/.test(line)) {
       const value = line.replace(/^[-*]\s+/, "");
 
+      // Checklist items: `- [ ] I can...` — capture as practice tasks.
+      if (/^\[\s*\]\s+/.test(value)) {
+        push("checklist", value.replace(/^\[\s*\]\s+/, ""));
+        continue;
+      }
+
       if (current === "questions") {
         const inline = splitInlineAnswer(value);
         if (inline.answer) {
@@ -581,6 +592,18 @@ export function parseSection(body) {
       out.__tableQuestions = tableQuestions.length;
     }
   }
+
+  // The section body, verbatim.
+  //
+  // Structured extraction above is a lossy heuristic: prose that sits outside a
+  // recognised label, and every markdown table, is not represented in any of the
+  // fields. The per-phase deep dives are long and table-heavy, so without this
+  // most of the authored text never reaches the database. Keeping the raw body
+  // means the full source is always available even when no field claims it.
+  out.bodyMarkdown = body
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 
   return out;
 }

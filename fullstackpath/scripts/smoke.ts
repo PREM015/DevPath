@@ -112,7 +112,7 @@ async function main() {
   const health = await request("/api/health");
   const healthBody = (await health.json()) as HealthBody;
   check("health reports ok", healthBody.status === "ok", JSON.stringify(healthBody));
-  check("health reports seeded content", healthBody.content?.phases === 15, JSON.stringify(healthBody.content));
+  check("health reports seeded content", healthBody.content?.phases === 16, JSON.stringify(healthBody.content));
 
   // ── 2. Protection before sign-in ───────────────────────────────
   console.log("\nRoute protection (signed out)");
@@ -282,7 +282,7 @@ async function main() {
   console.log("\nRoadmap API");
   const phases = await request("/api/roadmap/phases");
   const phaseBody = (await phases.json()) as PhaseRow[];
-  check("phases API returns 15", Array.isArray(phaseBody) && phaseBody.length === 15, `len=${phaseBody?.length}`);
+  check("phases API returns 16", Array.isArray(phaseBody) && phaseBody.length === 16, `len=${phaseBody?.length}`);
   check(
     "phases carry zero completion for a new user",
     Array.isArray(phaseBody) && phaseBody.every((p) => p.completedCount === 0),
@@ -444,7 +444,7 @@ async function main() {
   const emptyPhases = activePhases.filter((phase) => (topicsByPhase.get(phase.id) ?? 0) === 0);
   check(
     "every phase reports a non-zero denominator",
-    activePhases.length === 15 && emptyPhases.length === 0,
+    activePhases.length === 16 && emptyPhases.length === 0,
     `${activePhases.length} phases, empty: ${emptyPhases.map((p) => p.order).join(",") || "none"}`,
   );
 

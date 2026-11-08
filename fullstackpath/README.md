@@ -79,8 +79,11 @@ every query filters them by the session's user id.
 
 The content comes from files outside this repository:
 
-- `# Complete Full Stack Interview Roa.txt` — the outline plus the full body for phases 1–3
-- `expand.md` — the expanded body for phases 4 onward
+- `# Complete Full Stack Interview Roa.md` - the outline plus the full body for phases 1-3.
+  Resolved as `.md` or `.txt`, whichever exists.
+- `expand.md` - the expanded body for phases 4 onward
+- `phase/01.md` ... `phase/15.md` - the per-phase deep dives, the authoritative body for each
+  phase. Loaded in numeric order and merged alongside the two files above.
 
 Never hand-edit the database. Change the source, then run one command:
 

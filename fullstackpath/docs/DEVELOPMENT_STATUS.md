@@ -30,16 +30,35 @@ render as `NaN`.
 | Measure | Value |
 | --- | --- |
 | Phases | 15 mapped, **all with authored content** |
-| Groups | 118 active (1 empty group dropped at parse time) |
-| Topics | 1,894 active (143 archived after a title-splitting fix) |
-| Topics with an authored interview payload | 1,503 |
-| Questions in the bank | 6,907 |
-| Questions with a model answer | 2,860 (41%) |
-| Practice blocks | 612 |
-| Practice items | 4,812 |
-| Debugging scenarios | 146 |
+| Groups | 117 active |
+| Topics | 1,669 active (237 archived after duplicate folding) |
+| Questions in the bank | 8,323 |
+| Questions with a model answer | 4,086 (49%) |
+| Practice blocks | 927 |
+| Practice items | 7,994 |
+| Debugging scenarios | 219 |
 | Projects | 8 |
 | Achievements | 14 |
+
+### Source coverage of the per-phase deep dives
+
+`../phase/NN.md` is the authoritative body for each phase. Verbatim capture means nothing authored
+is dropped even where the structured extractor cannot classify it. Measured by probing every
+8-or-more-word source line against what is stored:
+
+| Phase | Coverage | Phase | Coverage |
+| --- | --- | --- | --- |
+| 1 | 99% | 9 | 93% |
+| 2 | 97% | 10 | 83% |
+| 3 | 94% | 11 | 89% |
+| 4 | 91% | 12 | 95% |
+| 5 | 84% | 13 | 91% |
+| 6 | 94% | 14 | 77% |
+| 7 | 70% | 15 | 40% |
+
+Phases 5, 7, 14 and 15 still lose prose. Their deep dives carry large table- and list-heavy
+sections that no field claims. The text is not lost from the source, it simply is not yet
+represented in the database.
 
 ### The Phase 9–13 gap is closed
 
@@ -95,26 +114,32 @@ No code change is needed.
 
 ### Content integrity
 
-- Markdown-table questions are parsed into the bank, recovering hundreds of questions and model
-  answers that a line-oriented pass cannot see.
+- **The per-phase deep dives are loaded.** `../phase/NN.md` is read for every phase, in numeric
+  order, alongside the outline and `expand.md`. Before this the app ignored that directory
+  entirely and ~192,000 lines of authored content were invisible.
+- **The structure file resolves as `.md` or `.txt`.** It was renamed from `.txt` to `.md`; the
+  parser no longer fails with ENOENT when that happens.
+- **Every section's body is captured verbatim** into `referenceMarkdown`. Structured extraction is
+  a lossy heuristic - prose outside a recognised label, and every markdown table, had nowhere to
+  go. The verbatim body is the only guarantee that nothing authored is lost.
+- **Bodies accumulate, structured fields are first-wins.** Folding a later source over an earlier
+  one wholesale dropped a third of the question bank; the two concerns are now separated.
+- **Chapter duplicates are folded by union.** The outline says "Resource selection" where the
+  chapter says "Resource Selection and Curation"; both used to be seeded. 237 sections were folded
+  into the outline topic they restate. The match is strict - same first two words and one a prefix
+  of the other - because a looser test matched "Unit Testing" against "Integration Testing" and
+  deleted real topics. Folded rows are archived, never deleted, so learner progress survives.
+- **Deep and unnumbered sub-headings stay with their section.** `#### Weak answer` and
+  `## **8-week standard**` used to end the enclosing section, either dropping what followed or
+  re-keying it into a duplicate that overwrote the original. Phase 15 alone has 199 such headings.
+- Markdown-table questions are parsed into the bank.
 - A `### Qn. question` heading followed by an unnumbered `**Model answer.**` block is paired
-  correctly. This recovered 266 questions with their answers in one pass, including all of Phase
-  12's Q&A, which had been parsed as zero questions.
-- **Topic titles are split on commas at paren depth zero only.** A naive split turned
-  "LLM API integration (OpenAI, Anthropic, etc.)" into three topics, two of them fragments like
-  `etc.)`, and left a leading `- ` on the first topic of every bullet.
-- **Structural prose labels are recognised.** Labels such as `Mechanics.`, `Why it exists.`,
-  `Production considerations` and `When to use vs when not to` were previously unrecognised: the
-  label text became a key concept *and* the paragraph beneath it was discarded, because prose is
-  only collected for a known open field. They now map to a `bodyOnly` field that keeps the prose
-  and discards the label.
-- **Derived interview prompts are filtered.** When a topic has no explicit question list, prompts
-  are generated from its concepts. Fragments and sentences are skipped, so the bank no longer
-  contains prompts like `Explain mechanics. and when you would use it.`
-- Groups **and topics** that leave the source are **archived, never deleted**: deleting would
-  cascade into every learner's progress and attempts. Archiving takes them off the roadmap while
-  keeping history, and returning rows are reactivated by the upsert.
-- Groups that parse to zero topics are dropped, so a learner never opens an empty branch.
+  correctly; this recovered 266 questions with their answers in one pass.
+- **Topic titles are split on commas at paren depth zero only**, so
+  "LLM API integration (OpenAI, Anthropic, etc.)" is one topic rather than three, two of them
+  fragments like `etc.`.
+- Groups **and topics** that leave the source are archived, never deleted.
+- Groups that parse to zero topics are dropped.
 - Idempotent: a second `db:seed` writes nothing, prunes nothing and archives nothing.
 
 ### Auth and isolation

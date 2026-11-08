@@ -22,6 +22,14 @@ This repository holds two things:
 ├── # Complete Full Stack Interview Roa.txt  # roadmap: structure + full body, phases 1-15
 ├── expand.md                                # the expanded edition, phases 4-15 (the bulk)
 │
+├── phase/                                   # the roadmap body, split per phase
+│   ├── 01.md … 15.md                        # one file per phase, 01-15
+│
+├── crosscutting/                            # the layer that spans all 15 phases
+│   └── 00-roadmap-spine.md                  # projects, learning paths, role/level tracks,
+│                                              # and the final interview kit (scorecards,
+│                                              # cheat sheets, per-phase mistakes, final 30 days)
+│
 └── fullstackpath/                           # the application  ->  start here
     ├── README.md                            # setup, scripts, content pipeline
     ├── docs/                                # architecture, database, API, deployment, status
@@ -162,3 +170,14 @@ Read `DEVELOPMENT_STATUS.md` before trusting any number in this file — it is t
 ## Licence
 
 Private project. No licence granted.
+
+
+
+
+
+
+
+
+
+
+   Push this file to the **absolute limit of what it is intended to accomplish**, so that nothing relevant or necessary is left incomplete. While writing or modifying the code, stay **strictly focused on this file's purpose, scope, and responsibilities**. Every implementation decision should be aligned with what this file is actually meant to do. Do not add unrelated features or go beyond its intended scope, but make sure **everything that genuinely belongs to this file is fully implemented, polished, and complete**.
